@@ -59,7 +59,7 @@
   --brand-cta: #ef7225;
   --brand-text: #152129;
   --brand-background: #f4fafe;
-  --brand-surface: #121c21;
+  --brand-surface: #2a4a52; /* azul petróleo de fondo: cambiarlo aquí actualiza todo el sitio */
   --brand-muted: #e6f0f0;
   --brand-border: #152129;
 
@@ -120,9 +120,9 @@
 .dark {
   --background: var(--brand-surface);
   --foreground: var(--brand-background);
-  --card: var(--brand-text);
+  --card: color-mix(in oklab, var(--brand-background) 8%, var(--brand-surface));
   --card-foreground: var(--brand-background);
-  --popover: var(--brand-text);
+  --popover: color-mix(in oklab, var(--brand-background) 8%, var(--brand-surface));
   --popover-foreground: var(--brand-background);
   --primary: var(--brand-cta);
   --primary-foreground: var(--brand-text);
@@ -130,14 +130,14 @@
   --primary-dark: var(--brand-surface);
   --secondary: var(--brand-background);
   --secondary-foreground: var(--brand-text);
-  --muted: color-mix(in oklab, var(--brand-muted) 10%, var(--brand-surface));
+  --muted: color-mix(in oklab, var(--brand-muted) 14%, var(--brand-surface));
   --muted-foreground: var(--brand-muted);
   --accent: var(--brand-cta);
   --accent-foreground: var(--brand-text);
   --border: color-mix(in oklab, var(--brand-muted) 22%, transparent);
   --input: color-mix(in oklab, var(--brand-muted) 40%, transparent);
-  --hero-bg: var(--brand-text);
-  --sidebar: var(--brand-text);
+  --hero-bg: var(--brand-surface);
+  --sidebar: var(--card);
   --sidebar-foreground: var(--brand-background);
   --sidebar-border: var(--border);
 }

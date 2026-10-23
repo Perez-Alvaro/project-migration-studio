@@ -70,7 +70,7 @@ function CopyField({ label, value }: { label: string; value: string }) {
     };
 
     return (
-        <div className="bg-[#f4fafe] dark:bg-card/50 border border-[#152129]/15 dark:border-border/40 rounded-[12px] p-3 flex items-center justify-between gap-3 shadow-[0_2px_4px_rgba(21,33,41,0.03)]">
+        <div className="bg-background dark:bg-card/50 border border-border dark:border-border/40 rounded-[12px] p-3 flex items-center justify-between gap-3 shadow-[0_2px_4px_rgba(21,33,41,0.03)]">
             <div className="min-w-0 flex-1">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-0.5">
                     {label}
@@ -82,7 +82,7 @@ function CopyField({ label, value }: { label: string; value: string }) {
             <button
                 type="button"
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[#152129]/20 hover:border-[#ef7225] hover:text-[#ef7225] bg-card text-foreground transition-all flex-shrink-0 active:scale-95"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-border hover:border-primary hover:text-primary-ink bg-card text-foreground transition-all flex-shrink-0 active:scale-95"
                 title={`Copiar ${label}`}
                 aria-label={copied ? `${label} copiado` : `Copiar ${label} para transferencia`}
             >
@@ -119,7 +119,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
             badgeText: "Campaña activa · ¡Arrancamos!",
             badgeClass: "bg-amber-100 text-amber-900 border-amber-300 dark:bg-amber-950/40 dark:text-amber-200 dark:border-amber-800",
             percentClass: "bg-amber-100 text-amber-950 border-amber-300 dark:bg-amber-950/40 dark:text-amber-200",
-            barGradient: "bg-gradient-to-r from-[#ef7225] to-[#f59e0b]",
+            barGradient: "bg-gradient-to-r from-primary to-primary",
             subtext: `Faltan $${(meta - c.recaudado).toLocaleString("es-AR")} para alcanzar la meta.`,
             donorsText: `${c.donantes} personas ya dieron el primer paso con sus aportes`,
             persuasionMessage: `Estamos dando los primeros pasos para alcanzar los ${metaText} de la obra. Con $1.000, $2.000 o lo que esté a tu alcance hoy, encendés el motor de este sueño.`,
@@ -130,9 +130,9 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
             donantes: c.donantes,
             badgeIcon: Paintbrush,
             badgeText: "Campaña activa · ¡Superamos la mitad de la meta!",
-            badgeClass: "bg-[#ef7225]/15 text-[#ef7225] border-[#ef7225]/30 dark:bg-[#ef7225]/20 dark:text-[#ff9452] dark:border-[#ef7225]/40",
-            percentClass: "bg-[#ef7225]/15 text-[#ef7225] border-[#ef7225]/30 dark:bg-[#ef7225]/20 dark:text-[#ff9452]",
-            barGradient: "bg-gradient-to-r from-[#ef7225] to-[#f97316]",
+            badgeClass: "bg-primary/15 text-primary-ink border-primary/30 dark:bg-primary/20 dark:text-primary-ink dark:border-primary/40",
+            percentClass: "bg-primary/15 text-primary-ink border-primary/30 dark:bg-primary/20 dark:text-primary-ink",
+            barGradient: "bg-gradient-to-r from-primary to-primary",
             subtext: `Faltan $${(meta - c.recaudado).toLocaleString("es-AR")} para completar la compra de pintura y mano de obra.`,
             donorsText: `${c.donantes} personas y familias ya realizaron su aporte`,
             persuasionMessage: `¡Ya superamos el 50% gracias a la solidaridad comunitaria! Cada nuevo aporte, por más chico que parezca, nos acerca a los ${metaText} finales.`,
@@ -166,7 +166,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
             id="campana-donacion"
             role="region"
             aria-label="Campaña de Donaciones Hermosa Haruén"
-            className="w-full relative overflow-hidden py-14 md:py-18 bg-[#f4fafe] dark:bg-background border-b border-border/40 scroll-mt-24"
+            className="w-full relative overflow-hidden py-14 md:py-18 bg-background dark:bg-background border-b border-border/40 scroll-mt-24"
         >
             <div className="haruen-container max-w-4xl mx-auto px-4 relative z-10">
                 {/* Badge Superior Dinámico */}
@@ -193,8 +193,8 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                 <div className="bg-card text-card-foreground rounded-[12px] p-6 sm:p-8 md:p-10 border border-border/60 shadow-[0_4px_6px_rgba(21,33,41,0.05)]">
                     
                     {/* Banner de Reducción de Fricción Psicológica (Principio UX: Inclusividad y Cero Mínimos) */}
-                    <div className="mb-6 p-4 rounded-[12px] bg-amber-500/10 border border-[#ef7225]/30 flex items-start gap-3">
-                        <div className="p-2 rounded-full bg-[#ef7225]/15 text-[#ef7225] shrink-0 mt-0.5">
+                    <div className="mb-6 p-4 rounded-[12px] bg-primary/10 border border-primary/30 flex items-start gap-3">
+                        <div className="p-2 rounded-full bg-primary/15 text-primary-ink shrink-0 mt-0.5">
                             <Heart size={16} />
                         </div>
                         <div className="text-xs sm:text-sm">
@@ -280,7 +280,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                     {/* Datos clave para Transferencia (Alias y CBU) */}
                     <div className="pt-6">
                         <div className="flex items-center gap-2 mb-3">
-                            <ShieldCheck size={18} className="text-[#ef7225]" />
+                            <ShieldCheck size={18} className="text-primary-ink" />
                             <h3 className="text-sm font-bold text-foreground uppercase tracking-wide">
                                 Datos bancarios oficiales para transferir
                             </h3>
@@ -316,7 +316,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-[12px] font-bold text-base text-white bg-[#ef7225] hover:bg-[#d8621a] shadow-[0_4px_14px_rgba(239,114,37,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
+                            className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-[12px] font-bold text-base text-primary-foreground bg-primary hover:bg-primary/90 shadow-[0_4px_14px_rgba(239,114,37,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
                         >
                             <MessageCircle size={20} />
                             <span>Enviar comprobante por WhatsApp</span>
@@ -333,7 +333,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                             <span>Donación directa y transparente</span>
                         </div>
                         <div className="flex items-center justify-center gap-2 text-xs font-semibold text-muted-foreground">
-                            <FileText size={16} className="text-[#ef7225] flex-shrink-0" />
+                            <FileText size={16} className="text-primary-ink flex-shrink-0" />
                             <span>Acreditación inmediata por WhatsApp</span>
                         </div>
                         <div className="flex items-center justify-center sm:justify-end gap-2 text-xs font-semibold text-muted-foreground">
