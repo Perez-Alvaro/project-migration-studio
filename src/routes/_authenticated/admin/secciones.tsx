@@ -27,7 +27,7 @@ function SectionsAdmin() {
 
   const done = () => { refetch(); qc.invalidateQueries({ queryKey: ["home"] }); };
 
-  async function update(id: string, patch: { position?: number; is_visible?: boolean; content?: SectionContent }) {
+  async function update(id: string, patch: { position?: number; is_visible?: boolean; content?: never }) {
     const { error } = await supabase.from("page_sections").update(patch).eq("id", id);
     if (error) { toast.error(errorText(error)); return; }
     done();
