@@ -4,7 +4,7 @@ import { Heart } from "lucide-react";
 import { ThemeSwitcher } from "@/components/layout/navbar/theme-switcher";
 import { NavbarMobileMenu } from "@/components/layout/navbar/navbar-mobile-menu";
 import { CartNavIcon } from "@/components/layout/navbar/cart-nav-icon";
-import HaruenLogoAsset from "@/assets/haruenlogo.jpg.asset.json";
+import HaruenLogoAsset from "@/assets/haruenlogo.webp.asset.json";
 const HaruenLogo = HaruenLogoAsset.url;
 
 const NAV_ITEMS = [
