@@ -83,15 +83,16 @@ function CopyField({ label, value }: { label: string; value: string }) {
                 onClick={handleCopy}
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[#152129]/20 hover:border-[#ef7225] hover:text-[#ef7225] bg-card text-foreground transition-all flex-shrink-0 active:scale-95"
                 title={`Copiar ${label}`}
+                aria-label={copied ? `${label} copiado` : `Copiar ${label} para transferencia`}
             >
                 {copied ? (
                     <>
-                        <Check size={14} className="text-emerald-600" />
+                        <Check size={14} className="text-emerald-600" aria-hidden="true" />
                         <span className="text-emerald-600 font-bold">Copiado</span>
                     </>
                 ) : (
                     <>
-                        <Copy size={14} />
+                        <Copy size={14} aria-hidden="true" />
                         <span>Copiar</span>
                     </>
                 )}
