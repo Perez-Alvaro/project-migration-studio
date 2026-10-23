@@ -56,7 +56,7 @@ function SettingsAdmin() {
           </div>
           <div className="space-y-1.5"><Label htmlFor="c-title">Título</Label><Input id="c-title" value={s.campaign.titulo} onChange={(e) => camp("titulo", e.target.value)} /></div>
           <div className="space-y-1.5"><Label htmlFor="c-sub">Bajada</Label><Textarea id="c-sub" rows={3} value={s.campaign.subtitulo} onChange={(e) => camp("subtitulo", e.target.value)} /></div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid gap-3 sm:grid-cols-3">
             <div className="space-y-1.5"><Label htmlFor="c-meta">Meta ($)</Label><Input id="c-meta" type="number" min={0} value={s.campaign.meta} onChange={(e) => camp("meta", Number(e.target.value))} /></div>
             <div className="space-y-1.5"><Label htmlFor="c-raised">Recaudado ($)</Label><Input id="c-raised" type="number" min={0} value={s.campaign.recaudado} onChange={(e) => camp("recaudado", Number(e.target.value))} /></div>
             <div className="space-y-1.5"><Label htmlFor="c-donors">Donantes</Label><Input id="c-donors" type="number" min={0} value={s.campaign.donantes} onChange={(e) => camp("donantes", Number(e.target.value))} /></div>
