@@ -1,24 +1,54 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { HeroSection } from "@/components/home/hero-section";
+import { DonationCampaign } from "@/components/donations/donation-campaign";
+import { AboutSection } from "@/components/home/about-section";
+import { ImpactSection } from "@/components/home/impact-section";
+import { InfoSection } from "@/components/home/info-section";
+import { StoreSection } from "@/components/home/store-section";
+import { DonateSection } from "@/components/home/donate-section";
+import { ContactSection } from "@/components/home/contact-section";
+import { SITE_URL } from "@/lib/metadata";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+const TITLE = "Centro Educativo Terapéutico Haruén | Córdoba";
+const DESCRIPTION =
+  "Fundación Haruén es un Centro Educativo Terapéutico en Córdoba. Promovemos la inclusión de personas con discapacidad intelectual mediante talleres integrales.";
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "NGO",
+  name: "Centro Educativo Terapéutico Haruén",
+  url: SITE_URL,
+  description: "Centro Educativo Terapéutico para personas con discapacidad intelectual en Córdoba.",
+  address: { "@type": "PostalAddress", addressLocality: "Córdoba", addressRegion: "CBA", addressCountry: "AR" },
+};
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: "Promovemos la inclusión de personas con discapacidad intelectual mediante talleres integrales." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(structuredData) }],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="flex-1 w-full bg-background flex flex-col">
+      <HeroSection />
+      {/* Estado de la campaña: 'iniciada' | 'en_progreso' | 'finalizada' */}
+      <DonationCampaign status="iniciada" />
+      <AboutSection />
+      <ImpactSection />
+      <InfoSection />
+      <StoreSection />
+      <DonateSection />
+      <ContactSection />
     </div>
   );
 }

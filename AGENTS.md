@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Site content was migrated from a Next.js project: use `@/components/shared/app-link` for "/path#hash" links and `@/components/shared/app-image` for images, because the ported components rely on those signatures.
+- Images live as Lovable asset pointers (`src/assets/*.asset.json`, use `.url`); the product catalog is static in `src/data/products.ts` and the cart is browser-only with WhatsApp checkout, so there is no database yet.
