@@ -70,7 +70,7 @@ function CopyField({ label, value }: { label: string; value: string }) {
     };
 
     return (
-        <div className="bg-[#f4fafe] dark:bg-card/50 border border-[#152129]/15 dark:border-border/40 rounded-[12px] p-3 flex items-center justify-between gap-3 shadow-[0_2px_4px_rgba(21,33,41,0.03)]">
+        <div className="bg-background dark:bg-card/50 border border-border dark:border-border/40 rounded-[12px] p-3 flex items-center justify-between gap-3 shadow-[0_2px_4px_rgba(21,33,41,0.03)]">
             <div className="min-w-0 flex-1">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-0.5">
                     {label}
@@ -82,7 +82,7 @@ function CopyField({ label, value }: { label: string; value: string }) {
             <button
                 type="button"
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-[#152129]/20 hover:border-[#ef7225] hover:text-[#ef7225] bg-card text-foreground transition-all flex-shrink-0 active:scale-95"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-border hover:border-primary hover:text-primary-ink bg-card text-foreground transition-all flex-shrink-0 active:scale-95"
                 title={`Copiar ${label}`}
                 aria-label={copied ? `${label} copiado` : `Copiar ${label} para transferencia`}
             >
@@ -166,7 +166,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
             id="campana-donacion"
             role="region"
             aria-label="Campaña de Donaciones Hermosa Haruén"
-            className="w-full relative overflow-hidden py-14 md:py-18 bg-[#f4fafe] dark:bg-background border-b border-border/40 scroll-mt-24"
+            className="w-full relative overflow-hidden py-14 md:py-18 bg-background dark:bg-background border-b border-border/40 scroll-mt-24"
         >
             <div className="haruen-container max-w-4xl mx-auto px-4 relative z-10">
                 {/* Badge Superior Dinámico */}
