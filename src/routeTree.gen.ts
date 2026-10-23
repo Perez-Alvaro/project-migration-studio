@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
 import { Route as AuthenticatedMisTalleresRouteImport } from './routes/_authenticated/mis-talleres'
 import { Route as MediaSplatRouteImport } from './routes/media.$'
 import { Route as NovedadesIndexRouteImport } from './routes/novedades.index'
@@ -21,6 +22,8 @@ import { Route as TalleresIndexRouteImport } from './routes/talleres.index'
 import { Route as TalleresSlugRouteImport } from './routes/talleres.$slug'
 import { Route as TiendaIndexRouteImport } from './routes/tienda.index'
 import { Route as TiendaSlugRouteImport } from './routes/tienda.$slug'
+import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
+import { Route as AuthenticatedAdminProductosIndexRouteImport } from './routes/_authenticated/admin/productos.index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +43,11 @@ const ResetPasswordRoute = ResetPasswordRouteImport.update({
   id: '/reset-password',
   path: '/reset-password',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedAdminRouteRoute = AuthenticatedAdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const AuthenticatedMisTalleresRoute =
   AuthenticatedMisTalleresRouteImport.update({
@@ -82,11 +90,23 @@ const TiendaSlugRoute = TiendaSlugRouteImport.update({
   path: '/tienda/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedAdminRouteRoute,
+} as any)
+const AuthenticatedAdminProductosIndexRoute =
+  AuthenticatedAdminProductosIndexRouteImport.update({
+    id: '/productos/',
+    path: '/productos/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/mis-talleres': typeof AuthenticatedMisTalleresRoute
   '/media/$': typeof MediaSplatRoute
   '/novedades/$slug': typeof NovedadesSlugRoute
@@ -95,6 +115,8 @@ export interface FileRoutesByFullPath {
   '/novedades/': typeof NovedadesIndexRoute
   '/talleres/': typeof TalleresIndexRoute
   '/tienda/': typeof TiendaIndexRoute
+  '/admin/': typeof AuthenticatedAdminIndexRoute
+  '/admin/productos/': typeof AuthenticatedAdminProductosIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -108,6 +130,8 @@ export interface FileRoutesByTo {
   '/novedades': typeof NovedadesIndexRoute
   '/talleres': typeof TalleresIndexRoute
   '/tienda': typeof TiendaIndexRoute
+  '/admin': typeof AuthenticatedAdminIndexRoute
+  '/admin/productos': typeof AuthenticatedAdminProductosIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -115,6 +139,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/auth': typeof AuthRoute
   '/reset-password': typeof ResetPasswordRoute
+  '/_authenticated/admin': typeof AuthenticatedAdminRouteRouteWithChildren
   '/_authenticated/mis-talleres': typeof AuthenticatedMisTalleresRoute
   '/media/$': typeof MediaSplatRoute
   '/novedades/$slug': typeof NovedadesSlugRoute
@@ -123,6 +148,8 @@ export interface FileRoutesById {
   '/novedades/': typeof NovedadesIndexRoute
   '/talleres/': typeof TalleresIndexRoute
   '/tienda/': typeof TiendaIndexRoute
+  '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
+  '/_authenticated/admin/productos/': typeof AuthenticatedAdminProductosIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -130,6 +157,7 @@ export interface FileRouteTypes {
     | '/'
     | '/auth'
     | '/reset-password'
+    | '/admin'
     | '/mis-talleres'
     | '/media/$'
     | '/novedades/$slug'
@@ -138,6 +166,8 @@ export interface FileRouteTypes {
     | '/novedades/'
     | '/talleres/'
     | '/tienda/'
+    | '/admin/'
+    | '/admin/productos/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -151,12 +181,15 @@ export interface FileRouteTypes {
     | '/novedades'
     | '/talleres'
     | '/tienda'
+    | '/admin'
+    | '/admin/productos'
   id:
     | '__root__'
     | '/'
     | '/_authenticated'
     | '/auth'
     | '/reset-password'
+    | '/_authenticated/admin'
     | '/_authenticated/mis-talleres'
     | '/media/$'
     | '/novedades/$slug'
@@ -165,6 +198,8 @@ export interface FileRouteTypes {
     | '/novedades/'
     | '/talleres/'
     | '/tienda/'
+    | '/_authenticated/admin/'
+    | '/_authenticated/admin/productos/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -210,6 +245,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/reset-password'
       preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/admin': {
+      id: '/_authenticated/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AuthenticatedAdminRouteRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/mis-talleres': {
       id: '/_authenticated/mis-talleres'
@@ -267,14 +309,47 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof TiendaSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_authenticated/admin/': {
+      id: '/_authenticated/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/productos/': {
+      id: '/_authenticated/admin/productos/'
+      path: '/productos'
+      fullPath: '/admin/productos/'
+      preLoaderRoute: typeof AuthenticatedAdminProductosIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
   }
 }
 
+interface AuthenticatedAdminRouteRouteChildren {
+  AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
+  AuthenticatedAdminProductosIndexRoute: typeof AuthenticatedAdminProductosIndexRoute
+}
+
+const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren =
+  {
+    AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
+    AuthenticatedAdminProductosIndexRoute:
+      AuthenticatedAdminProductosIndexRoute,
+  }
+
+const AuthenticatedAdminRouteRouteWithChildren =
+  AuthenticatedAdminRouteRoute._addFileChildren(
+    AuthenticatedAdminRouteRouteChildren,
+  )
+
 interface AuthenticatedRouteRouteChildren {
+  AuthenticatedAdminRouteRoute: typeof AuthenticatedAdminRouteRouteWithChildren
   AuthenticatedMisTalleresRoute: typeof AuthenticatedMisTalleresRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedAdminRouteRoute: AuthenticatedAdminRouteRouteWithChildren,
   AuthenticatedMisTalleresRoute: AuthenticatedMisTalleresRoute,
 }
 
