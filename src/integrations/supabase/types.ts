@@ -648,6 +648,18 @@ export type Database = {
         Returns: boolean
       }
       is_enrolled: { Args: { _workshop_id: string }; Returns: boolean }
+      list_admins: {
+        Args: never
+        Returns: {
+          email: string
+          full_name: string
+          user_id: string
+        }[]
+      }
+      set_admin: {
+        Args: { _email: string; _make_admin: boolean }
+        Returns: undefined
+      }
       set_order_status: {
         Args: { _order_id: string; _status: string }
         Returns: undefined
