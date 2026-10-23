@@ -56,7 +56,7 @@ export function NavbarMobileMenu() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="py-1 text-sm font-semibold text-foreground/90 hover:text-primary transition-colors"
+                                className="py-1 text-sm font-semibold text-foreground/90 hover:text-primary-ink transition-colors"
                                 onClick={() => setOpen(false)}
                             >
                                 {item.label}

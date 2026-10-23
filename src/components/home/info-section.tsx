@@ -46,7 +46,7 @@ export function InfoSection() {
                         <Info size={14} />
                         <span>Información Importante</span>
                     </div>
-                    <h2 className="text-clamp-h2 font-black">
+                    <h2 className="text-clamp-h2 font-bold">
                         Todo lo que necesitás saber
                     </h2>
                 </FadeIn>
@@ -64,7 +64,7 @@ export function InfoSection() {
                                     href={link.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-sm font-semibold text-primary hover:underline"
+                                    className="text-sm font-semibold text-primary-ink hover:underline"
                                 >
                                     {link.label}
                                 </Link>

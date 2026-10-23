@@ -138,7 +138,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
             badgeText: "¡Meta de $10.000.000 cumplida! Gracias comunidad Haruén",
             badgeClass: "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-200 dark:border-emerald-800",
             percentClass: "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-200",
-            barGradient: "bg-gradient-to-r from-emerald-600 to-teal-600",
+            barGradient: "bg-gradient-to-r from-emerald-600 to-surface",
             subtext: `¡Alcanzamos los $${meta.toLocaleString("es-AR")} gracias a la solidaridad de todos!`,
             donorsText: `${CAMPAIGN_DATA.donantes_final} donantes hicieron posible renovar nuestro espacio`,
             persuasionMessage: "¡Lo logramos entre todos! Cientos de personas demostraron que sumando voluntades ningún objetivo es imposible para nuestra comunidad.",
@@ -174,7 +174,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
 
                 {/* Título y Subtítulo */}
                 <div className="text-center max-w-3xl mx-auto mb-8">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight leading-[1.15] mb-3">
+                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.15] mb-3">
                         {CAMPAIGN_DATA.titulo}
                     </h2>
                     <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
@@ -191,7 +191,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                             <Heart size={16} />
                         </div>
                         <div className="text-xs sm:text-sm">
-                            <span className="font-extrabold text-foreground block mb-0.5">
+                            <span className="font-bold text-foreground block mb-0.5">
                                 No hay aporte pequeño: todo suma a la meta colectiva
                             </span>
                             <p className="text-muted-foreground leading-relaxed">
@@ -203,11 +203,11 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                     {/* Encabezado de montos y porcentaje */}
                     <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-4">
                         <div>
-                            <span className="text-xs uppercase tracking-wider font-extrabold text-muted-foreground block mb-1">
+                            <span className="text-xs uppercase tracking-wider font-bold text-muted-foreground block mb-1">
                                 Total Recaudado
                             </span>
                             <div className="flex items-baseline gap-2">
-                                <span className="font-mono text-3xl sm:text-4xl md:text-5xl font-black text-foreground tracking-tight">
+                                <span className="font-mono text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight">
                                     <CountUpNumber value={currentData.recaudado} />
                                 </span>
                                 <span className="text-sm md:text-base font-semibold text-muted-foreground">
@@ -219,7 +219,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                         {/* Pill de Porcentaje */}
                         <div className="flex sm:flex-col items-center sm:items-end justify-between">
                             <span
-                                className={`px-4 py-1.5 rounded-[12px] text-lg sm:text-2xl font-black border ${currentData.percentClass}`}
+                                className={`px-4 py-1.5 rounded-[12px] text-lg sm:text-2xl font-bold border ${currentData.percentClass}`}
                             >
                                 {percentage}%
                             </span>
@@ -243,7 +243,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                             whileInView={{ width: `${percentage}%` }}
                             viewport={{ once: true }}
                             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                            className={`h-full rounded-full relative overflow-hidden flex items-center justify-end pr-3 text-white text-xs font-black shadow-sm ${currentData.barGradient}`}
+                            className={`h-full rounded-full relative overflow-hidden flex items-center justify-end pr-3 text-white text-xs font-bold shadow-sm ${currentData.barGradient}`}
                         >
                             {/* Efecto Shimmer de brillo continuo */}
                             <div
@@ -258,7 +258,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                     {/* Donantes y Social Proof */}
                     <div className="flex flex-wrap items-center justify-between gap-2 pb-6 border-b border-border/40 text-xs text-muted-foreground">
                         <div className="flex items-center gap-2">
-                            <span className="p-1.5 rounded-full bg-primary/10 text-primary">
+                            <span className="p-1.5 rounded-full bg-primary/10 text-primary-ink">
                                 <Users size={14} />
                             </span>
                             <span className="font-semibold text-foreground">
@@ -309,7 +309,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-[12px] font-extrabold text-base text-white bg-[#ef7225] hover:bg-[#d8621a] shadow-[0_4px_14px_rgba(239,114,37,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
+                            className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-[12px] font-bold text-base text-white bg-[#ef7225] hover:bg-[#d8621a] shadow-[0_4px_14px_rgba(239,114,37,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
                         >
                             <MessageCircle size={20} />
                             <span>Enviar comprobante por WhatsApp</span>
@@ -330,7 +330,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                             <span>Acreditación inmediata por WhatsApp</span>
                         </div>
                         <div className="flex items-center justify-center sm:justify-end gap-2 text-xs font-semibold text-muted-foreground">
-                            <Sparkles size={16} className="text-teal-600 flex-shrink-0" />
+                            <Sparkles size={16} className="text-primary-ink flex-shrink-0" />
                             <span>100% destinado a la obra y materiales</span>
                         </div>
                     </div>

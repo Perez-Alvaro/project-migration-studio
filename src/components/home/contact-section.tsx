@@ -18,7 +18,7 @@ export function ContactSection() {
                             <Phone size={14} aria-hidden="true" />
                             <span>Inscripciones y Consultas</span>
                         </div>
-                        <h2 className="text-clamp-h2 font-black mb-3 leading-tight">
+                        <h2 className="text-clamp-h2 font-bold mb-3 leading-tight">
                             Contactá con nuestros fundadores
                         </h2>
                         <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
@@ -91,7 +91,7 @@ export function ContactSection() {
                         </div>
 
                         <p className="text-sm text-muted-foreground flex items-center justify-center lg:justify-start gap-2 w-full">
-                            <MapPin size={14} className="text-primary flex-shrink-0" aria-hidden="true" />
+                            <MapPin size={14} className="text-primary-ink flex-shrink-0" aria-hidden="true" />
                             Entre Ríos 2867, Córdoba, Argentina
                         </p>
                     </div>

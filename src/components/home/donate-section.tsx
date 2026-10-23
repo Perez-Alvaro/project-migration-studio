@@ -25,7 +25,7 @@ function CopyRow({ label, value, copyable }: { label: string; value: string; cop
                         onClick={handleCopy}
                         title={`Copiar ${label}`}
                         aria-label={`Copiar ${label} para transferencia`}
-                        className="text-muted-foreground hover:text-primary transition-colors flex-shrink-0 p-1"
+                        className="text-muted-foreground hover:text-primary-ink transition-colors flex-shrink-0 p-1"
                     >
                         {copied ? (
                             <Check size={13} className="text-green-500" aria-hidden="true" />
@@ -45,7 +45,7 @@ function DonationsCard() {
     return (
         <div className="haruen-card rounded-[1.5rem] p-6 bg-card text-card-foreground">
             <div className="flex items-center gap-2 mb-5">
-                <HandHeart size={20} className="text-primary" aria-hidden="true" />
+                <HandHeart size={20} className="text-primary-ink" aria-hidden="true" />
                 <h3 className="text-lg font-bold">Datos para Transferencia</h3>
             </div>
             <dl className="space-y-3 text-sm text-foreground">
@@ -86,7 +86,7 @@ export function DonateSection() {
                             <HandHeart size={14} aria-hidden="true" />
                             Tu Ayuda Transforma Vidas
                         </span>
-                        <h2 className="text-clamp-h2 font-black mb-4 leading-tight">
+                        <h2 className="text-clamp-h2 font-bold mb-4 leading-tight">
                             Tu donación hace posible{" "}
                             <br className="hidden md:block" />
                             que sigamos creciendo.

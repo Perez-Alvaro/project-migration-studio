@@ -34,7 +34,7 @@ export function DonationFloatingBar({
                             <span className="font-bold text-foreground truncate">
                                 Campaña Hermosa Haruén
                             </span>
-                            <span className="font-extrabold text-[#ef7225] ml-2">
+                            <span className="font-bold text-[#ef7225] ml-2">
                                 {percentage}%
                             </span>
                         </div>

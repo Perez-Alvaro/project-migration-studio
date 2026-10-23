@@ -16,7 +16,7 @@ export function BlogSection() {
                         <Newspaper size={14} />
                         Novedades
                     </span>
-                    <h2 className="text-clamp-h2 font-black leading-tight">
+                    <h2 className="text-clamp-h2 font-bold leading-tight">
                         Lo que está pasando{" "}
                         <br className="hidden sm:block" />
                         en Haruén y Argentina

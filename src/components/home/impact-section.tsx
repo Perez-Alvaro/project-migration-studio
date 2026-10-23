@@ -11,7 +11,7 @@ export function ImpactSection() {
                         <div key={stat.label} className="text-white">
                             {/* text-white sobre #14545D: ratio ~8.5:1 ✅ WCAG AAA (antes text-secondary amarillo: FAIL) */}
                             <p
-                                className="text-4xl md:text-5xl font-black text-white leading-none"
+                                className="text-4xl md:text-5xl font-bold text-white leading-none"
                                 aria-label={`${stat.num} ${stat.label}`}
                             >
                                 {stat.num}

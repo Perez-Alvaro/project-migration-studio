@@ -79,7 +79,7 @@ export function AboutSection() {
                                 <Info size={14} />
                                 <span>Quiénes Somos</span>
                             </div>
-                            <h2 className="text-clamp-h2 font-black mb-6 leading-tight">
+                            <h2 className="text-clamp-h2 font-bold mb-6 leading-tight">
                                 Un equipo que acompaña{" "}
                                 <br className="hidden md:block" />
                                 el desarrollo de cada alumno.
@@ -104,7 +104,7 @@ export function AboutSection() {
                                     href="https://www.instagram.com/fundacionharuen?igsh=dDhnMWlrZ2ljMHAy&utm_source=qr"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all shadow-sm"
+                                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary-ink hover:border-primary hover:bg-primary/5 transition-all shadow-sm"
                                     aria-label="Instagram de Fundación Haruen"
                                 >
                                     <Instagram size={20} />
@@ -113,7 +113,7 @@ export function AboutSection() {
                                     href="https://www.facebook.com/share/1J9EHTZrj4/?mibextid=wwXIfr"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary hover:bg-primary/5 transition-all shadow-sm"
+                                    className="w-10 h-10 rounded-full border border-border flex items-center justify-center text-muted-foreground hover:text-primary-ink hover:border-primary hover:bg-primary/5 transition-all shadow-sm"
                                     aria-label="Facebook de Fundación Haruen"
                                 >
                                     <Facebook size={20} />

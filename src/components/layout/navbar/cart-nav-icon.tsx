@@ -9,7 +9,7 @@ export function CartNavIcon() {
         <button
             type="button"
             onClick={openCart}
-            className="relative w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground hover:text-primary transition-colors"
+            className="relative w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground hover:text-primary-ink transition-colors"
             aria-label={`Carrito${itemCount > 0 ? ` (${itemCount} productos)` : ""}`}
         >
             <ShoppingCart className="h-5 w-5" />

@@ -21,10 +21,10 @@ export function Footer() {
                     {/* Col 1 — Brand */}
                     <div className="lg:col-span-1 space-y-4">
                         <div>
-                            <p className="text-base font-extrabold text-white">
+                            <p className="text-base font-bold text-white">
                                 Centro Educativo
                             </p>
-                            <p className="text-base font-extrabold text-primary">
+                            <p className="text-base font-bold text-primary-ink">
                                 Terapéutico Haruén
                             </p>
                         </div>
@@ -60,7 +60,7 @@ export function Footer() {
 
                     {/* Col 2 — Navegación */}
                     <div className="space-y-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                        <p className="text-xs font-bold uppercase tracking-widest text-primary-ink">
                             Navegación
                         </p>
                         <ul className="space-y-2">
@@ -79,7 +79,7 @@ export function Footer() {
 
                     {/* Col 3 — Contacto */}
                     <div className="space-y-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                        <p className="text-xs font-bold uppercase tracking-widest text-primary-ink">
                             Contacto
                         </p>
                         <ul className="space-y-3">
@@ -117,7 +117,7 @@ export function Footer() {
 
                     {/* Col 4 — Donaciones */}
                     <div className="space-y-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                        <p className="text-xs font-bold uppercase tracking-widest text-primary-ink">
                             Donaciones
                         </p>
                         <p className="text-sm text-white/60 leading-relaxed">
