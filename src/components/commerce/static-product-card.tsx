@@ -15,7 +15,7 @@ export function StaticProductCard({ product }: StaticProductCardProps) {
     const { addItem } = useCart();
     const [added, setAdded] = useState(false);
     // Fallback a vitro1 si el imageKey no existe en el mapa
-    const imageSrc = PRODUCT_IMAGES[product.imageKey] ?? PRODUCT_IMAGES["vitro1"];
+    const imageSrc = PRODUCT_IMAGES[product.imageKey] ?? PRODUCT_IMAGES["vitro1"] ?? "";
 
     function handleAddToCart() {
         addItem({
