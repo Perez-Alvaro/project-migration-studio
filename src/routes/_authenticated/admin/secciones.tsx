@@ -27,7 +27,7 @@ function SectionsAdmin() {
 
   const done = () => { refetch(); qc.invalidateQueries({ queryKey: ["home"] }); };
 
-  async function update(id: string, patch: Record<string, unknown>) {
+  async function update(id: string, patch: { position?: number; is_visible?: boolean; content?: SectionContent }) {
     const { error } = await supabase.from("page_sections").update(patch).eq("id", id);
     if (error) { toast.error(errorText(error)); return; }
     done();
@@ -77,8 +77,8 @@ function SectionsAdmin() {
                   <span className={s.is_visible ? "font-semibold" : "font-semibold text-muted-foreground line-through"}>{TYPE_LABEL[s.type] ?? s.label}</span>
                   {EDITABLE_TITLE.has(s.type) && (
                     <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                      <Input defaultValue={content.title ?? ""} placeholder="Título (opcional)" aria-label={`Título de ${s.label}`} className="h-9" onBlur={(e) => e.target.value !== (content.title ?? "") && update(s.id, { content: { ...content, title: e.target.value } })} />
-                      <Input defaultValue={content.subtitle ?? ""} placeholder="Bajada (opcional)" aria-label={`Bajada de ${s.label}`} className="h-9" onBlur={(e) => e.target.value !== (content.subtitle ?? "") && update(s.id, { content: { ...content, subtitle: e.target.value } })} />
+                      <Input defaultValue={content.title ?? ""} placeholder="Título (opcional)" aria-label={`Título de ${s.label}`} className="h-9" onBlur={(e) => e.target.value !== (content.title ?? "") && update(s.id, { content: { ...content, title: e.target.value } as never })} />
+                      <Input defaultValue={content.subtitle ?? ""} placeholder="Bajada (opcional)" aria-label={`Bajada de ${s.label}`} className="h-9" onBlur={(e) => e.target.value !== (content.subtitle ?? "") && update(s.id, { content: { ...content, subtitle: e.target.value } as never })} />
                     </div>
                   )}
                 </div>

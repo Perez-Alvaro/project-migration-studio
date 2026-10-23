@@ -33,7 +33,7 @@ function WorkshopEditor() {
     },
   });
 
-  const [info, setInfo] = useState<Record<string, string | null>>({});
+  const [info, setInfo] = useState<Partial<Record<"title" | "slug" | "summary" | "description" | "teacher" | "modality" | "starts_on" | "ends_on" | "status" | "cover_url", string | null>>>({});
   useEffect(() => {
     if (!data) return;
     const w = data.workshop;
@@ -70,7 +70,7 @@ function WorkshopEditor() {
 
   if (isLoading) return <p className="text-muted-foreground">Cargando taller…</p>;
   if (!data) return <p role="alert">No encontramos este taller.</p>;
-  const field = (k: string) => ({ value: info[k] ?? "", onChange: (e: { target: { value: string } }) => setInfo((s) => ({ ...s, [k]: e.target.value })) });
+  const field = (k: keyof typeof info) => ({ value: info[k] ?? "", onChange: (e: { target: { value: string } }) => setInfo((s) => ({ ...s, [k]: e.target.value })) });
 
   return (
     <>
