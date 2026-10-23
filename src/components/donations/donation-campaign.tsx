@@ -354,7 +354,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                                 <HeartHandshake size={28} />
                             </div>
                             <p className="font-bold text-emerald-900 dark:text-emerald-100 text-sm">
-                                ¡Comunidad, logramos el objetivo de $10.000.000!
+                                ¡Comunidad, logramos el objetivo de {metaText}!
                             </p>
                             <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1 max-w-lg mx-auto">
                                 La compra de materiales y la mano de obra ya están en marcha para que nuestros 26 alumnos disfruten de un espacio renovado.
