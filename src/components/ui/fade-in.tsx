@@ -10,6 +10,8 @@ interface FadeInProps extends HTMLMotionProps<"div"> {
     duration?: number;
     distance?: number;
     staggerChildren?: number;
+    children?: React.ReactNode;
+    className?: string;
 }
 
 export const FadeIn = ({
