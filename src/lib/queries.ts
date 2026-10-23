@@ -21,7 +21,7 @@ export const homeQuery = queryOptions({
   queryFn: () => getHomeData(),
 });
 
-export type ShopSearch = { category?: string; q?: string; sort?: "destacados" | "nuevos" | "precio-asc" | "precio-desc" };
+export type ShopSearch = { category?: string | undefined; q?: string | undefined; sort?: "destacados" | "nuevos" | "precio-asc" | "precio-desc" | undefined };
 
 export const productsQuery = (s: ShopSearch) =>
   queryOptions({

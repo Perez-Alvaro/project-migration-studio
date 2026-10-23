@@ -49,9 +49,9 @@ function ProductPage() {
   const { addItem } = useCart();
   const [imageIndex, setImageIndex] = useState(0);
   const [qty, setQty] = useState(1);
+  const [variantId, setVariantId] = useState<string | null>(data?.product.variants[0]?.id ?? null);
   if (!data) return null;
   const { product, related } = data;
-  const [variantId, setVariantId] = useVariantState(product.variants[0]?.id ?? null);
   const variant = product.variants.find((v) => v.id === variantId) ?? null;
   const price = variant?.price ?? product.price;
   const stock = variant ? variant.stock : product.stock;
@@ -190,8 +190,4 @@ function ProductPage() {
       </div>
     </div>
   );
-}
-
-function useVariantState(initial: string | null) {
-  return useState<string | null>(initial);
 }

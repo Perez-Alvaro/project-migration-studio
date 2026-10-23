@@ -23,7 +23,8 @@ import {
     HeartHandshake,
     Heart,
 } from "lucide-react";
-import { CAMPAIGN_DATA, type CampaignStatus } from "@/lib/campaign";
+import type { CampaignStatus } from "@/lib/types";
+import { useSiteSettings } from "@/hooks/use-site-settings";
 import { DonationFloatingBar } from "@/components/donations/donation-floating-bar";
 
 interface DonationCampaignProps {
@@ -101,47 +102,52 @@ function CopyField({ label, value }: { label: string; value: string }) {
     );
 }
 
-export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps) {
-    const meta = CAMPAIGN_DATA.meta;
+export function DonationCampaign({ status: statusProp }: DonationCampaignProps) {
+    const settings = useSiteSettings();
+    const status = statusProp ?? settings.campaignStatus;
+    const c = settings.campaign;
+    const bank = settings.bank;
+    const meta = c.meta;
+    const metaText = `$${meta.toLocaleString("es-AR")}`;
 
     // Configuración persuasiva de UX adaptada a cada uno de los 3 estados
     const currentData = {
         iniciada: {
-            recaudado: CAMPAIGN_DATA.recaudado_iniciada,
-            donantes: CAMPAIGN_DATA.donantes_iniciada,
+            recaudado: c.recaudado,
+            donantes: c.donantes,
             badgeIcon: Rocket,
             badgeText: "Campaña activa · ¡Arrancamos!",
             badgeClass: "bg-amber-100 text-amber-900 border-amber-300 dark:bg-amber-950/40 dark:text-amber-200 dark:border-amber-800",
             percentClass: "bg-amber-100 text-amber-950 border-amber-300 dark:bg-amber-950/40 dark:text-amber-200",
             barGradient: "bg-gradient-to-r from-[#ef7225] to-[#f59e0b]",
-            subtext: `Faltan $${(meta - CAMPAIGN_DATA.recaudado_iniciada).toLocaleString("es-AR")} para alcanzar la meta.`,
-            donorsText: `${CAMPAIGN_DATA.donantes_iniciada} personas ya dieron el primer paso con sus aportes`,
-            persuasionMessage: "Estamos dando los primeros pasos para alcanzar los $10.000.000 de la obra. Con $1.000, $2.000 o lo que esté a tu alcance hoy, encendés el motor de este sueño.",
+            subtext: `Faltan $${(meta - c.recaudado).toLocaleString("es-AR")} para alcanzar la meta.`,
+            donorsText: `${c.donantes} personas ya dieron el primer paso con sus aportes`,
+            persuasionMessage: `Estamos dando los primeros pasos para alcanzar los ${metaText} de la obra. Con $1.000, $2.000 o lo que esté a tu alcance hoy, encendés el motor de este sueño.`,
             initialWidth: "0%",
         },
         en_progreso: {
-            recaudado: CAMPAIGN_DATA.recaudado_progreso,
-            donantes: CAMPAIGN_DATA.donantes_progreso,
+            recaudado: c.recaudado,
+            donantes: c.donantes,
             badgeIcon: Paintbrush,
             badgeText: "Campaña activa · ¡Superamos la mitad de la meta!",
             badgeClass: "bg-[#ef7225]/15 text-[#ef7225] border-[#ef7225]/30 dark:bg-[#ef7225]/20 dark:text-[#ff9452] dark:border-[#ef7225]/40",
             percentClass: "bg-[#ef7225]/15 text-[#ef7225] border-[#ef7225]/30 dark:bg-[#ef7225]/20 dark:text-[#ff9452]",
             barGradient: "bg-gradient-to-r from-[#ef7225] to-[#f97316]",
-            subtext: `Faltan $${(meta - CAMPAIGN_DATA.recaudado_progreso).toLocaleString("es-AR")} para completar la compra de pintura y mano de obra.`,
-            donorsText: `${CAMPAIGN_DATA.donantes_progreso} personas y familias ya realizaron su aporte`,
-            persuasionMessage: "¡Ya superamos el 50% gracias a la solidaridad comunitaria! Cada nuevo aporte, por más chico que parezca, nos acerca a los $10.000.000 finales.",
+            subtext: `Faltan $${(meta - c.recaudado).toLocaleString("es-AR")} para completar la compra de pintura y mano de obra.`,
+            donorsText: `${c.donantes} personas y familias ya realizaron su aporte`,
+            persuasionMessage: `¡Ya superamos el 50% gracias a la solidaridad comunitaria! Cada nuevo aporte, por más chico que parezca, nos acerca a los ${metaText} finales.`,
             initialWidth: "13%",
         },
         finalizada: {
-            recaudado: CAMPAIGN_DATA.recaudado_final,
-            donantes: CAMPAIGN_DATA.donantes_final,
+            recaudado: c.recaudado,
+            donantes: c.donantes,
             badgeIcon: CheckCircle2,
-            badgeText: "¡Meta de $10.000.000 cumplida! Gracias comunidad Haruén",
+            badgeText: `¡Meta de ${metaText} cumplida! Gracias comunidad Haruén`,
             badgeClass: "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-200 dark:border-emerald-800",
             percentClass: "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-200",
             barGradient: "bg-gradient-to-r from-emerald-600 to-surface",
             subtext: `¡Alcanzamos los $${meta.toLocaleString("es-AR")} gracias a la solidaridad de todos!`,
-            donorsText: `${CAMPAIGN_DATA.donantes_final} donantes hicieron posible renovar nuestro espacio`,
+            donorsText: `${c.donantes} donantes hicieron posible renovar nuestro espacio`,
             persuasionMessage: "¡Lo logramos entre todos! Cientos de personas demostraron que sumando voluntades ningún objetivo es imposible para nuestra comunidad.",
             initialWidth: "54%",
         },
@@ -151,7 +157,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
     const BadgeIcon = currentData.badgeIcon;
 
     const whatsappMessage = `¡Hola! Quiero colaborar con la Campaña Hermosa Haruén y adjuntar mi comprobante de transferencia bancaria.`;
-    const whatsappUrl = `https://wa.me/${CAMPAIGN_DATA.whatsapp_number}?text=${encodeURIComponent(
+    const whatsappUrl = `https://wa.me/${settings.whatsappNumber}?text=${encodeURIComponent(
         whatsappMessage,
     )}`;
 
@@ -176,10 +182,10 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                 {/* Título y Subtítulo */}
                 <div className="text-center max-w-3xl mx-auto mb-8">
                     <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.15] mb-3">
-                        {CAMPAIGN_DATA.titulo}
+                        {c.titulo}
                     </h2>
                     <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                        {CAMPAIGN_DATA.subtitulo}
+                        {c.subtitulo}
                     </p>
                 </div>
 
@@ -283,23 +289,23 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                             <CopyField
                                 label="Alias Bancario"
-                                value={CAMPAIGN_DATA.transferencia.alias}
+                                value={bank.alias}
                             />
                             <CopyField
                                 label="CBU"
-                                value={CAMPAIGN_DATA.transferencia.cbu}
+                                value={bank.cbu}
                             />
                         </div>
 
                         <div className="flex flex-wrap items-center justify-between text-xs text-muted-foreground px-1 pb-4">
                             <span>
-                                <strong>Banco:</strong> {CAMPAIGN_DATA.transferencia.banco}
+                                <strong>Banco:</strong> {bank.banco}
                             </span>
                             <span>
-                                <strong>CUIT:</strong> {CAMPAIGN_DATA.transferencia.cuit}
+                                <strong>CUIT:</strong> {bank.cuit}
                             </span>
                             <span>
-                                <strong>Titular:</strong> {CAMPAIGN_DATA.transferencia.titular}
+                                <strong>Titular:</strong> {bank.titular}
                             </span>
                         </div>
                     </div>
@@ -348,7 +354,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                                 <HeartHandshake size={28} />
                             </div>
                             <p className="font-bold text-emerald-900 dark:text-emerald-100 text-sm">
-                                ¡Comunidad, logramos el objetivo de $10.000.000!
+                                ¡Comunidad, logramos el objetivo de {metaText}!
                             </p>
                             <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1 max-w-lg mx-auto">
                                 La compra de materiales y la mano de obra ya están en marcha para que nuestros 26 alumnos disfruten de un espacio renovado.
