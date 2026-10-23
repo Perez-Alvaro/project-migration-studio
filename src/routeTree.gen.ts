@@ -10,53 +10,175 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as TiendaRouteImport } from './routes/tienda'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
+import { Route as AuthenticatedMisTalleresRouteImport } from './routes/_authenticated/mis-talleres'
 import { Route as MediaSplatRouteImport } from './routes/media.$'
+import { Route as NovedadesIndexRouteImport } from './routes/novedades.index'
+import { Route as NovedadesSlugRouteImport } from './routes/novedades.$slug'
+import { Route as TalleresIndexRouteImport } from './routes/talleres.index'
+import { Route as TalleresSlugRouteImport } from './routes/talleres.$slug'
+import { Route as TiendaIndexRouteImport } from './routes/tienda.index'
+import { Route as TiendaSlugRouteImport } from './routes/tienda.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TiendaRoute = TiendaRouteImport.update({
-  id: '/tienda',
-  path: '/tienda',
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedMisTalleresRoute =
+  AuthenticatedMisTalleresRouteImport.update({
+    id: '/mis-talleres',
+    path: '/mis-talleres',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
 const MediaSplatRoute = MediaSplatRouteImport.update({
   id: '/media/$',
   path: '/media/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NovedadesIndexRoute = NovedadesIndexRouteImport.update({
+  id: '/novedades/',
+  path: '/novedades/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NovedadesSlugRoute = NovedadesSlugRouteImport.update({
+  id: '/novedades/$slug',
+  path: '/novedades/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TalleresIndexRoute = TalleresIndexRouteImport.update({
+  id: '/talleres/',
+  path: '/talleres/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TalleresSlugRoute = TalleresSlugRouteImport.update({
+  id: '/talleres/$slug',
+  path: '/talleres/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TiendaIndexRoute = TiendaIndexRouteImport.update({
+  id: '/tienda/',
+  path: '/tienda/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TiendaSlugRoute = TiendaSlugRouteImport.update({
+  id: '/tienda/$slug',
+  path: '/tienda/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/tienda': typeof TiendaRoute
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/mis-talleres': typeof AuthenticatedMisTalleresRoute
   '/media/$': typeof MediaSplatRoute
+  '/novedades/$slug': typeof NovedadesSlugRoute
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/tienda/$slug': typeof TiendaSlugRoute
+  '/novedades/': typeof NovedadesIndexRoute
+  '/talleres/': typeof TalleresIndexRoute
+  '/tienda/': typeof TiendaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/tienda': typeof TiendaRoute
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/mis-talleres': typeof AuthenticatedMisTalleresRoute
   '/media/$': typeof MediaSplatRoute
+  '/novedades/$slug': typeof NovedadesSlugRoute
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/tienda/$slug': typeof TiendaSlugRoute
+  '/novedades': typeof NovedadesIndexRoute
+  '/talleres': typeof TalleresIndexRoute
+  '/tienda': typeof TiendaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/tienda': typeof TiendaRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
+  '/auth': typeof AuthRoute
+  '/reset-password': typeof ResetPasswordRoute
+  '/_authenticated/mis-talleres': typeof AuthenticatedMisTalleresRoute
   '/media/$': typeof MediaSplatRoute
+  '/novedades/$slug': typeof NovedadesSlugRoute
+  '/talleres/$slug': typeof TalleresSlugRoute
+  '/tienda/$slug': typeof TiendaSlugRoute
+  '/novedades/': typeof NovedadesIndexRoute
+  '/talleres/': typeof TalleresIndexRoute
+  '/tienda/': typeof TiendaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/tienda' | '/media/$'
+  fullPaths:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/mis-talleres'
+    | '/media/$'
+    | '/novedades/$slug'
+    | '/talleres/$slug'
+    | '/tienda/$slug'
+    | '/novedades/'
+    | '/talleres/'
+    | '/tienda/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/tienda' | '/media/$'
-  id: '__root__' | '/' | '/tienda' | '/media/$'
+  to:
+    | '/'
+    | '/auth'
+    | '/reset-password'
+    | '/mis-talleres'
+    | '/media/$'
+    | '/novedades/$slug'
+    | '/talleres/$slug'
+    | '/tienda/$slug'
+    | '/novedades'
+    | '/talleres'
+    | '/tienda'
+  id:
+    | '__root__'
+    | '/'
+    | '/_authenticated'
+    | '/auth'
+    | '/reset-password'
+    | '/_authenticated/mis-talleres'
+    | '/media/$'
+    | '/novedades/$slug'
+    | '/talleres/$slug'
+    | '/tienda/$slug'
+    | '/novedades/'
+    | '/talleres/'
+    | '/tienda/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  TiendaRoute: typeof TiendaRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
+  AuthRoute: typeof AuthRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   MediaSplatRoute: typeof MediaSplatRoute
+  NovedadesSlugRoute: typeof NovedadesSlugRoute
+  TalleresSlugRoute: typeof TalleresSlugRoute
+  TiendaSlugRoute: typeof TiendaSlugRoute
+  NovedadesIndexRoute: typeof NovedadesIndexRoute
+  TalleresIndexRoute: typeof TalleresIndexRoute
+  TiendaIndexRoute: typeof TiendaIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,12 +190,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/tienda': {
-      id: '/tienda'
-      path: '/tienda'
-      fullPath: '/tienda'
-      preLoaderRoute: typeof TiendaRouteImport
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/mis-talleres': {
+      id: '/_authenticated/mis-talleres'
+      path: '/mis-talleres'
+      fullPath: '/mis-talleres'
+      preLoaderRoute: typeof AuthenticatedMisTalleresRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/media/$': {
       id: '/media/$'
@@ -82,13 +225,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MediaSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/novedades/': {
+      id: '/novedades/'
+      path: '/novedades'
+      fullPath: '/novedades/'
+      preLoaderRoute: typeof NovedadesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/novedades/$slug': {
+      id: '/novedades/$slug'
+      path: '/novedades/$slug'
+      fullPath: '/novedades/$slug'
+      preLoaderRoute: typeof NovedadesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/talleres/': {
+      id: '/talleres/'
+      path: '/talleres'
+      fullPath: '/talleres/'
+      preLoaderRoute: typeof TalleresIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/talleres/$slug': {
+      id: '/talleres/$slug'
+      path: '/talleres/$slug'
+      fullPath: '/talleres/$slug'
+      preLoaderRoute: typeof TalleresSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tienda/': {
+      id: '/tienda/'
+      path: '/tienda'
+      fullPath: '/tienda/'
+      preLoaderRoute: typeof TiendaIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tienda/$slug': {
+      id: '/tienda/$slug'
+      path: '/tienda/$slug'
+      fullPath: '/tienda/$slug'
+      preLoaderRoute: typeof TiendaSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedMisTalleresRoute: typeof AuthenticatedMisTalleresRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedMisTalleresRoute: AuthenticatedMisTalleresRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  TiendaRoute: TiendaRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
+  AuthRoute: AuthRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   MediaSplatRoute: MediaSplatRoute,
+  NovedadesSlugRoute: NovedadesSlugRoute,
+  TalleresSlugRoute: TalleresSlugRoute,
+  TiendaSlugRoute: TiendaSlugRoute,
+  NovedadesIndexRoute: NovedadesIndexRoute,
+  TalleresIndexRoute: TalleresIndexRoute,
+  TiendaIndexRoute: TiendaIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
