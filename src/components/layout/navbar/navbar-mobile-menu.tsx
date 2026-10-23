@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import Link from "@/components/shared/app-link";
+import { ThemeSwitcher } from "@/components/layout/navbar/theme-switcher";
 
 const NAV_ITEMS = [
     { href: "/", label: "Inicio" },
@@ -64,12 +65,16 @@ export function NavbarMobileMenu() {
                                 {item.label}
                             </Link>
                         ))}
+                        <div className="flex items-center justify-between gap-3 border-t border-border pt-3 sm:hidden">
+                            <span className="text-sm font-semibold text-foreground/90">Tema</span>
+                            <ThemeSwitcher />
+                        </div>
                         <Link
                             href="/#donaciones"
                             className="mt-2 inline-flex btn-pill btn-sunset-gradient text-sm justify-center"
                             onClick={() => setOpen(false)}
                         >
-                            Donar Ahora
+                            Donar ahora
                         </Link>
                     </nav>
                 </div>

@@ -43,8 +43,20 @@ function AuthPage() {
   const [sent, setSent] = useState<string | null>(null);
 
   useEffect(() => {
-    if (user) navigate({ to: target, replace: true });
-  }, [user, target, navigate]);
+    if (!user) return;
+    let active = true;
+    (async () => {
+      let to = target;
+      if (!redirect || to === "/") {
+        const { data } = await supabase.rpc("has_role", { _user_id: user.id, _role: "admin" });
+        if (data === true) to = "/admin";
+      }
+      if (active) navigate({ to, replace: true });
+    })();
+    return () => {
+      active = false;
+    };
+  }, [user, target, redirect, navigate]);
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
