@@ -39,6 +39,7 @@
   --color-primary-dark: var(--primary-dark);
   --color-primary-ink: var(--primary-ink);
   --color-surface: var(--brand-surface);
+  --color-hero-foreground: var(--brand-background);
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
   --font-mono: var(--font-mono);
@@ -129,7 +130,7 @@
   --primary-dark: var(--brand-surface);
   --secondary: var(--brand-background);
   --secondary-foreground: var(--brand-text);
-  --muted: var(--brand-text);
+  --muted: color-mix(in oklab, var(--brand-muted) 10%, var(--brand-surface));
   --muted-foreground: var(--brand-muted);
   --accent: var(--brand-cta);
   --accent-foreground: var(--brand-text);

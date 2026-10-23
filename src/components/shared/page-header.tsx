@@ -13,16 +13,16 @@ export function PageHeader({
   children?: ReactNode;
 }) {
   return (
-    <div className="bg-teal-hero text-background py-14">
+    <div className="bg-teal-hero text-hero-foreground py-14">
       <div className="haruen-container">
         <div className="flex items-center gap-3 mb-3">
-          <div className="w-10 h-10 rounded-xl bg-background/15 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-hero-foreground/15 flex items-center justify-center">
             <Icon size={20} aria-hidden="true" />
           </div>
-          <span className="text-sm font-bold text-background/80 uppercase tracking-widest">{eyebrow}</span>
+          <span className="text-sm font-bold text-hero-foreground/85 uppercase tracking-widest">{eyebrow}</span>
         </div>
         <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-3">{title}</h1>
-        {children && <div className="text-lg text-background/85 max-w-2xl">{children}</div>}
+        {children && <div className="text-lg text-hero-foreground/90 max-w-2xl">{children}</div>}
       </div>
     </div>
   );
