@@ -50,7 +50,32 @@ function ProductsAdmin() {
         ) : rows.length === 0 ? (
           <p className="p-6 text-muted-foreground">No hay productos con ese nombre. Agregá uno nuevo.</p>
         ) : (
-          <div className="overflow-x-auto">
+          <>
+          <ul className="divide-y divide-border sm:hidden">
+            {rows.map((p) => {
+              const stock = p.variants.length ? p.variants.reduce((a, v) => a + v.stock, 0) : p.stock;
+              const img = [...p.images].sort((a, b) => a.position - b.position)[0]?.url;
+              const [label, tone] = STATUS[p.status as keyof typeof STATUS] ?? ["—", "muted"];
+              return (
+                <li key={p.id}>
+                  <Link to="/admin/productos/$id" params={{ id: p.id }} className="flex items-center gap-3 p-4 hover:bg-muted/40">
+                    <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md bg-muted">
+                      {img && <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" />}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate font-semibold">{p.name}</span>
+                      <span className="block text-sm">{formatPrice(Number(p.price))}</span>
+                      <span className="mt-1 flex flex-wrap gap-1.5">
+                        <StatusPill tone={tone}>{label}</StatusPill>
+                        {stock <= 0 ? <StatusPill tone="bad">Sin stock</StatusPill> : stock <= p.low_stock_threshold ? <StatusPill tone="warn">{stock} · poco stock</StatusPill> : <StatusPill tone="muted">{stock} u.</StatusPill>}
+                      </span>
+                    </span>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <div className="hidden overflow-x-auto sm:block">
             <table className="w-full text-sm">
               <thead className="bg-muted/60 text-left text-muted-foreground">
                 <tr>
@@ -89,6 +114,7 @@ function ProductsAdmin() {
               </tbody>
             </table>
           </div>
+          </>
         )}
       </Panel>
     </>
