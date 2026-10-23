@@ -10,4 +10,4 @@
 <!-- LOVABLE:END -->
 
 - Site content was migrated from a Next.js project: use `@/components/shared/app-link` for "/path#hash" links and `@/components/shared/app-image` for images, because the ported components rely on those signatures.
-- Images live as Lovable asset pointers (`src/assets/*.asset.json`, use `.url`); the product catalog is static in `src/data/products.ts` and the cart is browser-only with WhatsApp checkout, so there is no database yet.
+- Images live as Lovable asset pointers (`src/assets/*.webp.asset.json`, use `.url`), pre-compressed to WebP (max 1200px) for page speed; fonts are self-hosted via @fontsource so there is no blocking Google Fonts request; the product catalog is static in `src/data/products.ts` and the cart is browser-only with WhatsApp checkout, so there is no database yet.
