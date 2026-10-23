@@ -42,7 +42,7 @@ function TiendaPage() {
                             Tienda Solidaria
                         </span>
                     </div>
-                    <h1 className="text-4xl md:text-5xl font-black leading-tight mb-3">
+                    <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-3">
                         Arte hecho con amor
                     </h1>
                     <p className="text-lg text-white/80 max-w-lg">

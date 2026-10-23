@@ -60,7 +60,7 @@ export function StaticProductCard({ product }: StaticProductCardProps) {
                 </p>
 
                 <div className="mt-auto flex items-center justify-between gap-3 pt-3">
-                    <span className="text-2xl font-black text-primary-ink">
+                    <span className="text-2xl font-bold text-primary-ink">
                         {formatPrice(product.price)}
                     </span>
 

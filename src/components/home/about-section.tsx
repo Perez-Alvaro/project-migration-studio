@@ -79,7 +79,7 @@ export function AboutSection() {
                                 <Info size={14} />
                                 <span>Quiénes Somos</span>
                             </div>
-                            <h2 className="text-clamp-h2 font-black mb-6 leading-tight">
+                            <h2 className="text-clamp-h2 font-bold mb-6 leading-tight">
                                 Un equipo que acompaña{" "}
                                 <br className="hidden md:block" />
                                 el desarrollo de cada alumno.

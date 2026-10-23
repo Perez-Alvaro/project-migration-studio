@@ -21,10 +21,10 @@ export function Footer() {
                     {/* Col 1 — Brand */}
                     <div className="lg:col-span-1 space-y-4">
                         <div>
-                            <p className="text-base font-extrabold text-white">
+                            <p className="text-base font-bold text-white">
                                 Centro Educativo
                             </p>
-                            <p className="text-base font-extrabold text-primary-ink">
+                            <p className="text-base font-bold text-primary-ink">
                                 Terapéutico Haruén
                             </p>
                         </div>

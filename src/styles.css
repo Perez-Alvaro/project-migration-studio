@@ -241,14 +241,14 @@
 
   .btn-primary-gradient {
     background-image: var(--sunset-gradient);
-    color: hsl(200 32% 10%);
+    color: var(--brand-text);
     box-shadow: var(--shadow-warm);
     font-size: 1rem;
   }
 
   .btn-sunset-gradient {
     background-image: var(--sunset-gradient);
-    color: hsl(200 32% 10%);
+    color: var(--brand-text);
     box-shadow: var(--shadow-warm);
     font-size: 1rem;
   }
@@ -274,7 +274,7 @@
 
   .dark .btn-secondary-neutral {
     background-color: hsl(0 0% 100%);
-    color: hsl(200 32% 10%);
+    color: var(--brand-text);
     border-color: hsl(0 0% 100% / 0.8);
   }
 
@@ -287,14 +287,14 @@
   .dark .btn-secondary-neutral:hover,
   .dark .btn-secondary-neutral:focus-visible {
     background-color: hsl(0 0% 94%);
-    color: hsl(200 32% 10%);
+    color: var(--brand-text);
   }
 
   .btn-hero-primary,
   .btn-hero-primary:visited {
     background-image: var(--sunset-gradient);
     background-color: transparent;
-    color: hsl(200 32% 10%) !important;
+    color: var(--brand-text) !important;
     box-shadow: var(--shadow-warm);
     font-size: 1rem;
     font-weight: 700;
@@ -303,13 +303,13 @@
   .btn-hero-primary:hover,
   .btn-hero-primary:focus-visible {
     background-image: var(--sunset-gradient);
-    color: hsl(200 32% 10%) !important;
+    color: var(--brand-text) !important;
   }
 
   [data-slot="button"].bg-primary {
     background-image: var(--sunset-gradient);
     background-color: transparent !important;
-    color: hsl(200 32% 10%) !important;
+    color: var(--brand-text) !important;
     border-color: transparent;
     box-shadow: var(--shadow-warm);
   }
@@ -318,7 +318,7 @@
   [data-slot="button"].bg-primary:focus-visible {
     background-image: var(--sunset-gradient);
     background-color: transparent !important;
-    color: hsl(200 32% 10%) !important;
+    color: var(--brand-text) !important;
   }
 
   .btn-success-state {
@@ -389,7 +389,7 @@
     font-size: 0.875rem;
     font-weight: 700;
     background-color: hsl(0 0% 100% / 0.96);
-    color: hsl(200 32% 10%);
+    color: var(--brand-text);
     border: 1px solid hsl(0 0% 100% / 0.9);
     box-shadow: var(--shadow-soft);
     margin-bottom: 1rem;
@@ -447,23 +447,23 @@
   #inicio a.btn-hero-primary,
   #inicio a.btn-sunset-gradient,
   #donaciones a.btn-sunset-gradient {
-    color: hsl(200 32% 10%) !important;
+    color: var(--brand-text) !important;
   }
 
   #inicio .inline-flex.rounded-full,
   #donaciones .inline-flex.rounded-full {
     background-color: hsl(0 0% 100% / 0.96) !important;
-    color: hsl(200 32% 10%) !important;
+    color: var(--brand-text) !important;
     border-color: hsl(0 0% 100% / 0.96) !important;
   }
 
   #inicio .inline-flex.rounded-full .bg-white {
-    background-color: hsl(200 32% 10%) !important;
+    background-color: var(--brand-text) !important;
   }
 
   #inicio .inline-flex.rounded-full svg,
   #donaciones .inline-flex.rounded-full svg {
-    color: hsl(200 32% 10%) !important;
+    color: var(--brand-text) !important;
   }
 
   #nosotros .text-muted-foreground,
@@ -471,7 +471,7 @@
   #tienda .text-muted-foreground,
   #blog .text-muted-foreground,
   #contacto .text-muted-foreground {
-    color: hsl(200 32% 10%) !important;
+    color: var(--brand-text) !important;
   }
 
   .dark #nosotros .text-muted-foreground,

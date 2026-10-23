@@ -18,7 +18,7 @@ export function ContactSection() {
                             <Phone size={14} aria-hidden="true" />
                             <span>Inscripciones y Consultas</span>
                         </div>
-                        <h2 className="text-clamp-h2 font-black mb-3 leading-tight">
+                        <h2 className="text-clamp-h2 font-bold mb-3 leading-tight">
                             Contactá con nuestros fundadores
                         </h2>
                         <p className="text-lg text-muted-foreground mb-6 leading-relaxed">

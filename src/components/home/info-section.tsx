@@ -46,7 +46,7 @@ export function InfoSection() {
                         <Info size={14} />
                         <span>Información Importante</span>
                     </div>
-                    <h2 className="text-clamp-h2 font-black">
+                    <h2 className="text-clamp-h2 font-bold">
                         Todo lo que necesitás saber
                     </h2>
                 </FadeIn>

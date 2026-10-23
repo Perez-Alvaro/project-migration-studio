@@ -86,7 +86,7 @@ export function DonateSection() {
                             <HandHeart size={14} aria-hidden="true" />
                             Tu Ayuda Transforma Vidas
                         </span>
-                        <h2 className="text-clamp-h2 font-black mb-4 leading-tight">
+                        <h2 className="text-clamp-h2 font-bold mb-4 leading-tight">
                             Tu donación hace posible{" "}
                             <br className="hidden md:block" />
                             que sigamos creciendo.

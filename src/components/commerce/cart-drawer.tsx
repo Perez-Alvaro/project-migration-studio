@@ -35,7 +35,7 @@ export function CartDrawer() {
                 <div className="flex items-center justify-between px-6 py-5 border-b border-border">
                     <div className="flex items-center gap-3">
                         <ShoppingCart size={20} className="text-primary-ink" />
-                        <h2 className="text-lg font-extrabold text-foreground">
+                        <h2 className="text-lg font-bold text-foreground">
                             Tu Carrito
                         </h2>
                         {itemCount > 0 && (
@@ -96,7 +96,7 @@ export function CartDrawer() {
                                         <p className="font-bold text-sm leading-snug line-clamp-2 text-foreground">
                                             {item.name}
                                         </p>
-                                        <p className="text-primary-ink font-extrabold mt-1">
+                                        <p className="text-primary-ink font-bold mt-1">
                                             {formatPrice(item.price)}
                                         </p>
 
@@ -156,7 +156,7 @@ export function CartDrawer() {
                             <span className="font-semibold text-muted-foreground">
                                 Total estimado
                             </span>
-                            <span className="text-2xl font-black text-primary-ink">
+                            <span className="text-2xl font-bold text-primary-ink">
                                 {formatPrice(total)}
                             </span>
                         </div>
@@ -173,7 +173,7 @@ export function CartDrawer() {
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-pill w-full flex items-center justify-center gap-2 text-sm font-extrabold text-black"
+                            className="btn-pill w-full flex items-center justify-center gap-2 text-sm font-bold text-black"
                             style={{
                                 background: "#25D366",
                                 color: "#000",

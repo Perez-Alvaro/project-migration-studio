@@ -37,7 +37,7 @@ export function Navbar() {
                                 <span className="text-sm font-semibold text-muted-foreground">
                                     Centro Educativo
                                 </span>
-                                <span className="text-base font-extrabold text-primary-ink">
+                                <span className="text-base font-bold text-primary-ink">
                                     Terapéutico Haruén
                                 </span>
                             </div>

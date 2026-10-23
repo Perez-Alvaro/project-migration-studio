@@ -28,7 +28,7 @@ export function HeroSection() {
                     {/* Badge dorado interactivo con ancla directa a la campaña */}
                     <a
                         href="#campana-donacion"
-                        className="group inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-extrabold bg-gradient-to-r from-amber-500/20 via-yellow-500/25 to-amber-500/20 hover:from-amber-500/30 hover:to-yellow-500/35 border border-amber-400/60 text-[#FCD34D] shadow-[0_2px_12px_rgba(245,158,11,0.25)] backdrop-blur-sm transition-all cursor-pointer"
+                        className="group inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-bold bg-gradient-to-r from-amber-500/20 via-yellow-500/25 to-amber-500/20 hover:from-amber-500/30 hover:to-yellow-500/35 border border-amber-400/60 text-[#FCD34D] shadow-[0_2px_12px_rgba(245,158,11,0.25)] backdrop-blur-sm transition-all cursor-pointer"
                     >
                         <span className="relative flex h-2 w-2" aria-hidden="true">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
@@ -39,7 +39,7 @@ export function HeroSection() {
                     </a>
 
                     {/* H1 - Candidato LCP crítico en mobile */}
-                    <h1 className="text-clamp-title font-black leading-[1.05] tracking-tight">
+                    <h1 className="text-clamp-title font-bold leading-[1.05] tracking-tight">
                         Somos una institución{" "}
                         <br className="hidden md:block" />
                         que acompaña el{" "}
@@ -136,7 +136,7 @@ export function HeroSection() {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                         {IMPACTO.map((stat) => (
                             <div key={stat.label} className="bg-white/15 border border-white/20 backdrop-blur-sm rounded-2xl p-3 text-center">
-                                <p className="text-xl font-black text-white leading-none">{stat.num}</p>
+                                <p className="text-xl font-bold text-white leading-none">{stat.num}</p>
                                 <p className="text-xs text-white/80 mt-1 leading-tight">{stat.label}</p>
                             </div>
                         ))}

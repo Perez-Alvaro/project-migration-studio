@@ -13,7 +13,7 @@ export function StoreSection() {
                         <ShoppingBag size={14} />
                         <span>Tienda Solidaria</span>
                     </div>
-                    <h2 className="text-clamp-h2 font-black">Nuestra Tienda Solidaria</h2>
+                    <h2 className="text-clamp-h2 font-bold">Nuestra Tienda Solidaria</h2>
                     <p className="mt-3 text-base md:text-lg text-muted-foreground leading-relaxed">
                         Agendas, velas, vitrofusión y más — cada producto es creado con amor por nuestros alumnos. Comprando nos ayudás a seguir creciendo. Consultanos por WhatsApp para ver toda la variedad disponible.
                     </p>
