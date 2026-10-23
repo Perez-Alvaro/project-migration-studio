@@ -16,6 +16,8 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { CartProvider } from "@/contexts/cart-context";
 import { CartDrawer } from "@/components/commerce/cart-drawer";
 import { HashScrollHandler } from "@/components/shared/hash-scroll-handler";
+import { AuthProvider } from "@/hooks/use-auth";
+import { settingsQuery } from "@/lib/queries";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
@@ -81,6 +83,7 @@ function ErrorComponent({ error, reset }: ErrorComponentProps) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  loader: ({ context }) => context.queryClient.ensureQueryData(settingsQuery).catch(() => null),
   head: () => ({
     meta: [
       { charSet: "utf-8" },
@@ -126,6 +129,7 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <AuthProvider>
       <ThemeProvider>
         <CartProvider>
           <Navbar />
@@ -138,6 +142,7 @@ function RootComponent() {
           <HashScrollHandler />
         </CartProvider>
       </ThemeProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

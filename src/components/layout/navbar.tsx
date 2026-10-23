@@ -4,12 +4,15 @@ import { Heart } from "lucide-react";
 import { ThemeSwitcher } from "@/components/layout/navbar/theme-switcher";
 import { NavbarMobileMenu } from "@/components/layout/navbar/navbar-mobile-menu";
 import { CartNavIcon } from "@/components/layout/navbar/cart-nav-icon";
+import { AccountButton } from "@/components/layout/navbar/account-button";
 import HaruenLogoAsset from "@/assets/haruenlogo.webp.asset.json";
 const HaruenLogo = HaruenLogoAsset.url;
 
 const NAV_ITEMS = [
     { href: "/#nosotros", label: "Nosotros" },
-    { href: "/#tienda", label: "Tienda" },
+    { href: "/tienda", label: "Tienda" },
+    { href: "/novedades", label: "Novedades" },
+    { href: "/talleres", label: "Talleres" },
     { href: "/#donaciones", label: "Donaciones" },
     { href: "/#contacto", label: "Contacto" },
 ];
@@ -45,7 +48,7 @@ export function Navbar() {
                     </div>
 
                     {/* Desktop nav */}
-                    <nav className="hidden lg:flex items-center gap-7 text-base font-semibold">
+                    <nav className="hidden lg:flex items-center gap-6 text-base font-semibold">
                         {NAV_ITEMS.map((item) => (
                             <Link
                                 key={item.href}
@@ -68,6 +71,7 @@ export function Navbar() {
                         </Link>
 
                         <ThemeSwitcher />
+                        <AccountButton />
                         <CartNavIcon />
                         <NavbarMobileMenu />
                     </div>
