@@ -41,6 +41,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       else setIsAdmin(false);
       router.invalidate();
       if (event !== "SIGNED_OUT") queryClient.invalidateQueries();
+      if (event === "SIGNED_IN") {
+        const after = sessionStorage.getItem("haruen-after-login");
+        if (after && after.startsWith("/") && !after.startsWith("//")) {
+          sessionStorage.removeItem("haruen-after-login");
+          router.navigate({ to: after });
+        }
+      }
     });
     return () => {
       active = false;
