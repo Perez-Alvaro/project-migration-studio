@@ -7,6 +7,11 @@ import { InfoSection } from "@/components/home/info-section";
 import { StoreSection } from "@/components/home/store-section";
 import { DonateSection } from "@/components/home/donate-section";
 import { ContactSection } from "@/components/home/contact-section";
+import { NewsSection, WorkshopsSection } from "@/components/home/feed-sections";
+import { RouteError } from "@/components/shared/page-header";
+import { useSuspenseQuery } from "@tanstack/react-query";
+import { homeQuery } from "@/lib/queries";
+import type { SectionDTO } from "@/lib/types";
 import { SITE_URL } from "@/lib/metadata";
 import heroLcp from "@/assets/haruen-about.webp.asset.json";
 
@@ -24,6 +29,7 @@ const structuredData = {
 };
 
 export const Route = createFileRoute("/")({
+  loader: ({ context }) => context.queryClient.ensureQueryData(homeQuery),
   head: () => ({
     meta: [
       { title: TITLE },
@@ -36,21 +42,28 @@ export const Route = createFileRoute("/")({
     links: [{ rel: "preload", as: "image", href: heroLcp.url, fetchPriority: "high" }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(structuredData) }],
   }),
+  errorComponent: ({ error }) => <RouteError error={error} />,
   component: Home,
 });
 
 function Home() {
-  return (
-    <div className="flex-1 w-full bg-background flex flex-col">
-      <HeroSection />
-      {/* Estado de la campaña: 'iniciada' | 'en_progreso' | 'finalizada' */}
-      <DonationCampaign status="iniciada" />
-      <AboutSection />
-      <ImpactSection />
-      <InfoSection />
-      <StoreSection />
-      <DonateSection />
-      <ContactSection />
-    </div>
-  );
+  const { data } = useSuspenseQuery(homeQuery);
+
+  function render(section: SectionDTO) {
+    switch (section.type) {
+      case "hero": return <HeroSection key={section.id} />;
+      case "campaign": return <DonationCampaign key={section.id} />;
+      case "about": return <AboutSection key={section.id} />;
+      case "impact": return <ImpactSection key={section.id} />;
+      case "info": return <InfoSection key={section.id} />;
+      case "store": return <StoreSection key={section.id} products={data.products} content={section.content} />;
+      case "news": return <NewsSection key={section.id} news={data.news} content={section.content} />;
+      case "workshops": return <WorkshopsSection key={section.id} workshops={data.workshops} content={section.content} />;
+      case "donate": return <DonateSection key={section.id} />;
+      case "contact": return <ContactSection key={section.id} />;
+      default: return null;
+    }
+  }
+
+  return <div className="flex-1 w-full bg-background flex flex-col">{data.sections.map(render)}</div>;
 }
