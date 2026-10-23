@@ -3,9 +3,9 @@ import Image from "@/components/shared/app-image";
 import { Phone, MessageCircle, MapPin } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
 import { ContactForm } from "@/components/contact/contact-form";
-import FounderRogelioAsset from "@/assets/founder-rogelio.jpg.asset.json";
+import FounderRogelioAsset from "@/assets/founder-rogelio.webp.asset.json";
 const FounderRogelio = FounderRogelioAsset.url;
-import FounderAlfredoAsset from "@/assets/founder-alfredo.jpg.asset.json";
+import FounderAlfredoAsset from "@/assets/founder-alfredo.webp.asset.json";
 const FounderAlfredo = FounderAlfredoAsset.url;
 
 export function ContactSection() {

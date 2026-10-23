@@ -1,13 +1,13 @@
 import React from "react";
 import Image from "@/components/shared/app-image";
 import { Paintbrush, ArrowDown, ChevronDown, Sparkles } from "lucide-react";
-import HaruenAboutAsset from "@/assets/haruen-about.jpg.asset.json";
+import HaruenAboutAsset from "@/assets/haruen-about.webp.asset.json";
 const HaruenAbout = HaruenAboutAsset.url;
-import Hero2Asset from "@/assets/hero-2.png.asset.json";
+import Hero2Asset from "@/assets/hero-2.webp.asset.json";
 const Hero2 = Hero2Asset.url;
-import Hero3Asset from "@/assets/hero-3.png.asset.json";
+import Hero3Asset from "@/assets/hero-3.webp.asset.json";
 const Hero3 = Hero3Asset.url;
-import Hero4Asset from "@/assets/hero-4.png.asset.json";
+import Hero4Asset from "@/assets/hero-4.webp.asset.json";
 const Hero4 = Hero4Asset.url;
 
 export const IMPACTO = [
