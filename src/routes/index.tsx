@@ -8,6 +8,7 @@ import { StoreSection } from "@/components/home/store-section";
 import { DonateSection } from "@/components/home/donate-section";
 import { ContactSection } from "@/components/home/contact-section";
 import { SITE_URL } from "@/lib/metadata";
+import heroLcp from "@/assets/haruen-about.webp.asset.json";
 
 const TITLE = "Centro Educativo Terapéutico Haruén | Córdoba";
 const DESCRIPTION =
@@ -32,6 +33,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    links: [{ rel: "preload", as: "image", href: heroLcp.url, fetchPriority: "high" }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(structuredData) }],
   }),
   component: Home,
