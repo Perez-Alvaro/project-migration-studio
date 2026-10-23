@@ -35,33 +35,3 @@ export function buildCanonicalUrl(path: string): string {
   return `${baseUrl}${cleanPath}`;
 }
 
-/**
- * Build Open Graph image array from an image URL.
- */
-export function buildOgImages(
-  imageUrl: string | null | undefined,
-  alt?: string
-): NonNullable<Metadata['openGraph']>['images'] {
-  if (!imageUrl) return undefined;
-
-  return [
-    {
-      url: imageUrl,
-      alt: alt || 'Product image',
-    },
-  ];
-}
-
-/**
- * Create noindex/nofollow robots config for protected pages.
- */
-export function noIndexRobots(): Metadata['robots'] {
-  return {
-    index: false,
-    follow: false,
-    googleBot: {
-      index: false,
-      follow: false,
-    },
-  };
-}

@@ -1,6 +1,5 @@
 import Link from "@/components/shared/app-link";
 import { MapPin, Heart, Phone, MessageCircle, Instagram, Facebook } from "lucide-react";
-import { cacheLife } from "next/cache";
 
 const NAV_LINKS = [
     { href: "/#nosotros", label: "Nosotros" },
@@ -10,9 +9,7 @@ const NAV_LINKS = [
     { href: "/#contacto", label: "Contacto" },
 ];
 
-export async function Footer() {
-    "use cache";
-    cacheLife("days");
+export function Footer() {
 
     const year = new Date().getFullYear();
 
