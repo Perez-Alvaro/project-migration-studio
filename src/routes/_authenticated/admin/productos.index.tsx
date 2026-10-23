@@ -114,6 +114,7 @@ function ProductsAdmin() {
               </tbody>
             </table>
           </div>
+          </>
         )}
       </Panel>
     </>

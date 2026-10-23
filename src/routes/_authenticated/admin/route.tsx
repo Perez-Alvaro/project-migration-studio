@@ -61,9 +61,9 @@ function AdminLayout() {
     [...NAV].sort((a, b) => b.to.length - a.to.length).find((n) => ("exact" in n ? pathname === n.to : pathname.startsWith(n.to)))?.label ?? "Panel";
 
   return (
-    <div className="min-h-screen bg-muted/40 pt-[72px] lg:pt-[88px]">
+    <div className="min-h-screen bg-muted/40 pt-16 sm:pt-[72px] lg:pt-[88px]">
       {/* Barra móvil */}
-      <div className="sticky top-[64px] z-30 border-b border-border bg-background/95 backdrop-blur lg:hidden">
+      <div className="sticky top-16 sm:top-[72px] z-30 border-b border-border bg-background/95 backdrop-blur lg:hidden">
         <div className="haruen-container flex items-center gap-3 py-2">
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
