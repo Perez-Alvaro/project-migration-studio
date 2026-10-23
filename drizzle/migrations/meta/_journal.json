@@ -8,6 +8,13 @@
       "when": 1792764271068,
       "tag": "0000_haruen_core",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792764319706,
+      "tag": "0001_storage_policies",
+      "breakpoints": true
     }
   ]
 }
