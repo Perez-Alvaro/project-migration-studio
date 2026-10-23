@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import Link from "@/components/shared/app-link";
+import { ThemeSwitcher } from "@/components/layout/navbar/theme-switcher";
 
 const NAV_ITEMS = [
     { href: "/", label: "Inicio" },
@@ -51,25 +52,29 @@ export function NavbarMobileMenu() {
             {open && (
                 <div
                     id="mobile-nav-panel"
-                    className="lg:hidden absolute top-full left-0 right-0 bg-card/95 backdrop-blur-xl border-t border-border shadow-lg"
+                    className="lg:hidden absolute top-full left-0 right-0 max-h-[calc(100dvh-4rem)] overflow-y-auto bg-card border-t border-border shadow-lg"
                 >
                     <nav className="haruen-container py-4 flex flex-col gap-3" aria-label="Navegación móvil">
                         {NAV_ITEMS.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="py-1 text-sm font-semibold text-foreground/90 hover:text-primary-ink transition-colors"
+                                className="py-2 text-base font-semibold text-foreground/90 hover:text-primary-ink transition-colors"
                                 onClick={() => setOpen(false)}
                             >
                                 {item.label}
                             </Link>
                         ))}
+                        <div className="flex items-center justify-between gap-3 border-t border-border pt-3 sm:hidden">
+                            <span className="text-sm font-semibold text-foreground/90">Tema</span>
+                            <ThemeSwitcher />
+                        </div>
                         <Link
                             href="/#donaciones"
                             className="mt-2 inline-flex btn-pill btn-sunset-gradient text-sm justify-center"
                             onClick={() => setOpen(false)}
                         >
-                            Donar Ahora
+                            Donar ahora
                         </Link>
                     </nav>
                 </div>
