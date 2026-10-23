@@ -25,7 +25,7 @@ function WorkshopsAdmin() {
       .insert({ title: "Nuevo taller", slug: `taller-${Date.now().toString(36)}`, position: Date.now() / 1000 })
       .select("id")
       .single();
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     navigate({ to: "/admin/talleres/$id", params: { id: row.id } });
   }
 

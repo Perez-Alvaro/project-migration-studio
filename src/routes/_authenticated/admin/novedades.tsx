@@ -35,7 +35,7 @@ function NewsAdmin() {
     };
     const { error } = draft.id ? await supabase.from("news_posts").update(row).eq("id", draft.id) : await supabase.from("news_posts").insert(row);
     setSaving(false);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     toast.success(draft.status === "published" ? "Novedad publicada." : "Guardamos el borrador.");
     setDraft(null);
     refetch();
@@ -46,7 +46,7 @@ function NewsAdmin() {
   async function remove(id: string) {
     if (!confirm("¿Eliminar esta novedad? No se puede deshacer.")) return;
     const { error } = await supabase.from("news_posts").delete().eq("id", id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     setDraft(null);
     refetch();
   }

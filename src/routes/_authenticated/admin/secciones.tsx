@@ -29,7 +29,7 @@ function SectionsAdmin() {
 
   async function update(id: string, patch: Record<string, unknown>) {
     const { error } = await supabase.from("page_sections").update(patch).eq("id", id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     done();
   }
 
@@ -46,7 +46,7 @@ function SectionsAdmin() {
     if (!adding) return;
     const last = rows.at(-1)?.position;
     const { error } = await supabase.from("page_sections").insert({ type: adding, label: TYPE_LABEL[adding] ?? adding, position: positionBetween(last == null ? null : Number(last), null), is_visible: true, content: {} });
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     setAdding("");
     done();
   }
@@ -54,7 +54,7 @@ function SectionsAdmin() {
   async function remove(id: string) {
     if (!confirm("¿Quitar esta sección de la portada? Podés volver a agregarla cuando quieras.")) return;
     const { error } = await supabase.from("page_sections").delete().eq("id", id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     done();
   }
 

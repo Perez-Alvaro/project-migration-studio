@@ -37,7 +37,7 @@ function Orders() {
     setBusy(id);
     const { error } = await supabase.rpc("set_order_status", { _order_id: id, _status: status });
     setBusy(null);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     toast.success(status === "confirmed" ? "Pedido confirmado. Descontamos el stock." : "Actualizamos el pedido.");
     qc.invalidateQueries({ queryKey: ["admin"] });
     qc.invalidateQueries({ queryKey: ["products"] });

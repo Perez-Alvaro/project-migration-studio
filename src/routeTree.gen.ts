@@ -23,11 +23,16 @@ import { Route as TalleresSlugRouteImport } from './routes/talleres.$slug'
 import { Route as TiendaIndexRouteImport } from './routes/tienda.index'
 import { Route as TiendaSlugRouteImport } from './routes/tienda.$slug'
 import { Route as AuthenticatedAdminIndexRouteImport } from './routes/_authenticated/admin/index'
+import { Route as AuthenticatedAdminAjustesRouteImport } from './routes/_authenticated/admin/ajustes'
+import { Route as AuthenticatedAdminEquipoRouteImport } from './routes/_authenticated/admin/equipo'
 import { Route as AuthenticatedAdminNovedadesRouteImport } from './routes/_authenticated/admin/novedades'
 import { Route as AuthenticatedAdminPedidosRouteImport } from './routes/_authenticated/admin/pedidos'
+import { Route as AuthenticatedAdminSeccionesRouteImport } from './routes/_authenticated/admin/secciones'
 import { Route as AuthenticatedAdminProductosIndexRouteImport } from './routes/_authenticated/admin/productos.index'
 import { Route as AuthenticatedAdminProductosIdRouteImport } from './routes/_authenticated/admin/productos.$id'
 import { Route as AuthenticatedAdminProductosCategoriasRouteImport } from './routes/_authenticated/admin/productos.categorias'
+import { Route as AuthenticatedAdminTalleresIndexRouteImport } from './routes/_authenticated/admin/talleres.index'
+import { Route as AuthenticatedAdminTalleresIdRouteImport } from './routes/_authenticated/admin/talleres.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -99,6 +104,18 @@ const AuthenticatedAdminIndexRoute = AuthenticatedAdminIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AuthenticatedAdminRouteRoute,
 } as any)
+const AuthenticatedAdminAjustesRoute =
+  AuthenticatedAdminAjustesRouteImport.update({
+    id: '/ajustes',
+    path: '/ajustes',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminEquipoRoute =
+  AuthenticatedAdminEquipoRouteImport.update({
+    id: '/equipo',
+    path: '/equipo',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 const AuthenticatedAdminNovedadesRoute =
   AuthenticatedAdminNovedadesRouteImport.update({
     id: '/novedades',
@@ -109,6 +126,12 @@ const AuthenticatedAdminPedidosRoute =
   AuthenticatedAdminPedidosRouteImport.update({
     id: '/pedidos',
     path: '/pedidos',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminSeccionesRoute =
+  AuthenticatedAdminSeccionesRouteImport.update({
+    id: '/secciones',
+    path: '/secciones',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
 const AuthenticatedAdminProductosIndexRoute =
@@ -129,6 +152,18 @@ const AuthenticatedAdminProductosCategoriasRoute =
     path: '/productos/categorias',
     getParentRoute: () => AuthenticatedAdminRouteRoute,
   } as any)
+const AuthenticatedAdminTalleresIndexRoute =
+  AuthenticatedAdminTalleresIndexRouteImport.update({
+    id: '/talleres/',
+    path: '/talleres/',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
+const AuthenticatedAdminTalleresIdRoute =
+  AuthenticatedAdminTalleresIdRouteImport.update({
+    id: '/talleres/$id',
+    path: '/talleres/$id',
+    getParentRoute: () => AuthenticatedAdminRouteRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -143,12 +178,17 @@ export interface FileRoutesByFullPath {
   '/novedades/': typeof NovedadesIndexRoute
   '/talleres/': typeof TalleresIndexRoute
   '/tienda/': typeof TiendaIndexRoute
+  '/admin/ajustes': typeof AuthenticatedAdminAjustesRoute
+  '/admin/equipo': typeof AuthenticatedAdminEquipoRoute
   '/admin/novedades': typeof AuthenticatedAdminNovedadesRoute
   '/admin/pedidos': typeof AuthenticatedAdminPedidosRoute
+  '/admin/secciones': typeof AuthenticatedAdminSeccionesRoute
   '/admin/': typeof AuthenticatedAdminIndexRoute
   '/admin/productos/$id': typeof AuthenticatedAdminProductosIdRoute
   '/admin/productos/categorias': typeof AuthenticatedAdminProductosCategoriasRoute
+  '/admin/talleres/$id': typeof AuthenticatedAdminTalleresIdRoute
   '/admin/productos/': typeof AuthenticatedAdminProductosIndexRoute
+  '/admin/talleres/': typeof AuthenticatedAdminTalleresIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -162,12 +202,17 @@ export interface FileRoutesByTo {
   '/novedades': typeof NovedadesIndexRoute
   '/talleres': typeof TalleresIndexRoute
   '/tienda': typeof TiendaIndexRoute
+  '/admin/ajustes': typeof AuthenticatedAdminAjustesRoute
+  '/admin/equipo': typeof AuthenticatedAdminEquipoRoute
   '/admin/novedades': typeof AuthenticatedAdminNovedadesRoute
   '/admin/pedidos': typeof AuthenticatedAdminPedidosRoute
+  '/admin/secciones': typeof AuthenticatedAdminSeccionesRoute
   '/admin': typeof AuthenticatedAdminIndexRoute
   '/admin/productos/$id': typeof AuthenticatedAdminProductosIdRoute
   '/admin/productos/categorias': typeof AuthenticatedAdminProductosCategoriasRoute
+  '/admin/talleres/$id': typeof AuthenticatedAdminTalleresIdRoute
   '/admin/productos': typeof AuthenticatedAdminProductosIndexRoute
+  '/admin/talleres': typeof AuthenticatedAdminTalleresIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -184,12 +229,17 @@ export interface FileRoutesById {
   '/novedades/': typeof NovedadesIndexRoute
   '/talleres/': typeof TalleresIndexRoute
   '/tienda/': typeof TiendaIndexRoute
+  '/_authenticated/admin/ajustes': typeof AuthenticatedAdminAjustesRoute
+  '/_authenticated/admin/equipo': typeof AuthenticatedAdminEquipoRoute
   '/_authenticated/admin/novedades': typeof AuthenticatedAdminNovedadesRoute
   '/_authenticated/admin/pedidos': typeof AuthenticatedAdminPedidosRoute
+  '/_authenticated/admin/secciones': typeof AuthenticatedAdminSeccionesRoute
   '/_authenticated/admin/': typeof AuthenticatedAdminIndexRoute
   '/_authenticated/admin/productos/$id': typeof AuthenticatedAdminProductosIdRoute
   '/_authenticated/admin/productos/categorias': typeof AuthenticatedAdminProductosCategoriasRoute
+  '/_authenticated/admin/talleres/$id': typeof AuthenticatedAdminTalleresIdRoute
   '/_authenticated/admin/productos/': typeof AuthenticatedAdminProductosIndexRoute
+  '/_authenticated/admin/talleres/': typeof AuthenticatedAdminTalleresIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -206,12 +256,17 @@ export interface FileRouteTypes {
     | '/novedades/'
     | '/talleres/'
     | '/tienda/'
+    | '/admin/ajustes'
+    | '/admin/equipo'
     | '/admin/novedades'
     | '/admin/pedidos'
+    | '/admin/secciones'
     | '/admin/'
     | '/admin/productos/$id'
     | '/admin/productos/categorias'
+    | '/admin/talleres/$id'
     | '/admin/productos/'
+    | '/admin/talleres/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -225,12 +280,17 @@ export interface FileRouteTypes {
     | '/novedades'
     | '/talleres'
     | '/tienda'
+    | '/admin/ajustes'
+    | '/admin/equipo'
     | '/admin/novedades'
     | '/admin/pedidos'
+    | '/admin/secciones'
     | '/admin'
     | '/admin/productos/$id'
     | '/admin/productos/categorias'
+    | '/admin/talleres/$id'
     | '/admin/productos'
+    | '/admin/talleres'
   id:
     | '__root__'
     | '/'
@@ -246,12 +306,17 @@ export interface FileRouteTypes {
     | '/novedades/'
     | '/talleres/'
     | '/tienda/'
+    | '/_authenticated/admin/ajustes'
+    | '/_authenticated/admin/equipo'
     | '/_authenticated/admin/novedades'
     | '/_authenticated/admin/pedidos'
+    | '/_authenticated/admin/secciones'
     | '/_authenticated/admin/'
     | '/_authenticated/admin/productos/$id'
     | '/_authenticated/admin/productos/categorias'
+    | '/_authenticated/admin/talleres/$id'
     | '/_authenticated/admin/productos/'
+    | '/_authenticated/admin/talleres/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -368,6 +433,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminIndexRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/ajustes': {
+      id: '/_authenticated/admin/ajustes'
+      path: '/ajustes'
+      fullPath: '/admin/ajustes'
+      preLoaderRoute: typeof AuthenticatedAdminAjustesRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/equipo': {
+      id: '/_authenticated/admin/equipo'
+      path: '/equipo'
+      fullPath: '/admin/equipo'
+      preLoaderRoute: typeof AuthenticatedAdminEquipoRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
     '/_authenticated/admin/novedades': {
       id: '/_authenticated/admin/novedades'
       path: '/novedades'
@@ -380,6 +459,13 @@ declare module '@tanstack/react-router' {
       path: '/pedidos'
       fullPath: '/admin/pedidos'
       preLoaderRoute: typeof AuthenticatedAdminPedidosRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/secciones': {
+      id: '/_authenticated/admin/secciones'
+      path: '/secciones'
+      fullPath: '/admin/secciones'
+      preLoaderRoute: typeof AuthenticatedAdminSeccionesRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
     '/_authenticated/admin/productos/': {
@@ -403,28 +489,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAdminProductosCategoriasRouteImport
       parentRoute: typeof AuthenticatedAdminRouteRoute
     }
+    '/_authenticated/admin/talleres/': {
+      id: '/_authenticated/admin/talleres/'
+      path: '/talleres'
+      fullPath: '/admin/talleres/'
+      preLoaderRoute: typeof AuthenticatedAdminTalleresIndexRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
+    '/_authenticated/admin/talleres/$id': {
+      id: '/_authenticated/admin/talleres/$id'
+      path: '/talleres/$id'
+      fullPath: '/admin/talleres/$id'
+      preLoaderRoute: typeof AuthenticatedAdminTalleresIdRouteImport
+      parentRoute: typeof AuthenticatedAdminRouteRoute
+    }
   }
 }
 
 interface AuthenticatedAdminRouteRouteChildren {
+  AuthenticatedAdminAjustesRoute: typeof AuthenticatedAdminAjustesRoute
+  AuthenticatedAdminEquipoRoute: typeof AuthenticatedAdminEquipoRoute
   AuthenticatedAdminNovedadesRoute: typeof AuthenticatedAdminNovedadesRoute
   AuthenticatedAdminPedidosRoute: typeof AuthenticatedAdminPedidosRoute
+  AuthenticatedAdminSeccionesRoute: typeof AuthenticatedAdminSeccionesRoute
   AuthenticatedAdminIndexRoute: typeof AuthenticatedAdminIndexRoute
   AuthenticatedAdminProductosIdRoute: typeof AuthenticatedAdminProductosIdRoute
   AuthenticatedAdminProductosCategoriasRoute: typeof AuthenticatedAdminProductosCategoriasRoute
+  AuthenticatedAdminTalleresIdRoute: typeof AuthenticatedAdminTalleresIdRoute
   AuthenticatedAdminProductosIndexRoute: typeof AuthenticatedAdminProductosIndexRoute
+  AuthenticatedAdminTalleresIndexRoute: typeof AuthenticatedAdminTalleresIndexRoute
 }
 
 const AuthenticatedAdminRouteRouteChildren: AuthenticatedAdminRouteRouteChildren =
   {
+    AuthenticatedAdminAjustesRoute: AuthenticatedAdminAjustesRoute,
+    AuthenticatedAdminEquipoRoute: AuthenticatedAdminEquipoRoute,
     AuthenticatedAdminNovedadesRoute: AuthenticatedAdminNovedadesRoute,
     AuthenticatedAdminPedidosRoute: AuthenticatedAdminPedidosRoute,
+    AuthenticatedAdminSeccionesRoute: AuthenticatedAdminSeccionesRoute,
     AuthenticatedAdminIndexRoute: AuthenticatedAdminIndexRoute,
     AuthenticatedAdminProductosIdRoute: AuthenticatedAdminProductosIdRoute,
     AuthenticatedAdminProductosCategoriasRoute:
       AuthenticatedAdminProductosCategoriasRoute,
+    AuthenticatedAdminTalleresIdRoute: AuthenticatedAdminTalleresIdRoute,
     AuthenticatedAdminProductosIndexRoute:
       AuthenticatedAdminProductosIndexRoute,
+    AuthenticatedAdminTalleresIndexRoute: AuthenticatedAdminTalleresIndexRoute,
   }
 
 const AuthenticatedAdminRouteRouteWithChildren =

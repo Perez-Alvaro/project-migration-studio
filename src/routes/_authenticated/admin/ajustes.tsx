@@ -35,7 +35,7 @@ function SettingsAdmin() {
     ];
     const { error } = await supabase.from("site_settings").upsert(rows as never, { onConflict: "key" });
     setSaving(false);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     toast.success("Guardamos los ajustes.");
     qc.invalidateQueries({ queryKey: settingsQuery.queryKey });
   }

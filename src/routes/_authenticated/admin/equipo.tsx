@@ -20,7 +20,7 @@ function Team() {
   async function add(e: FormEvent) {
     e.preventDefault();
     const { error } = await supabase.rpc("set_admin", { _email: email, _make_admin: true });
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     toast.success("Le dimos acceso al panel.");
     setEmail("");
     refetch();
@@ -29,7 +29,7 @@ function Team() {
   async function remove(mail: string) {
     if (!confirm(`¿Quitar el acceso al panel a ${mail}?`)) return;
     const { error } = await supabase.rpc("set_admin", { _email: mail, _make_admin: false });
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     refetch();
   }
 

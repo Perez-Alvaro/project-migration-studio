@@ -22,7 +22,7 @@ function Categories() {
     if (!name.trim()) return;
     const last = data?.at(-1)?.position ?? 0;
     const { error } = await supabase.from("categories").insert({ name: name.trim(), slug: slugify(name), position: Number(last) + 1 });
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     setName("");
     refetch();
   }
@@ -30,7 +30,7 @@ function Categories() {
   async function remove(id: string) {
     if (!confirm("¿Eliminar esta categoría? Los productos quedan sin categoría.")) return;
     const { error } = await supabase.from("categories").delete().eq("id", id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     refetch();
   }
 

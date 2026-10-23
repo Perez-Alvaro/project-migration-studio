@@ -54,7 +54,7 @@ function WorkshopEditor() {
       teacher: info.teacher ?? "", modality: info.modality ?? "virtual", starts_on: info.starts_on || null, ends_on: info.ends_on || null,
       status: info.status ?? "draft", cover_url: info.cover_url ?? null,
     }).eq("id", id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     toast.success("Guardamos el taller.");
     invalidate();
   }
@@ -63,7 +63,7 @@ function WorkshopEditor() {
     if (!confirm("¿Eliminar este taller con sus clases, material e inscripciones? No se puede deshacer.")) return;
     if (data?.materials.length) await supabase.storage.from("workshop-materials").remove(data.materials.map((m) => m.file_path));
     const { error } = await supabase.from("workshops").delete().eq("id", id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     invalidate();
     navigate({ to: "/admin/talleres" });
   }
@@ -129,7 +129,7 @@ function Enrollments({ enrollments, profiles, onChange }: {
 }) {
   async function set(id: string, status: string) {
     const { error } = await supabase.from("workshop_enrollments").update({ status }).eq("id", id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     onChange();
   }
   return (
@@ -173,14 +173,14 @@ function Lessons({ workshopId, lessons, onChange }: {
     const { error } = edit.id
       ? await supabase.from("workshop_lessons").update(row).eq("id", edit.id)
       : await supabase.from("workshop_lessons").insert({ ...row, workshop_id: workshopId, position: Number(lessons.at(-1)?.position ?? 0) + 1 });
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     setEdit(null);
     onChange();
   }
   async function remove(id: string) {
     if (!confirm("¿Eliminar esta clase?")) return;
     const { error } = await supabase.from("workshop_lessons").delete().eq("id", id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     onChange();
   }
   return (
@@ -255,7 +255,7 @@ function Materials({ workshopId, lessons, materials, onChange }: {
     if (!confirm("¿Eliminar este archivo?")) return;
     await supabase.storage.from("workshop-materials").remove([m.file_path]);
     const { error } = await supabase.from("workshop_materials").delete().eq("id", m.id);
-    if (error) return toast.error(errorText(error));
+    if (error) { toast.error(errorText(error)); return; }
     onChange();
   }
 
