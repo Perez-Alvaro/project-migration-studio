@@ -1,7 +1,6 @@
-import type { Metadata } from 'next';
 
 export const SITE_NAME = 'Centro Educativo Terapéutico Haruén';
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.fundacionharuen.org';
+export const SITE_URL = 'https://www.fundacionharuen.org';
 
 /**
  * Truncate text to a maximum length, preserving word boundaries.

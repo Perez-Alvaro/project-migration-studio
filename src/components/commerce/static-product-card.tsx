@@ -23,7 +23,7 @@ export function StaticProductCard({ product }: StaticProductCardProps) {
             name: product.name,
             price: product.price,
             // Serialize src string so CartItem is localStorage-safe
-            image: imageSrc.src,
+            image: imageSrc,
         });
         setAdded(true);
         setTimeout(() => setAdded(false), 1800);
