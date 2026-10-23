@@ -1,12 +1,75 @@
-{"source":"code-archive (haruen.zip, Next.js storefront based on Vendure starter)","capabilities":[
-{"capability":"code: home page sections, tienda, cart drawer, WhatsApp ordering, donation campaign","source":"src/app, src/components","outcome":"migrate","status":"in_progress","next_action":"Port to TanStack routes"},
-{"capability":"static assets (product and site images)","source":"src/assets","outcome":"migrate","status":"in_progress","next_action":"Upload as Lovable assets"},
-{"capability":"database / records","source":"Vendure (mocked in source: lib/vendure/api.ts returns empty data)","outcome":"none-in-use","status":"verified","next_action":"Catalog is static in src/data/products.ts; no live data store to export"},
-{"capability":"auth identities (sign-in, register, account pages)","source":"Vendure Shop API (mocked, always fails)","outcome":"not-migrated-nonfunctional-in-source","status":"pending-user-decision","next_action":"Ask whether real customer accounts are wanted on Lovable Cloud"},
-{"capability":"Vendure checkout, search, collection, product/[slug], order pages","source":"Vendure (mocked, render empty)","outcome":"not-migrated-nonfunctional-in-source","status":"pending-user-decision","next_action":"Ordering works via WhatsApp from cart drawer"},
-{"capability":"Mercado Pago payments (/api/mp/*)","source":"store-settings stub with null keys","outcome":"not-active-in-source","status":"pending-user-decision","next_action":"Rebuild with secrets if user wants online card payments"},
-{"capability":"Andreani / Correo Argentino shipping quotes","source":"/api/shipping/* with null credentials","outcome":"not-active-in-source","status":"pending-user-decision","next_action":"Rebuild if user supplies carrier credentials"},
-{"capability":"/api/revalidate webhook","source":"Next ISR revalidation","outcome":"not-applicable","status":"verified","next_action":"No ISR cache in TanStack build"},
-{"capability":"secrets","source":"REVALIDATION_SECRET, NEXT_PUBLIC_SITE_URL","outcome":"not-needed","status":"verified","next_action":"none"},
-{"capability":"verification","source":"-","outcome":"migrate","status":"pending","next_action":"Screenshot routes"}
-]}
+{
+ "source": "code-archive (haruen.zip, Next.js storefront based on Vendure starter)",
+ "capabilities": [
+  {
+   "capability": "code: home page sections, tienda, cart drawer, WhatsApp ordering, donation campaign",
+   "source": "src/app, src/components",
+   "outcome": "migrate",
+   "status": "verified",
+   "next_action": "Checked in browser: home, /tienda, add to cart, WhatsApp order drawer"
+  },
+  {
+   "capability": "static assets (product and site images)",
+   "source": "src/assets",
+   "outcome": "migrate",
+   "status": "verified",
+   "next_action": "Checked in browser: home, /tienda, add to cart, WhatsApp order drawer"
+  },
+  {
+   "capability": "database / records",
+   "source": "Vendure (mocked in source: lib/vendure/api.ts returns empty data)",
+   "outcome": "none-in-use",
+   "status": "verified",
+   "next_action": "Catalog is static in src/data/products.ts; no live data store to export"
+  },
+  {
+   "capability": "auth identities (sign-in, register, account pages)",
+   "source": "Vendure Shop API (mocked, always fails)",
+   "outcome": "not-migrated-nonfunctional-in-source",
+   "status": "pending-user-decision",
+   "next_action": "Ask whether real customer accounts are wanted on Lovable Cloud"
+  },
+  {
+   "capability": "Vendure checkout, search, collection, product/[slug], order pages",
+   "source": "Vendure (mocked, render empty)",
+   "outcome": "not-migrated-nonfunctional-in-source",
+   "status": "pending-user-decision",
+   "next_action": "Ordering works via WhatsApp from cart drawer"
+  },
+  {
+   "capability": "Mercado Pago payments (/api/mp/*)",
+   "source": "store-settings stub with null keys",
+   "outcome": "not-active-in-source",
+   "status": "pending-user-decision",
+   "next_action": "Rebuild with secrets if user wants online card payments"
+  },
+  {
+   "capability": "Andreani / Correo Argentino shipping quotes",
+   "source": "/api/shipping/* with null credentials",
+   "outcome": "not-active-in-source",
+   "status": "pending-user-decision",
+   "next_action": "Rebuild if user supplies carrier credentials"
+  },
+  {
+   "capability": "/api/revalidate webhook",
+   "source": "Next ISR revalidation",
+   "outcome": "not-applicable",
+   "status": "verified",
+   "next_action": "No ISR cache in TanStack build"
+  },
+  {
+   "capability": "secrets",
+   "source": "REVALIDATION_SECRET, NEXT_PUBLIC_SITE_URL",
+   "outcome": "not-needed",
+   "status": "verified",
+   "next_action": "none"
+  },
+  {
+   "capability": "verification",
+   "source": "-",
+   "outcome": "migrate",
+   "status": "verified",
+   "next_action": "Checked in browser: home, /tienda, add to cart, WhatsApp order drawer"
+  }
+ ]
+}
