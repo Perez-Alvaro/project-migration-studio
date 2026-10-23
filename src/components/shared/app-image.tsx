@@ -17,6 +17,7 @@ export default function Image({ src, fill, priority, quality: _q, placeholder: _
     <img
       src={src}
       loading={priority ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : "auto"}
       decoding="async"
       className={cn(fill && "absolute inset-0 h-full w-full", className)}
       {...rest}
