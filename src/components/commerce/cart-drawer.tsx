@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image from "@/components/shared/app-image";
 import { X, Plus, Minus, ShoppingCart, MessageCircle, Trash2 } from "lucide-react";
 import { useCart } from "@/contexts/cart-context";
 import { formatPrice } from "@/data/products";

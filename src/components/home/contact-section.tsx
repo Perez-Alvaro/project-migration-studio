@@ -1,10 +1,12 @@
 import React from "react";
-import Image from "next/image";
+import Image from "@/components/shared/app-image";
 import { Phone, MessageCircle, MapPin } from "lucide-react";
 import { FadeIn } from "@/components/ui/fade-in";
 import { ContactForm } from "@/components/contact/contact-form";
-import FounderRogelio from "@/assets/founder-rogelio.jpg";
-import FounderAlfredo from "@/assets/founder-alfredo.jpg";
+import FounderRogelioAsset from "@/assets/founder-rogelio.jpg.asset.json";
+const FounderRogelio = FounderRogelioAsset.url;
+import FounderAlfredoAsset from "@/assets/founder-alfredo.jpg.asset.json";
+const FounderAlfredo = FounderAlfredoAsset.url;
 
 export function ContactSection() {
     return (

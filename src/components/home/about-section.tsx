@@ -1,14 +1,21 @@
 import React from "react";
-import Image from "next/image";
+import Image from "@/components/shared/app-image";
 import { Info, Instagram, Facebook, Users, Heart, GraduationCap, Shield, BookOpen, Hash, Leaf, Globe2, Palette, Music, Dumbbell, Brain, ChefHat } from "lucide-react";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/ui/fade-in";
-import HaruenAbout from "@/assets/haruen-about.jpg";
-import WorkshopEducation from "@/assets/workshop-education.jpg";
-import WorkshopVitrofusion from "@/assets/workshop-vitrofusion.jpg";
-import WorkshopMusic from "@/assets/workshop-music.jpg";
-import WorkshopSports from "@/assets/workshop-sports.jpg";
-import WorkshopPsychology from "@/assets/workshop-psychology.jpg";
-import WorkshopCooking from "@/assets/workshop-cooking.jpg";
+import HaruenAboutAsset from "@/assets/haruen-about.jpg.asset.json";
+const HaruenAbout = HaruenAboutAsset.url;
+import WorkshopEducationAsset from "@/assets/workshop-education.jpg.asset.json";
+const WorkshopEducation = WorkshopEducationAsset.url;
+import WorkshopVitrofusionAsset from "@/assets/workshop-vitrofusion.jpg.asset.json";
+const WorkshopVitrofusion = WorkshopVitrofusionAsset.url;
+import WorkshopMusicAsset from "@/assets/workshop-music.jpg.asset.json";
+const WorkshopMusic = WorkshopMusicAsset.url;
+import WorkshopSportsAsset from "@/assets/workshop-sports.jpg.asset.json";
+const WorkshopSports = WorkshopSportsAsset.url;
+import WorkshopPsychologyAsset from "@/assets/workshop-psychology.jpg.asset.json";
+const WorkshopPsychology = WorkshopPsychologyAsset.url;
+import WorkshopCookingAsset from "@/assets/workshop-cooking.jpg.asset.json";
+const WorkshopCooking = WorkshopCookingAsset.url;
 
 const VALORES = [
     {

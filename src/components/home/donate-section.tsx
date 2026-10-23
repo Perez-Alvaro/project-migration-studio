@@ -1,4 +1,3 @@
-"use client";
 
 import React, { useState } from "react";
 import { HandHeart, Copy, Check, MessageCircle } from "lucide-react";

@@ -1,10 +1,14 @@
 import React from "react";
-import Image from "next/image";
+import Image from "@/components/shared/app-image";
 import { Paintbrush, ArrowDown, ChevronDown, Sparkles } from "lucide-react";
-import HaruenAbout from "@/assets/haruen-about.jpg";
-import Hero2 from "@/assets/hero-2.png";
-import Hero3 from "@/assets/hero-3.png";
-import Hero4 from "@/assets/hero-4.png";
+import HaruenAboutAsset from "@/assets/haruen-about.jpg.asset.json";
+const HaruenAbout = HaruenAboutAsset.url;
+import Hero2Asset from "@/assets/hero-2.png.asset.json";
+const Hero2 = Hero2Asset.url;
+import Hero3Asset from "@/assets/hero-3.png.asset.json";
+const Hero3 = Hero3Asset.url;
+import Hero4Asset from "@/assets/hero-4.png.asset.json";
+const Hero4 = Hero4Asset.url;
 
 export const IMPACTO = [
     { num: "+26", label: "Alumnos activos" },

@@ -1,10 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "@/components/shared/app-image";
+import Link from "@/components/shared/app-link";
 import { Heart } from "lucide-react";
 import { ThemeSwitcher } from "@/components/layout/navbar/theme-switcher";
 import { NavbarMobileMenu } from "@/components/layout/navbar/navbar-mobile-menu";
 import { CartNavIcon } from "@/components/layout/navbar/cart-nav-icon";
-import HaruenLogo from "@/assets/haruenlogo.jpg";
+import HaruenLogoAsset from "@/assets/haruenlogo.jpg.asset.json";
+const HaruenLogo = HaruenLogoAsset.url;
 
 const NAV_ITEMS = [
     { href: "/#nosotros", label: "Nosotros" },

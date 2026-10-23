@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/shared/app-link";
 import { MapPin, Heart, Phone, MessageCircle, Instagram, Facebook } from "lucide-react";
 import { cacheLife } from "next/cache";
 

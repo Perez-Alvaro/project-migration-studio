@@ -1,4 +1,3 @@
-"use client";
 
 /**
  * WhatsappButton — Botón flotante de WhatsApp de Haruén.

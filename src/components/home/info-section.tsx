@@ -1,5 +1,5 @@
 import React from "react";
-import Link from "next/link";
+import Link from "@/components/shared/app-link";
 import { MapPin, Clock, UtensilsCrossed, UserCheck, Info } from "lucide-react";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/ui/fade-in";
 
