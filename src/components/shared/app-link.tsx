@@ -12,5 +12,5 @@ type Props = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, "href"> & {
 export default function Link({ href, prefetch: _p, scroll: _s, ...rest }: Props) {
   if (!href.startsWith("/")) return <a href={href} {...rest} />;
   const [path, hash] = href.split("#");
-  return <RouterLink to={path || "/"} hash={hash} {...rest} />;
+  return <RouterLink to={path || "/"} {...(hash ? { hash } : {})} {...rest} />;
 }
