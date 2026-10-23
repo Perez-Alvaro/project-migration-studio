@@ -34,7 +34,7 @@ export function CartDrawer() {
                 {/* Header */}
                 <div className="flex items-center justify-between px-6 py-5 border-b border-border">
                     <div className="flex items-center gap-3">
-                        <ShoppingCart size={20} className="text-primary" />
+                        <ShoppingCart size={20} className="text-primary-ink" />
                         <h2 className="text-lg font-extrabold text-foreground">
                             Tu Carrito
                         </h2>
@@ -96,7 +96,7 @@ export function CartDrawer() {
                                         <p className="font-bold text-sm leading-snug line-clamp-2 text-foreground">
                                             {item.name}
                                         </p>
-                                        <p className="text-primary font-extrabold mt-1">
+                                        <p className="text-primary-ink font-extrabold mt-1">
                                             {formatPrice(item.price)}
                                         </p>
 
@@ -156,7 +156,7 @@ export function CartDrawer() {
                             <span className="font-semibold text-muted-foreground">
                                 Total estimado
                             </span>
-                            <span className="text-2xl font-black text-primary">
+                            <span className="text-2xl font-black text-primary-ink">
                                 {formatPrice(total)}
                             </span>
                         </div>

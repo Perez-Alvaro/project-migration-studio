@@ -21,11 +21,11 @@ export function StoreSection() {
                     {/* Detalles de compra */}
                     <div className="mt-5 flex flex-wrap justify-center lg:justify-start gap-4">
                         <span className="inline-flex items-center gap-2 text-sm text-muted-foreground bg-muted px-3 py-1.5 rounded-full">
-                            <Truck size={14} className="text-primary" />
+                            <Truck size={14} className="text-primary-ink" />
                             Envío por Uber Moto o Andreani
                         </span>
                         <span className="inline-flex items-center gap-2 text-sm text-muted-foreground bg-muted px-3 py-1.5 rounded-full">
-                            <CreditCard size={14} className="text-primary" />
+                            <CreditCard size={14} className="text-primary-ink" />
                             Transferencia, Mercado Pago, Efectivo
                         </span>
                     </div>

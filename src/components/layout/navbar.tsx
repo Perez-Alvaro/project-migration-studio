@@ -37,7 +37,7 @@ export function Navbar() {
                                 <span className="text-sm font-semibold text-muted-foreground">
                                     Centro Educativo
                                 </span>
-                                <span className="text-base font-extrabold text-primary">
+                                <span className="text-base font-extrabold text-primary-ink">
                                     Terapéutico Haruén
                                 </span>
                             </div>
@@ -50,7 +50,7 @@ export function Navbar() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="text-foreground/70 hover:text-primary transition-colors duration-150"
+                                className="text-foreground/70 hover:text-primary-ink transition-colors duration-150"
                             >
                                 {item.label}
                             </Link>

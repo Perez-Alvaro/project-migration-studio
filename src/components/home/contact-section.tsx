@@ -91,7 +91,7 @@ export function ContactSection() {
                         </div>
 
                         <p className="text-sm text-muted-foreground flex items-center justify-center lg:justify-start gap-2 w-full">
-                            <MapPin size={14} className="text-primary flex-shrink-0" aria-hidden="true" />
+                            <MapPin size={14} className="text-primary-ink flex-shrink-0" aria-hidden="true" />
                             Entre Ríos 2867, Córdoba, Argentina
                         </p>
                     </div>

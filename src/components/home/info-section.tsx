@@ -64,7 +64,7 @@ export function InfoSection() {
                                     href={link.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-sm font-semibold text-primary hover:underline"
+                                    className="text-sm font-semibold text-primary-ink hover:underline"
                                 >
                                     {link.label}
                                 </Link>

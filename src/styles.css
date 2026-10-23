@@ -33,6 +33,12 @@
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
   --color-primary-dark: var(--primary-dark);
+  --color-primary-ink: var(--primary-ink);
+  --color-surface: var(--brand-surface);
+  --font-heading: var(--font-heading);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+  --font-sans: var(--font-body);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -44,33 +50,49 @@
 }
 
 :root {
-  --radius: 1rem;
+  /* Fundación Haruén — paleta oficial (guía de marca). Solo estos valores. */
+  --brand-cta: #ef7225;
+  --brand-text: #152129;
+  --brand-background: #f4fafe;
+  --brand-surface: #121c21;
+  --brand-muted: #e6f0f0;
+  --brand-border: #152129;
 
-  --background: hsl(180 24% 97%);
-  --foreground: hsl(200 32% 10%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(200 32% 10%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(200 32% 10%);
-  --primary: hsl(187 68% 23%);
-  --primary-foreground: hsl(0 0% 100%);
-  --primary-dark: hsl(187 70% 18%);
-  --secondary: hsl(200 32% 10%);
-  --secondary-foreground: hsl(0 0% 100%);
-  --muted: hsl(180 16% 91%);
-  --muted-foreground: hsl(200 28% 22%);
-  --accent: hsl(27 88% 58%);
-  --accent-foreground: hsl(200 32% 10%);
-  --destructive: hsl(0 84% 60%);
-  --border: hsl(190 24% 42%);
-  --input: hsl(190 24% 42%);
-  --ring: hsl(187 68% 36%);
+  --radius: 12px; /* card-radius */
+  --section-padding: 64px;
+  --shadow-soft-depth: 0 4px 6px rgba(21, 33, 41, 0.05);
+  --hover-lift: 0.2s ease-in-out;
+  --font-heading: "Quicksand", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+  --font-mono: "Courier New", Courier, monospace;
 
-  --chart-1: hsl(187 68% 32%);
-  --chart-2: hsl(160 54% 28%);
-  --chart-3: hsl(24 88% 38%);
-  --chart-4: hsl(22 84% 34%);
-  --chart-5: hsl(206 34% 30%);
+  --background: var(--brand-background);
+  --foreground: var(--brand-text);
+  --card: var(--brand-background);
+  --card-foreground: var(--brand-text);
+  --popover: var(--brand-background);
+  --popover-foreground: var(--brand-text);
+  /* Naranja con texto oscuro (5,5:1). Sobre fondo claro el naranja no llega a AA como texto. */
+  --primary: var(--brand-cta);
+  --primary-foreground: var(--brand-text);
+  --primary-ink: var(--brand-text);
+  --primary-dark: var(--brand-surface);
+  --secondary: var(--brand-surface);
+  --secondary-foreground: var(--brand-background);
+  --muted: var(--brand-muted);
+  --muted-foreground: color-mix(in oklab, var(--brand-text) 78%, var(--brand-background));
+  --accent: var(--brand-cta);
+  --accent-foreground: var(--brand-text);
+  --destructive: oklch(0.55 0.2 27);
+  --border: color-mix(in oklab, var(--brand-border) 18%, transparent);
+  --input: color-mix(in oklab, var(--brand-border) 40%, transparent);
+  --ring: var(--brand-cta);
+
+  --chart-1: var(--brand-cta);
+  --chart-2: var(--brand-surface);
+  --chart-3: color-mix(in oklab, var(--brand-cta) 60%, var(--brand-background));
+  --chart-4: color-mix(in oklab, var(--brand-text) 60%, var(--brand-background));
+  --chart-5: var(--brand-muted);
 
   --sidebar: var(--card);
   --sidebar-foreground: var(--foreground);
@@ -81,51 +103,38 @@
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
 
-  --warm-gradient: linear-gradient(135deg, hsl(187 68% 38%), hsl(187 68% 28%));
-  --sunset-gradient: linear-gradient(135deg, hsl(23 86% 54%), hsl(29 90% 60%));
-  --nature-gradient: linear-gradient(135deg, hsl(187 68% 38%), hsl(160 54% 32%));
-  --joy-gradient: linear-gradient(135deg, hsl(21 82% 50%), hsl(29 90% 60%));
-  --shadow-warm: 0 8px 30px -8px hsl(187 68% 23% / 0.28);
-  --shadow-soft: 0 4px 20px -4px hsl(200 32% 10% / 0.08);
-  --hero-bg: hsl(187 70% 18%);
+  --warm-gradient: linear-gradient(135deg, var(--brand-surface), var(--brand-text));
+  --sunset-gradient: linear-gradient(135deg, var(--brand-cta), var(--brand-cta));
+  --nature-gradient: var(--warm-gradient);
+  --joy-gradient: var(--sunset-gradient);
+  --shadow-warm: var(--shadow-soft-depth);
+  --shadow-soft: var(--shadow-soft-depth);
+  --hero-bg: var(--brand-surface);
 }
 
 .dark {
-  --background: hsl(200 30% 7%);
-  --foreground: hsl(180 24% 97%);
-  --card: hsl(200 28% 10%);
-  --card-foreground: hsl(180 24% 97%);
-  --popover: hsl(200 28% 10%);
-  --popover-foreground: hsl(180 24% 97%);
-  --primary: hsl(187 72% 64%);
-  --primary-foreground: hsl(200 32% 10%);
-  --primary-dark: hsl(187 70% 18%);
-  --secondary: hsl(0 0% 100%);
-  --secondary-foreground: hsl(200 32% 10%);
-  --muted: hsl(200 22% 17%);
-  --muted-foreground: hsl(180 16% 84%);
-  --accent: hsl(28 92% 66%);
-  --accent-foreground: hsl(200 32% 10%);
-  --destructive: hsl(0 84% 66%);
-  --border: hsl(200 20% 48%);
-  --input: hsl(200 20% 48%);
-  --ring: hsl(187 72% 64%);
-  --hero-bg: hsl(200 30% 12%);
-
-  --chart-1: hsl(187 72% 64%);
-  --chart-2: hsl(160 56% 52%);
-  --chart-3: hsl(28 92% 66%);
-  --chart-4: hsl(26 90% 64%);
-  --chart-5: hsl(205 36% 68%);
-
-  --sidebar: hsl(200 28% 10%);
-  --sidebar-foreground: hsl(180 24% 97%);
-  --sidebar-primary: var(--primary);
-  --sidebar-primary-foreground: var(--primary-foreground);
-  --sidebar-accent: var(--accent);
-  --sidebar-accent-foreground: var(--accent-foreground);
-  --sidebar-border: hsl(200 20% 25%);
-  --sidebar-ring: var(--ring);
+  --background: var(--brand-surface);
+  --foreground: var(--brand-background);
+  --card: var(--brand-text);
+  --card-foreground: var(--brand-background);
+  --popover: var(--brand-text);
+  --popover-foreground: var(--brand-background);
+  --primary: var(--brand-cta);
+  --primary-foreground: var(--brand-text);
+  --primary-ink: var(--brand-cta);
+  --primary-dark: var(--brand-surface);
+  --secondary: var(--brand-background);
+  --secondary-foreground: var(--brand-text);
+  --muted: var(--brand-text);
+  --muted-foreground: var(--brand-muted);
+  --accent: var(--brand-cta);
+  --accent-foreground: var(--brand-text);
+  --border: color-mix(in oklab, var(--brand-muted) 22%, transparent);
+  --input: color-mix(in oklab, var(--brand-muted) 40%, transparent);
+  --hero-bg: var(--brand-text);
+  --sidebar: var(--brand-text);
+  --sidebar-foreground: var(--brand-background);
+  --sidebar-border: var(--border);
 }
 
 @layer base {
@@ -149,7 +158,7 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-nunito), "Nunito", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-body);
     font-size: 16px;
     line-height: 1.6;
     text-align: left;
@@ -161,7 +170,7 @@
   h4,
   h5,
   h6 {
-    font-family: var(--font-quicksand), "Quicksand", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
     text-wrap: balance;
@@ -191,7 +200,7 @@
   }
 
   section {
-    padding-block: 2.5rem;
+    padding-block: var(--section-padding);
   }
 }
 
@@ -203,7 +212,7 @@
   }
 
   .haruen-section {
-    padding-block: 2.5rem;
+    padding-block: var(--section-padding);
   }
 
   .haruen-section-sm {
@@ -288,7 +297,7 @@
     color: hsl(200 32% 10%) !important;
     box-shadow: var(--shadow-warm);
     font-size: 1rem;
-    font-weight: 800;
+    font-weight: 700;
   }
 
   .btn-hero-primary:hover,
@@ -313,7 +322,7 @@
   }
 
   .btn-success-state {
-    background: linear-gradient(135deg, hsl(160 50% 40%), hsl(160 50% 35%));
+    background: var(--brand-surface);
     color: hsl(0 0% 100%);
     box-shadow: none;
   }
@@ -355,10 +364,10 @@
 
   .haruen-card {
     background: var(--card);
-    border-radius: 1rem;
+    border-radius: var(--radius);
     box-shadow: var(--shadow-soft);
     padding: 1.25rem;
-    transition: box-shadow 300ms ease, transform 300ms ease;
+    transition: box-shadow var(--hover-lift), transform var(--hover-lift);
   }
 
   .haruen-card:hover {

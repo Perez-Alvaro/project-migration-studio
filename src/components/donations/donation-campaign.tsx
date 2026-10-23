@@ -138,7 +138,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
             badgeText: "¡Meta de $10.000.000 cumplida! Gracias comunidad Haruén",
             badgeClass: "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-200 dark:border-emerald-800",
             percentClass: "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-200",
-            barGradient: "bg-gradient-to-r from-emerald-600 to-teal-600",
+            barGradient: "bg-gradient-to-r from-emerald-600 to-surface",
             subtext: `¡Alcanzamos los $${meta.toLocaleString("es-AR")} gracias a la solidaridad de todos!`,
             donorsText: `${CAMPAIGN_DATA.donantes_final} donantes hicieron posible renovar nuestro espacio`,
             persuasionMessage: "¡Lo logramos entre todos! Cientos de personas demostraron que sumando voluntades ningún objetivo es imposible para nuestra comunidad.",
@@ -258,7 +258,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                     {/* Donantes y Social Proof */}
                     <div className="flex flex-wrap items-center justify-between gap-2 pb-6 border-b border-border/40 text-xs text-muted-foreground">
                         <div className="flex items-center gap-2">
-                            <span className="p-1.5 rounded-full bg-primary/10 text-primary">
+                            <span className="p-1.5 rounded-full bg-primary/10 text-primary-ink">
                                 <Users size={14} />
                             </span>
                             <span className="font-semibold text-foreground">
@@ -330,7 +330,7 @@ export function DonationCampaign({ status = "iniciada" }: DonationCampaignProps)
                             <span>Acreditación inmediata por WhatsApp</span>
                         </div>
                         <div className="flex items-center justify-center sm:justify-end gap-2 text-xs font-semibold text-muted-foreground">
-                            <Sparkles size={16} className="text-teal-600 flex-shrink-0" />
+                            <Sparkles size={16} className="text-primary-ink flex-shrink-0" />
                             <span>100% destinado a la obra y materiales</span>
                         </div>
                     </div>

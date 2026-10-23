@@ -43,7 +43,7 @@ export function StaticProductCard({ product }: StaticProductCardProps) {
 
                 {/* Badge de categoría */}
                 <div className="absolute top-3 left-3">
-                    <span className="text-xs font-bold bg-white/90 text-primary px-2 py-1 rounded-full capitalize">
+                    <span className="text-xs font-bold bg-white/90 text-primary-ink px-2 py-1 rounded-full capitalize">
                         {product.category === "encargo" ? "Por Encargo" : product.category}
                     </span>
                 </div>
@@ -51,7 +51,7 @@ export function StaticProductCard({ product }: StaticProductCardProps) {
 
             {/* Info */}
             <div className="p-5 flex-1 flex flex-col gap-3">
-                <h3 className="text-lg font-bold group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                <h3 className="text-lg font-bold group-hover:text-primary-ink transition-colors line-clamp-2 leading-snug">
                     {product.name}
                 </h3>
 
@@ -60,7 +60,7 @@ export function StaticProductCard({ product }: StaticProductCardProps) {
                 </p>
 
                 <div className="mt-auto flex items-center justify-between gap-3 pt-3">
-                    <span className="text-2xl font-black text-primary">
+                    <span className="text-2xl font-black text-primary-ink">
                         {formatPrice(product.price)}
                     </span>
 
