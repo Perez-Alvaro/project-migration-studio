@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "@/components/shared/app-image";
-import { Paintbrush, ArrowDown, ChevronDown, Sparkles } from "lucide-react";
+import Link from "@/components/shared/app-link";
+import { useVisibleSections } from "@/hooks/use-visible-sections";
+import { ShoppingBag, Paintbrush, ArrowDown, ChevronDown, Sparkles } from "lucide-react";
 import HaruenAboutAsset from "@/assets/haruen-about.webp.asset.json";
 const HaruenAbout = HaruenAboutAsset.url;
 import Hero2Asset from "@/assets/hero-2.webp.asset.json";
@@ -18,6 +20,7 @@ export const IMPACTO = [
 ];
 
 export function HeroSection() {
+    const campaignOn = useVisibleSections().has("campaign");
     return (
         <section id="inicio" className="bg-teal-hero min-h-screen pt-[96px] pb-16 text-hero-foreground relative overflow-hidden">
             <div className="absolute inset-0 bg-background/5 dark:bg-background/20 pointer-events-none mix-blend-overlay" />
@@ -26,7 +29,7 @@ export function HeroSection() {
                 {/* --- Columna izquierda: texto (Renderizado directo prioritario para LCP) --- */}
                 <div className="space-y-7 flex flex-col items-center text-center lg:items-start lg:text-left lg:block">
                     {/* Badge dorado interactivo con ancla directa a la campaña */}
-                    <a
+                    {campaignOn && (<a
                         href="#campana-donacion"
                         className="group inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full text-xs font-bold bg-accent text-accent-foreground hover:bg-accent/90 border border-accent shadow-warm backdrop-blur-sm transition-all cursor-pointer"
                     >
@@ -36,7 +39,7 @@ export function HeroSection() {
                         </span>
                         <span>Campaña Activa: Ayudanos a dejar Haruén hermosa</span>
                         <ArrowDown size={13} className="text-accent-foreground group-hover:translate-y-0.5 transition-transform" aria-hidden="true" />
-                    </a>
+                    </a>)}
 
                     {/* H1 - Candidato LCP crítico en mobile */}
                     <h1 className="text-clamp-title font-bold leading-[1.05] tracking-tight">
@@ -55,17 +58,25 @@ export function HeroSection() {
 
                     {/* CTAs */}
                     <div className="flex flex-wrap justify-center lg:justify-start gap-3 pt-1">
-                        <a
+                        {campaignOn ? (<a
                             href="#campana-donacion"
                             className="btn-pill btn-hero-primary flex items-center gap-2 group cursor-pointer"
                         >
                             <Paintbrush size={16} aria-hidden="true" />
                             <span>Sumate a la Campaña</span>
                             <ArrowDown size={14} className="group-hover:translate-y-0.5 transition-transform" aria-hidden="true" />
-                        </a>
+                        </a>) : (
+                        <Link href="/tienda" className="btn-pill btn-sunset-gradient flex items-center gap-2 cursor-pointer">
+                            <ShoppingBag size={16} aria-hidden="true" />
+                            <span>Ir a la tienda</span>
+                        </Link>)}
+                        {campaignOn ? (
                         <a href="#tienda" className="btn-pill btn-ghost-light cursor-pointer">
                             Conocer tienda
-                        </a>
+                        </a>) : (
+                        <a href="#nosotros" className="btn-pill btn-ghost-light cursor-pointer">
+                            Conocer Haruén
+                        </a>)}
                     </div>
 
                     {/* Social proof mini */}
@@ -145,7 +156,7 @@ export function HeroSection() {
             </div>
 
             {/* Prompt interactivo de scroll hacia la campaña de donaciones */}
-            <div className="hidden sm:flex absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
+            {campaignOn && <div className="hidden sm:flex absolute bottom-4 left-1/2 -translate-x-1/2 z-20">
                 <a
                     href="#campana-donacion"
                     className="group flex items-center gap-2 px-4 py-1.5 rounded-full bg-hero-foreground/10 hover:bg-accent hover:text-accent-foreground border border-hero-foreground/20 backdrop-blur-md text-xs font-bold text-hero-foreground transition-all shadow-md hover:scale-105 active:scale-95 cursor-pointer"
@@ -155,7 +166,7 @@ export function HeroSection() {
                     <span>Conocé la Campaña Hermosa Haruén</span>
                     <ChevronDown size={15} className="text-hero-foreground animate-bounce" aria-hidden="true" />
                 </a>
-            </div>
+            </div>}
         </section>
     );
 }
