@@ -21,6 +21,13 @@ export const homeQuery = queryOptions({
   queryFn: () => getHomeData(),
 });
 
+/** Visible sections, derived from the home payload (no extra request). */
+export const sectionsQuery = queryOptions({
+  queryKey: ["home"],
+  queryFn: () => getHomeData(),
+  select: (d) => d.sections,
+});
+
 export type ShopSearch = { category?: string | undefined; q?: string | undefined; sort?: "destacados" | "nuevos" | "precio-asc" | "precio-desc" | undefined };
 
 export const productsQuery = (s: ShopSearch) =>
