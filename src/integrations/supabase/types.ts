@@ -133,6 +133,9 @@ export type Database = {
         Row: {
           code: string
           created_at: string
+          customer_address: string
+          customer_dni: string
+          customer_email: string
           customer_name: string
           customer_phone: string
           id: string
@@ -145,6 +148,9 @@ export type Database = {
         Insert: {
           code: string
           created_at?: string
+          customer_address?: string
+          customer_dni?: string
+          customer_email?: string
           customer_name: string
           customer_phone?: string
           id?: string
@@ -157,6 +163,9 @@ export type Database = {
         Update: {
           code?: string
           created_at?: string
+          customer_address?: string
+          customer_dni?: string
+          customer_email?: string
           customer_name?: string
           customer_phone?: string
           id?: string
@@ -633,6 +642,9 @@ export type Database = {
       }
       create_order: {
         Args: {
+          _customer_address?: string
+          _customer_dni?: string
+          _customer_email?: string
           _customer_name: string
           _customer_phone?: string
           _items: Json
