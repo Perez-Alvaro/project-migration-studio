@@ -40,6 +40,7 @@
   --color-primary-dark: var(--primary-dark);
   --color-primary-ink: var(--primary-ink);
   --color-surface: var(--brand-surface);
+  --color-overlay: var(--brand-text);
   --color-hero-foreground: var(--brand-background);
   --font-heading: var(--font-heading);
   --font-body: var(--font-body);
@@ -427,41 +428,8 @@
     color: var(--primary);
   }
 
-  #inicio,
-  #inicio h1,
-  #inicio h1 span,
-  #inicio p,
-  #donaciones,
-  #donaciones h2,
-  #donaciones > .haruen-container > * > div > p {
-    color: var(--brand-background) !important;
-  }
-
-  #inicio h1,
-  #inicio h1 span {
+  #inicio h1 {
     text-shadow: var(--hero-shadow);
-  }
-
-  #inicio a.btn-hero-primary,
-  #inicio a.btn-sunset-gradient,
-  #donaciones a.btn-sunset-gradient {
-    color: var(--brand-text) !important;
-  }
-
-  #inicio .inline-flex.rounded-full,
-  #donaciones .inline-flex.rounded-full {
-    background-color: var(--brand-background) !important;
-    color: var(--brand-text) !important;
-    border-color: var(--brand-background) !important;
-  }
-
-  #inicio .inline-flex.rounded-full .bg-white {
-    background-color: var(--brand-text) !important;
-  }
-
-  #inicio .inline-flex.rounded-full svg,
-  #donaciones .inline-flex.rounded-full svg {
-    color: var(--brand-text) !important;
   }
 
   header .text-sm {

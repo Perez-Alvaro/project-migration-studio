@@ -70,7 +70,7 @@ function CopyField({ label, value }: { label: string; value: string }) {
     };
 
     return (
-        <div className="bg-background dark:bg-card/50 border border-border dark:border-border/40 rounded-[12px] p-3 flex items-center justify-between gap-3 shadow-[0_2px_4px_rgba(21,33,41,0.03)]">
+        <div className="bg-background dark:bg-card/50 border border-border dark:border-border/40 rounded-lg p-3 flex items-center justify-between gap-3 shadow-soft">
             <div className="min-w-0 flex-1">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-muted-foreground block mb-0.5">
                     {label}
@@ -82,14 +82,14 @@ function CopyField({ label, value }: { label: string; value: string }) {
             <button
                 type="button"
                 onClick={handleCopy}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-border hover:border-primary hover:text-primary-ink bg-card text-foreground transition-all flex-shrink-0 active:scale-95"
+                className="inline-flex min-h-11 items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold border border-border hover:border-primary hover:text-primary-ink bg-card text-foreground transition-all flex-shrink-0 active:scale-95"
                 title={`Copiar ${label}`}
                 aria-label={copied ? `${label} copiado` : `Copiar ${label} para transferencia`}
             >
                 {copied ? (
                     <>
-                        <Check size={14} className="text-emerald-600" aria-hidden="true" />
-                        <span className="text-emerald-600 font-bold">Copiado</span>
+                        <Check size={14} className="text-primary-ink" aria-hidden="true" />
+                        <span className="text-primary-ink font-bold">Copiado</span>
                     </>
                 ) : (
                     <>
@@ -117,9 +117,9 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
             donantes: c.donantes,
             badgeIcon: Rocket,
             badgeText: "Campaña activa · ¡Arrancamos!",
-            badgeClass: "bg-amber-100 text-amber-900 border-amber-300 dark:bg-amber-950/40 dark:text-amber-200 dark:border-amber-800",
-            percentClass: "bg-amber-100 text-amber-950 border-amber-300 dark:bg-amber-950/40 dark:text-amber-200",
-            barGradient: "bg-gradient-to-r from-primary to-primary",
+            badgeClass: "bg-accent text-accent-foreground border-accent",
+            percentClass: "bg-accent text-accent-foreground border-accent",
+            barGradient: "gradient-sunset",
             subtext: `Faltan $${(meta - c.recaudado).toLocaleString("es-AR")} para alcanzar la meta.`,
             donorsText: `${c.donantes} personas ya dieron el primer paso con sus aportes`,
             persuasionMessage: `Estamos dando los primeros pasos para alcanzar los ${metaText} de la obra. Con $1.000, $2.000 o lo que esté a tu alcance hoy, encendés el motor de este sueño.`,
@@ -132,7 +132,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
             badgeText: "Campaña activa · ¡Superamos la mitad de la meta!",
             badgeClass: "bg-primary/15 text-primary-ink border-primary/30 dark:bg-primary/20 dark:text-primary-ink dark:border-primary/40",
             percentClass: "bg-primary/15 text-primary-ink border-primary/30 dark:bg-primary/20 dark:text-primary-ink",
-            barGradient: "bg-gradient-to-r from-primary to-primary",
+            barGradient: "gradient-sunset",
             subtext: `Faltan $${(meta - c.recaudado).toLocaleString("es-AR")} para completar la compra de pintura y mano de obra.`,
             donorsText: `${c.donantes} personas y familias ya realizaron su aporte`,
             persuasionMessage: `¡Ya superamos el 50% gracias a la solidaridad comunitaria! Cada nuevo aporte, por más chico que parezca, nos acerca a los ${metaText} finales.`,
@@ -143,9 +143,9 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
             donantes: c.donantes,
             badgeIcon: CheckCircle2,
             badgeText: `¡Meta de ${metaText} cumplida! Gracias comunidad Haruén`,
-            badgeClass: "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-200 dark:border-emerald-800",
-            percentClass: "bg-emerald-100 text-emerald-900 border-emerald-300 dark:bg-emerald-950/40 dark:text-emerald-200",
-            barGradient: "bg-gradient-to-r from-emerald-600 to-surface",
+            badgeClass: "bg-primary/15 text-primary-ink border-primary/30",
+            percentClass: "bg-primary/15 text-primary-ink border-primary/30",
+            barGradient: "gradient-nature",
             subtext: `¡Alcanzamos los $${meta.toLocaleString("es-AR")} gracias a la solidaridad de todos!`,
             donorsText: `${c.donantes} donantes hicieron posible renovar nuestro espacio`,
             persuasionMessage: "¡Lo logramos entre todos! Cientos de personas demostraron que sumando voluntades ningún objetivo es imposible para nuestra comunidad.",
@@ -190,10 +190,10 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                 </div>
 
                 {/* Card Principal de Campaña */}
-                <div className="bg-card text-card-foreground rounded-[12px] p-6 sm:p-8 md:p-10 border border-border/60 shadow-[0_4px_6px_rgba(21,33,41,0.05)]">
+                <div className="bg-card text-card-foreground rounded-lg p-6 sm:p-8 md:p-10 border border-border/60 shadow-soft">
                     
                     {/* Banner de Reducción de Fricción Psicológica (Principio UX: Inclusividad y Cero Mínimos) */}
-                    <div className="mb-6 p-4 rounded-[12px] bg-primary/10 border border-primary/30 flex items-start gap-3">
+                    <div className="mb-6 p-4 rounded-lg bg-primary/10 border border-primary/30 flex items-start gap-3">
                         <div className="p-2 rounded-full bg-primary/15 text-primary-ink shrink-0 mt-0.5">
                             <Heart size={16} />
                         </div>
@@ -226,7 +226,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                         {/* Pill de Porcentaje */}
                         <div className="flex sm:flex-col items-center sm:items-end justify-between">
                             <span
-                                className={`px-4 py-1.5 rounded-[12px] text-lg sm:text-2xl font-bold border ${currentData.percentClass}`}
+                                className={`px-4 py-1.5 rounded-lg text-lg sm:text-2xl font-bold border ${currentData.percentClass}`}
                             >
                                 {percentage}%
                             </span>
@@ -250,11 +250,11 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                             whileInView={{ width: `${percentage}%` }}
                             viewport={{ once: true }}
                             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                            className={`h-full rounded-full relative overflow-hidden flex items-center justify-end pr-3 text-white text-xs font-bold shadow-sm ${currentData.barGradient}`}
+                            className={`h-full rounded-full relative overflow-hidden flex items-center justify-end pr-3 text-hero-foreground text-xs font-bold shadow-sm ${currentData.barGradient}`}
                         >
                             {/* Efecto Shimmer de brillo continuo */}
                             <div
-                                className="absolute inset-0 w-1/3 bg-white/20 -skew-x-12 animate-[shimmer_2s_infinite_ease-in-out]"
+                                className="absolute inset-0 w-1/3 bg-hero-foreground/20 -skew-x-12 animate-[shimmer_2s_infinite_ease-in-out]"
                                 style={{
                                     animation: "shimmer 2.2s infinite ease-in-out",
                                 }}
@@ -316,7 +316,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                             href={whatsappUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="w-full inline-flex items-center justify-center gap-2.5 py-4 px-6 rounded-[12px] font-bold text-base text-primary-foreground bg-primary hover:bg-primary/90 shadow-[0_4px_14px_rgba(239,114,37,0.35)] transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
+                            className="w-full btn-pill btn-sunset-gradient gap-2.5 !py-4 text-base transition-all transform hover:-translate-y-0.5 active:translate-y-0 text-center"
                         >
                             <MessageCircle size={20} />
                             <span>Enviar comprobante por WhatsApp</span>
@@ -329,7 +329,7 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                     {/* Trust Signals */}
                     <div className="mt-8 pt-6 border-t border-border/40 grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
                         <div className="flex items-center justify-center sm:justify-start gap-2 text-xs font-semibold text-muted-foreground">
-                            <ShieldCheck size={16} className="text-emerald-600 flex-shrink-0" />
+                            <ShieldCheck size={16} className="text-primary-ink flex-shrink-0" />
                             <span>Donación directa y transparente</span>
                         </div>
                         <div className="flex items-center justify-center gap-2 text-xs font-semibold text-muted-foreground">
@@ -348,15 +348,15 @@ export function DonationCampaign({ status: statusProp }: DonationCampaignProps) 
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.4 }}
-                            className="mt-6 p-5 rounded-[12px] bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-center"
+                            className="mt-6 p-5 rounded-lg bg-primary/10 border border-primary/30 text-center"
                         >
-                            <div className="flex justify-center mb-2 text-emerald-600 dark:text-emerald-400">
+                            <div className="flex justify-center mb-2 text-primary-ink">
                                 <HeartHandshake size={28} />
                             </div>
-                            <p className="font-bold text-emerald-900 dark:text-emerald-100 text-sm">
+                            <p className="font-bold text-foreground text-sm">
                                 ¡Comunidad, logramos el objetivo de {metaText}!
                             </p>
-                            <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1 max-w-lg mx-auto">
+                            <p className="text-xs text-muted-foreground mt-1 max-w-lg mx-auto">
                                 La compra de materiales y la mano de obra ya están en marcha para que nuestros 26 alumnos disfruten de un espacio renovado.
                             </p>
                         </motion.div>
