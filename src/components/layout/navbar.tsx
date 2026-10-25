@@ -6,8 +6,7 @@ import { NavbarMobileMenu } from "@/components/layout/navbar/navbar-mobile-menu"
 import { CartNavIcon } from "@/components/layout/navbar/cart-nav-icon";
 import { AccountButton } from "@/components/layout/navbar/account-button";
 import { useVisibleSections } from "@/hooks/use-visible-sections";
-import HaruenLogoAsset from "@/assets/haruenlogo.webp.asset.json";
-const HaruenLogo = HaruenLogoAsset.url;
+import HaruenLogo from "@/assets/haruenlogo.jpg";
 
 /** Navbar entries tied to a home section; hidden when the section is hidden in admin. */
 const NAV_ITEMS = [

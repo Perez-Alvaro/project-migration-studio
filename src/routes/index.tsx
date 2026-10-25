@@ -13,7 +13,7 @@ import { useSuspenseQuery } from "@tanstack/react-query";
 import { homeQuery } from "@/lib/queries";
 import type { SectionDTO } from "@/lib/types";
 import { SITE_URL } from "@/lib/metadata";
-import heroLcp from "@/assets/haruen-about.webp.asset.json";
+import heroLcp from "@/assets/haruen-about.jpg";
 
 const TITLE = "Centro Educativo Terapéutico Haruén | Córdoba";
 const DESCRIPTION =
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "preload", as: "image", href: heroLcp.url, fetchPriority: "high" }],
+    links: [{ rel: "preload", as: "image", href: heroLcp, fetchPriority: "high" }],
     scripts: [{ type: "application/ld+json", children: JSON.stringify(structuredData) }],
   }),
   errorComponent: ({ error }) => <RouteError error={error} />,

@@ -3,14 +3,10 @@ import Image from "@/components/shared/app-image";
 import Link from "@/components/shared/app-link";
 import { useVisibleSections } from "@/hooks/use-visible-sections";
 import { ShoppingBag, Paintbrush, ArrowDown, ChevronDown, Sparkles } from "lucide-react";
-import HaruenAboutAsset from "@/assets/haruen-about.webp.asset.json";
-const HaruenAbout = HaruenAboutAsset.url;
-import Hero2Asset from "@/assets/hero-2.webp.asset.json";
-const Hero2 = Hero2Asset.url;
-import Hero3Asset from "@/assets/hero-3.webp.asset.json";
-const Hero3 = Hero3Asset.url;
-import Hero4Asset from "@/assets/hero-4.webp.asset.json";
-const Hero4 = Hero4Asset.url;
+import HaruenAbout from "@/assets/haruen-about.jpg";
+import Hero2 from "@/assets/hero-2.png";
+import Hero3 from "@/assets/hero-3.png";
+import Hero4 from "@/assets/hero-4.png";
 
 export const IMPACTO = [
     { num: "+26", label: "Alumnos activos" },
