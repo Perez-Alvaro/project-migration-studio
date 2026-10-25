@@ -55,7 +55,7 @@ export function InfoSection() {
                     {INFO_ITEMS.map(({ icon: Icon, gradient, title, content, link }) => (
                         <FadeInStaggerItem key={title} className="haruen-card p-5 flex flex-col gap-3">
                             <div className={`w-12 h-12 rounded-xl ${gradient} flex items-center justify-center`}>
-                                <Icon size={22} className="text-white" />
+                                <Icon size={22} className={gradient === "gradient-sunset" || gradient === "gradient-joy" ? "text-accent-foreground" : "text-hero-foreground"} />
                             </div>
                             <h3 className="text-lg font-bold">{title}</h3>
                             <p className="text-sm text-muted-foreground">{content}</p>

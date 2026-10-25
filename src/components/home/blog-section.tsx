@@ -7,12 +7,12 @@ const NOVEDADES_URL =
 
 export function BlogSection() {
     return (
-        <section id="blog" className="bg-teal-hero haruen-section text-white">
+        <section id="blog" className="bg-teal-hero haruen-section text-hero-foreground">
             <div className="haruen-container flex flex-col items-center text-center gap-8">
 
                 {/* Encabezado */}
                 <FadeIn className="flex flex-col items-center gap-4 max-w-2xl">
-                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/20 border border-white/30 text-white mb-4">
+                    <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-hero-foreground/20 border border-hero-foreground/30 text-hero-foreground mb-4">
                         <Newspaper size={14} />
                         Novedades
                     </span>
@@ -21,7 +21,7 @@ export function BlogSection() {
                         <br className="hidden sm:block" />
                         en Haruén y Argentina
                     </h2>
-                    <p className="text-base md:text-lg text-white/80 leading-relaxed">
+                    <p className="text-base md:text-lg text-hero-foreground/80 leading-relaxed">
                         Seguí de cerca las actividades, logros y momentos especiales
                         de nuestra comunidad. Publicamos novedades regularmente para
                         que estés siempre al tanto.

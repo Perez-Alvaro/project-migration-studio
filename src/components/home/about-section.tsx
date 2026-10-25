@@ -131,7 +131,7 @@ export function AboutSection() {
                             className="haruen-card haruen-card-muted p-6 flex flex-col gap-4"
                         >
                             <div className="w-14 h-14 rounded-2xl gradient-teal flex items-center justify-center">
-                                <Icon size={26} className="text-white" />
+                                <Icon size={26} className="text-hero-foreground" />
                             </div>
                             <h3 className="text-lg font-bold leading-snug">{title}</h3>
                             <p className="text-base text-muted-foreground leading-relaxed">
