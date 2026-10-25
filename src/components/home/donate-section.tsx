@@ -28,7 +28,7 @@ function CopyRow({ label, value, copyable }: { label: string; value: string; cop
                         className="text-muted-foreground hover:text-primary-ink transition-colors flex-shrink-0 p-1"
                     >
                         {copied ? (
-                            <Check size={13} className="text-green-500" aria-hidden="true" />
+                            <Check size={13} className="text-primary-ink" aria-hidden="true" />
                         ) : (
                             <Copy size={13} aria-hidden="true" />
                         )}
@@ -43,7 +43,7 @@ function CopyRow({ label, value, copyable }: { label: string; value: string; cop
 
 function DonationsCard() {
     return (
-        <div className="haruen-card rounded-[1.5rem] p-6 bg-card text-card-foreground">
+        <div className="haruen-card rounded-lg p-6 bg-card text-card-foreground">
             <div className="flex items-center gap-2 mb-5">
                 <HandHeart size={20} className="text-primary-ink" aria-hidden="true" />
                 <h3 className="text-lg font-bold">Datos para Transferencia</h3>
@@ -77,12 +77,12 @@ function DonationsCard() {
 
 export function DonateSection() {
     return (
-        <section id="donaciones" className="bg-teal-hero haruen-section text-white scroll-mt-24">
+        <section id="donaciones" className="bg-teal-hero haruen-section text-hero-foreground scroll-mt-24">
             <div className="haruen-container grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
                 <FadeIn direction="right">
                     <div className="flex flex-col items-center text-center lg:items-start lg:text-left lg:block mb-8 lg:mb-0">
                         {/* Badge con color fijo (blanco/amarillo) visible sobre fondo teal en ambos temas */}
-                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/20 border border-white/30 text-white mb-4">
+                        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-hero-foreground/20 border border-hero-foreground/30 text-hero-foreground mb-4">
                             <HandHeart size={14} aria-hidden="true" />
                             Tu Ayuda Transforma Vidas
                         </span>
@@ -91,11 +91,11 @@ export function DonateSection() {
                             <br className="hidden md:block" />
                             que sigamos creciendo.
                         </h2>
-                        <p className="text-lg md:text-xl mb-4 leading-relaxed text-white/85">
+                        <p className="text-lg md:text-xl mb-4 leading-relaxed text-hero-foreground/85">
                             Ante la crisis que atraviesa el sector de discapacidad, cada aporte —grande o
                             pequeño— se transforma en horas de acompañamiento, talleres y sonrisas.
                         </p>
-                        <p className="italic text-sm text-white/70">
+                        <p className="italic text-sm text-hero-foreground/70">
                             ¡No olvides enviarnos la captura de tu aporte para agradecerte personalmente!
                         </p>
                     </div>

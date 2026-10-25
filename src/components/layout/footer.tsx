@@ -14,25 +14,25 @@ export function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="bg-[hsl(200,30%,10%)] text-[hsl(180,25%,92%)]">
+        <footer className="bg-surface text-hero-foreground">
             <div className="haruen-container py-16">
                 {/* 4-column grid */}
                 <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
                     {/* Col 1 — Brand */}
                     <div className="lg:col-span-1 space-y-4">
                         <div>
-                            <p className="text-base font-bold text-white">
+                            <p className="text-base font-bold text-hero-foreground">
                                 Centro Educativo
                             </p>
-                            <p className="text-base font-bold text-primary-ink">
+                            <p className="text-base font-bold text-accent">
                                 Terapéutico Haruén
                             </p>
                         </div>
-                        <p className="text-sm text-white/50 leading-relaxed max-w-[220px]">
+                        <p className="text-sm text-hero-foreground/80 leading-relaxed max-w-[220px]">
                             Educación muy especial para personas muy especiales. Acompañando a
                             nuestra comunidad desde Córdoba, Argentina.
                         </p>
-                        <div className="flex items-center gap-1.5 text-xs text-white/30">
+                        <div className="flex items-center gap-1.5 text-xs text-hero-foreground/80">
                             <MapPin size={12} aria-hidden="true" />
                             <span>Entre Ríos 2867, Córdoba</span>
                         </div>
@@ -41,7 +41,7 @@ export function Footer() {
                                 href="https://www.instagram.com/fundacionharuen?igsh=dDhnMWlrZ2ljMHAy&utm_source=qr"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-all"
+                                className="w-11 h-11 rounded-full bg-hero-foreground/5 flex items-center justify-center text-hero-foreground/80 hover:text-hero-foreground hover:bg-hero-foreground/10 transition-all"
                                 aria-label="Seguinos en Instagram"
                             >
                                 <Instagram size={16} aria-hidden="true" />
@@ -50,7 +50,7 @@ export function Footer() {
                                 href="https://www.facebook.com/share/1J9EHTZrj4/?mibextid=wwXIfr"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-all"
+                                className="w-11 h-11 rounded-full bg-hero-foreground/5 flex items-center justify-center text-hero-foreground/80 hover:text-hero-foreground hover:bg-hero-foreground/10 transition-all"
                                 aria-label="Seguinos en Facebook"
                             >
                                 <Facebook size={16} aria-hidden="true" />
@@ -60,7 +60,7 @@ export function Footer() {
 
                     {/* Col 2 — Navegación */}
                     <div className="space-y-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-primary-ink">
+                        <p className="text-xs font-bold uppercase tracking-widest text-accent">
                             Navegación
                         </p>
                         <ul className="space-y-2">
@@ -68,7 +68,7 @@ export function Footer() {
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className="text-sm text-white/60 hover:text-white/90 transition-colors"
+                                        className="text-sm text-hero-foreground/80 hover:text-hero-foreground/90 transition-colors"
                                     >
                                         {link.label}
                                     </Link>
@@ -79,25 +79,25 @@ export function Footer() {
 
                     {/* Col 3 — Contacto */}
                     <div className="space-y-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-primary-ink">
+                        <p className="text-xs font-bold uppercase tracking-widest text-accent">
                             Contacto
                         </p>
                         <ul className="space-y-3">
                             <li>
-                                <p className="text-xs text-white/40 mb-0.5">Alfredo M. Barale</p>
+                                <p className="text-xs text-hero-foreground/80 mb-0.5">Alfredo M. Barale</p>
                                 <a
                                     href="tel:+5493516541669"
-                                    className="flex items-center gap-2 text-sm text-white/60 hover:text-white/90 transition-colors"
+                                    className="flex items-center gap-2 text-sm text-hero-foreground/80 hover:text-hero-foreground/90 transition-colors"
                                 >
                                     <Phone size={13} aria-hidden="true" />
                                     351-654-1669
                                 </a>
                             </li>
                             <li>
-                                <p className="text-xs text-white/40 mb-0.5">Rogelio Guzman</p>
+                                <p className="text-xs text-hero-foreground/80 mb-0.5">Rogelio Guzman</p>
                                 <a
                                     href="tel:+5493516019654"
-                                    className="flex items-center gap-2 text-sm text-white/60 hover:text-white/90 transition-colors"
+                                    className="flex items-center gap-2 text-sm text-hero-foreground/80 hover:text-hero-foreground/90 transition-colors"
                                 >
                                     <Phone size={13} aria-hidden="true" />
                                     351-601-9654
@@ -106,7 +106,7 @@ export function Footer() {
                             <li>
                                 <a
                                     href="/#contacto"
-                                    className="flex items-center gap-2 text-sm text-white/60 hover:text-white/90 transition-colors"
+                                    className="flex items-center gap-2 text-sm text-hero-foreground/80 hover:text-hero-foreground/90 transition-colors"
                                 >
                                     <MessageCircle size={13} aria-hidden="true" />
                                     Formulario de contacto
@@ -117,16 +117,16 @@ export function Footer() {
 
                     {/* Col 4 — Donaciones */}
                     <div className="space-y-4">
-                        <p className="text-xs font-bold uppercase tracking-widest text-primary-ink">
+                        <p className="text-xs font-bold uppercase tracking-widest text-accent">
                             Donaciones
                         </p>
-                        <p className="text-sm text-white/60 leading-relaxed">
+                        <p className="text-sm text-hero-foreground/80 leading-relaxed">
                             Tu aporte transforma la vida de nuestros alumnos. Cada peso
                             se convierte en educación y alegría.
                         </p>
                         <Link
                             href="/#campana-donacion"
-                            className="inline-flex items-center gap-2 text-sm font-bold text-white bg-primary/20 hover:bg-primary/30 border border-primary/30 rounded-full px-4 py-2 transition-colors"
+                            className="btn-pill btn-sunset-gradient gap-2 text-sm"
                         >
                             <Heart size={13} aria-hidden="true" />
                             Quiero donar
@@ -135,11 +135,11 @@ export function Footer() {
                 </div>
 
                 {/* Divider */}
-                <div className="border-t border-white/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-                    <p className="text-xs text-white/30">
+                <div className="border-t border-hero-foreground/10 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <p className="text-xs text-hero-foreground/80">
                         © {year} Centro Educativo Terapéutico Haruén. Todos los derechos reservados.
                     </p>
-                    <p className="text-xs text-white/20">
+                    <p className="text-xs text-hero-foreground/80">
                         Hecho con <Heart size={10} className="inline text-accent" aria-hidden="true" /> por la comunidad Haruén
                     </p>
                 </div>
