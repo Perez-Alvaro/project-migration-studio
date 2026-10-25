@@ -79,39 +79,48 @@ export function NavbarMobileMenu() {
                     id="mobile-nav-panel"
                     className="lg:hidden absolute top-full left-0 right-0 max-h-[calc(100dvh-4rem)] overflow-y-auto bg-card border-t border-border shadow-lg"
                 >
-                    <nav className="haruen-container py-4 flex flex-col gap-4" aria-label="Navegación móvil">
+                    <nav className="haruen-container py-5 flex flex-col gap-6" aria-label="Navegación móvil">
                         <Link
                             href="/"
-                            className="py-2 text-base font-semibold text-foreground/90 hover:text-primary-ink transition-colors"
+                            className="flex items-center justify-between rounded-xl bg-muted px-4 py-3.5 text-lg font-bold text-foreground transition-colors hover:bg-accent/15"
                             onClick={() => setOpen(false)}
                         >
                             Inicio
+                            <svg className="w-4 h-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                <path d="M9 18l6-6-6-6" />
+                            </svg>
                         </Link>
                         {groups.map((group) => (
-                            <div key={group.title} className="flex flex-col gap-1">
-                                <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">
+                            <div key={group.title} className="flex flex-col gap-2">
+                                <p className="flex items-center gap-2 px-1 text-[0.7rem] font-extrabold uppercase tracking-[0.14em] text-primary-ink">
+                                    <span className="h-3 w-1 rounded-full bg-accent" aria-hidden="true" />
                                     {group.title}
                                 </p>
-                                {group.items.map((item) => (
-                                    <Link
-                                        key={item.href}
-                                        href={item.href}
-                                        className="py-2 text-base font-semibold text-foreground/90 hover:text-primary-ink transition-colors"
-                                        onClick={() => setOpen(false)}
-                                    >
-                                        {item.label}
-                                    </Link>
-                                ))}
+                                <div className="flex flex-col gap-1.5">
+                                    {group.items.map((item) => (
+                                        <Link
+                                            key={item.href}
+                                            href={item.href}
+                                            className="flex items-center justify-between rounded-xl border border-border/60 px-4 py-3 text-base font-semibold text-foreground/90 transition-colors hover:border-accent/50 hover:bg-accent/10 hover:text-primary-ink"
+                                            onClick={() => setOpen(false)}
+                                        >
+                                            {item.label}
+                                            <svg className="w-4 h-4 text-muted-foreground" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                                                <path d="M9 18l6-6-6-6" />
+                                            </svg>
+                                        </Link>
+                                    ))}
+                                </div>
                             </div>
                         ))}
-                        <div className="flex items-center justify-between gap-3 border-t border-border pt-3 sm:hidden">
-                            <span className="text-sm font-semibold text-foreground/90">Tema</span>
+                        <div className="flex items-center justify-between gap-3 rounded-xl bg-muted px-4 py-3 sm:hidden">
+                            <span className="text-sm font-bold text-foreground/90">Tema</span>
                             <ThemeSwitcher />
                         </div>
                         {showDonateCta && (
                             <Link
                                 href="/#donaciones"
-                                className="mt-1 inline-flex btn-pill btn-sunset-gradient text-sm justify-center"
+                                className="inline-flex btn-pill btn-sunset-gradient text-base font-bold justify-center shadow-md"
                                 onClick={() => setOpen(false)}
                             >
                                 Donar ahora
