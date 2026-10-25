@@ -5,19 +5,25 @@ import { ThemeSwitcher } from "@/components/layout/navbar/theme-switcher";
 import { NavbarMobileMenu } from "@/components/layout/navbar/navbar-mobile-menu";
 import { CartNavIcon } from "@/components/layout/navbar/cart-nav-icon";
 import { AccountButton } from "@/components/layout/navbar/account-button";
+import { useVisibleSections } from "@/hooks/use-visible-sections";
 import HaruenLogoAsset from "@/assets/haruenlogo.webp.asset.json";
 const HaruenLogo = HaruenLogoAsset.url;
 
+/** Navbar entries tied to a home section; hidden when the section is hidden in admin. */
 const NAV_ITEMS = [
-    { href: "/#nosotros", label: "Nosotros" },
-    { href: "/tienda", label: "Tienda" },
-    { href: "/novedades", label: "Novedades" },
-    { href: "/talleres", label: "Talleres" },
-    { href: "/#donaciones", label: "Donaciones" },
-    { href: "/#contacto", label: "Contacto" },
-];
+    { href: "/#nosotros", label: "Nosotros", section: "about" },
+    { href: "/tienda", label: "Tienda", section: "store" },
+    { href: "/novedades", label: "Novedades", section: "news" },
+    { href: "/talleres", label: "Talleres", section: "workshops" },
+    { href: "/#donaciones", label: "Donaciones", section: "donate" },
+    { href: "/#contacto", label: "Contacto", section: "contact" },
+] as const;
 
 export function Navbar() {
+    const visible = useVisibleSections();
+    const items = NAV_ITEMS.filter((item) => visible.has(item.section));
+    const showDonateCta = visible.has("campaign");
+
     return (
         <header className="fixed top-0 left-0 right-0 z-50 bg-card/95 backdrop-blur-xl shadow-soft border-b border-border/50">
             <div className="haruen-container relative">
@@ -50,7 +56,7 @@ export function Navbar() {
 
                     {/* Desktop nav */}
                     <nav className="hidden lg:flex items-center gap-6 text-base font-semibold">
-                        {NAV_ITEMS.map((item) => (
+                        {items.map((item) => (
                             <Link
                                 key={item.href}
                                 href={item.href}
@@ -63,13 +69,15 @@ export function Navbar() {
 
                     {/* Right side actions */}
                     <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
-                        <Link
-                            href="/#donaciones"
-                            className="hidden lg:inline-flex items-center gap-2 btn-pill btn-sunset-gradient text-base px-5 py-2"
-                        >
-                            <Heart size={14} aria-hidden="true" />
-                            Donar
-                        </Link>
+                        {showDonateCta && (
+                            <Link
+                                href="/#donaciones"
+                                className="hidden lg:inline-flex items-center gap-2 btn-pill btn-sunset-gradient text-base px-5 py-2"
+                            >
+                                <Heart size={14} aria-hidden="true" />
+                                Donar
+                            </Link>
+                        )}
 
                         <div className="hidden sm:block">
                             <ThemeSwitcher />
