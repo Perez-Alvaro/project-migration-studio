@@ -78,7 +78,12 @@ function Orders() {
                   </div>
                   <StatusPill tone={st.tone}>{st.label}</StatusPill>
                 </div>
-                <p className="text-sm"><strong>{o.customer_name}</strong>{o.customer_phone && ` · ${o.customer_phone}`}</p>
+                <div className="text-sm space-y-0.5">
+                  <p><strong>{o.customer_name}</strong>{o.customer_dni && ` · DNI ${o.customer_dni}`}</p>
+                  {o.customer_phone && <p>Teléfono: {o.customer_phone}</p>}
+                  {o.customer_email && <p>Correo: {o.customer_email}</p>}
+                  {o.customer_address && <p>Dirección: {o.customer_address}</p>}
+                </div>
                 <ul className="text-sm divide-y divide-border">
                   {o.items.map((i) => (
                     <li key={i.id} className="flex justify-between py-1.5"><span>{i.quantity} × {i.name}</span><span>{formatPrice(Number(i.unit_price) * i.quantity)}</span></li>
