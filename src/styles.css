@@ -28,6 +28,7 @@
   --color-input: var(--input);
   --color-border: var(--border);
   --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
   --color-accent-foreground: var(--accent-foreground);
   --color-accent: var(--accent);
   --color-muted-foreground: var(--muted-foreground);
@@ -55,17 +56,22 @@
 }
 
 :root {
-  /* Fundación Haruén — paleta oficial (guía de marca). Solo estos valores. */
+  /* CET Fundación Haruén — guía completa aprobada, octubre 2026. */
   --brand-cta: #ef7225;
-  --brand-text: #152129;
-  --brand-background: #f4fafe;
-  --brand-surface: #2a4a52; /* azul petróleo de fondo: cambiarlo aquí actualiza todo el sitio */
-  --brand-muted: #e6f0f0;
-  --brand-border: #152129;
+  --brand-cta-end: #f5963d;
+  --brand-text: #111c22;
+  --brand-background: #f6f9f9;
+  --brand-white: #ffffff;
+  --brand-surface: #0e474e;
+  --brand-muted: #e4ecec;
+  --brand-border: #517c85;
+  --brand-warm-start: #1f93a3;
+  --brand-warm-end: #176d78;
+  --brand-nature-end: #267e60;
 
-  --radius: 12px; /* card-radius */
+  --radius: 16px;
   --section-padding: 64px;
-  --shadow-soft-depth: 0 4px 6px rgba(21, 33, 41, 0.05);
+  --shadow-soft-depth: 0 4px 20px -4px hsl(200 32% 10% / 0.08);
   --hover-lift: 0.2s ease-in-out;
   --font-heading: "Quicksand", system-ui, sans-serif;
   --font-body: "Nunito", system-ui, sans-serif;
@@ -73,32 +79,31 @@
 
   --background: var(--brand-background);
   --foreground: var(--brand-text);
-  --card: var(--brand-background);
+  --card: var(--brand-white);
   --card-foreground: var(--brand-text);
-  --popover: var(--brand-background);
+  --popover: var(--brand-white);
   --popover-foreground: var(--brand-text);
-  /* Naranja con texto oscuro (5,5:1). Sobre fondo claro el naranja no llega a AA como texto. */
-  --primary: var(--brand-cta);
-  --primary-foreground: var(--brand-text);
-  --primary-ink: var(--brand-text);
+  --primary: #135963;
+  --primary-foreground: var(--brand-white);
+  --primary-ink: var(--primary);
   --primary-dark: var(--brand-surface);
-  --secondary: var(--brand-surface);
-  --secondary-foreground: var(--brand-background);
+  --secondary: var(--brand-text);
+  --secondary-foreground: var(--brand-white);
   --muted: var(--brand-muted);
-  --muted-foreground: color-mix(in oklab, var(--brand-text) 78%, var(--brand-background));
-  --accent: var(--brand-cta);
+  --muted-foreground: #283d48;
+  --accent: #f28a36;
   --accent-foreground: var(--brand-text);
-  --destructive: oklch(0.55 0.2 27);
-  --border: color-mix(in oklab, var(--brand-border) 18%, transparent);
-  --input: color-mix(in oklab, var(--brand-border) 40%, transparent);
-  --ring: var(--brand-cta);
+  --destructive: #ef4343;
+  --destructive-foreground: var(--brand-text);
+  --border: var(--brand-border);
+  --input: var(--brand-border);
+  --ring: #1d8c9a;
 
-  --chart-1: var(--brand-cta);
-  --chart-2: var(--brand-surface);
-  --chart-3: color-mix(in oklab, var(--brand-cta) 60%, var(--brand-background));
-  --chart-4: color-mix(in oklab, var(--brand-text) 60%, var(--brand-background));
-  --chart-5: var(--brand-muted);
-
+  --chart-1: var(--primary);
+  --chart-2: var(--accent);
+  --chart-3: var(--brand-warm-start);
+  --chart-4: var(--brand-nature-end);
+  --chart-5: var(--muted-foreground);
   --sidebar: var(--card);
   --sidebar-foreground: var(--foreground);
   --sidebar-primary: var(--primary);
@@ -108,38 +113,38 @@
   --sidebar-border: var(--border);
   --sidebar-ring: var(--ring);
 
-  --warm-gradient: linear-gradient(135deg, var(--brand-surface), var(--brand-text));
-  --sunset-gradient: linear-gradient(135deg, var(--brand-cta), var(--brand-cta));
-  --nature-gradient: var(--warm-gradient);
+  --warm-gradient: linear-gradient(135deg, var(--brand-warm-start), var(--brand-warm-end));
+  --sunset-gradient: linear-gradient(135deg, var(--brand-cta), var(--brand-cta-end));
+  --nature-gradient: linear-gradient(135deg, var(--brand-warm-start), var(--brand-nature-end));
   --joy-gradient: var(--sunset-gradient);
-  --shadow-warm: var(--shadow-soft-depth);
+  --shadow-warm: 0 8px 30px -8px hsl(187 68% 23% / 0.28);
   --shadow-soft: var(--shadow-soft-depth);
-  --hero-bg: var(--brand-surface);
+  --hero-bg: var(--primary-dark);
+  --hero-shadow: 0 2px 10px hsl(200 32% 10% / 0.35);
+  --glass-shadow: 0 6px 18px -12px hsl(200 32% 10% / 0.22);
 }
 
 .dark {
-  --background: var(--brand-surface);
+  --background: #0c1417;
   --foreground: var(--brand-background);
-  --card: color-mix(in oklab, var(--brand-background) 8%, var(--brand-surface));
+  --card: #121c21;
   --card-foreground: var(--brand-background);
-  --popover: color-mix(in oklab, var(--brand-background) 8%, var(--brand-surface));
+  --popover: #121c21;
   --popover-foreground: var(--brand-background);
-  --primary: var(--brand-cta);
+  --primary: #61d6e5;
   --primary-foreground: var(--brand-text);
-  --primary-ink: var(--brand-cta);
+  --primary-ink: var(--primary);
   --primary-dark: var(--brand-surface);
-  --secondary: var(--brand-background);
+  --secondary: var(--brand-white);
   --secondary-foreground: var(--brand-text);
-  --muted: color-mix(in oklab, var(--brand-muted) 14%, var(--brand-surface));
-  --muted-foreground: var(--brand-muted);
-  --accent: var(--brand-cta);
+  --muted: #222f35;
+  --muted-foreground: #d0dfdf;
+  --accent: #f8a359;
   --accent-foreground: var(--brand-text);
-  --border: color-mix(in oklab, var(--brand-muted) 22%, transparent);
-  --input: color-mix(in oklab, var(--brand-muted) 40%, transparent);
-  --hero-bg: var(--brand-surface);
-  --sidebar: var(--card);
-  --sidebar-foreground: var(--brand-background);
-  --sidebar-border: var(--border);
+  --destructive: #ef5353;
+  --border: #628393;
+  --input: #628393;
+  --ring: var(--primary);
 }
 
 @layer base {
@@ -234,7 +239,7 @@
     inset-block: 1rem;
     inset-inline-start: 0;
     width: 2px;
-    border-inline-start: 2px dotted hsl(0 0% 100% / 0.25);
+    border-inline-start: 2px dotted color-mix(in srgb, var(--brand-background) 25%, transparent);
   }
 
   .btn-pill {
@@ -259,12 +264,12 @@
   }
 
   .btn-ghost-light {
-    background-color: hsl(0 0% 100% / 0.12);
+    background-color: color-mix(in srgb, var(--brand-background) 12%, transparent);
     background-image: none;
-    border: 1px solid hsl(0 0% 100% / 0.28);
-    color: hsl(0 0% 100% / 0.92);
+    border: 1px solid color-mix(in srgb, var(--brand-background) 28%, transparent);
+    color: var(--brand-background);
     backdrop-filter: blur(4px);
-    box-shadow: 0 6px 18px -12px hsl(0 0% 0% / 0.22);
+    box-shadow: var(--glass-shadow);
     font-size: 1rem;
   }
 
@@ -277,22 +282,10 @@
     font-size: 1rem;
   }
 
-  .dark .btn-secondary-neutral {
-    background-color: hsl(0 0% 100%);
-    color: var(--brand-text);
-    border-color: hsl(0 0% 100% / 0.8);
-  }
-
   .btn-secondary-neutral:hover,
   .btn-secondary-neutral:focus-visible {
     background-color: color-mix(in srgb, var(--card) 92%, var(--foreground) 8%);
     color: var(--card-foreground);
-  }
-
-  .dark .btn-secondary-neutral:hover,
-  .dark .btn-secondary-neutral:focus-visible {
-    background-color: hsl(0 0% 94%);
-    color: var(--brand-text);
   }
 
   .btn-hero-primary,
@@ -328,7 +321,7 @@
 
   .btn-success-state {
     background: var(--brand-surface);
-    color: hsl(0 0% 100%);
+    color: var(--brand-background);
     box-shadow: none;
   }
 
@@ -393,9 +386,9 @@
     border-radius: 9999px;
     font-size: 0.875rem;
     font-weight: 700;
-    background-color: hsl(0 0% 100% / 0.96);
+    background-color: var(--brand-background);
     color: var(--brand-text);
-    border: 1px solid hsl(0 0% 100% / 0.9);
+    border: 1px solid var(--border);
     box-shadow: var(--shadow-soft);
     margin-bottom: 1rem;
   }
@@ -441,12 +434,12 @@
   #donaciones,
   #donaciones h2,
   #donaciones > .haruen-container > * > div > p {
-    color: hsl(0 0% 100%) !important;
+    color: var(--brand-background) !important;
   }
 
   #inicio h1,
   #inicio h1 span {
-    text-shadow: 0 2px 10px hsl(0 0% 0% / 0.35);
+    text-shadow: var(--hero-shadow);
   }
 
   #inicio a.btn-hero-primary,
@@ -457,9 +450,9 @@
 
   #inicio .inline-flex.rounded-full,
   #donaciones .inline-flex.rounded-full {
-    background-color: hsl(0 0% 100% / 0.96) !important;
+    background-color: var(--brand-background) !important;
     color: var(--brand-text) !important;
-    border-color: hsl(0 0% 100% / 0.96) !important;
+    border-color: var(--brand-background) !important;
   }
 
   #inicio .inline-flex.rounded-full .bg-white {
@@ -469,22 +462,6 @@
   #inicio .inline-flex.rounded-full svg,
   #donaciones .inline-flex.rounded-full svg {
     color: var(--brand-text) !important;
-  }
-
-  #nosotros .text-muted-foreground,
-  #informacion .text-muted-foreground,
-  #tienda .text-muted-foreground,
-  #blog .text-muted-foreground,
-  #contacto .text-muted-foreground {
-    color: var(--brand-text) !important;
-  }
-
-  .dark #nosotros .text-muted-foreground,
-  .dark #informacion .text-muted-foreground,
-  .dark #tienda .text-muted-foreground,
-  .dark #blog .text-muted-foreground,
-  .dark #contacto .text-muted-foreground {
-    color: hsl(0 0% 100%) !important;
   }
 
   header .text-sm {

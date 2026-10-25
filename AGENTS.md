@@ -13,6 +13,7 @@
 - Images live as Lovable asset pointers (`src/assets/*.webp.asset.json`, use `.url`), pre-compressed to WebP (max 1200px) for page speed; fonts are self-hosted via @fontsource so there is no blocking Google Fonts request; the product catalog is static in `src/data/products.ts` and the cart is browser-only with WhatsApp checkout, so there is no database yet.
 
 ## Cloud architecture
+- Theme values and legacy gradient aliases are centralized in `src/styles.css`; shared Button variants enforce touch-target sizing and CTA styling so user and admin views inherit theme updates together.
 - Catalog, news, workshops, page sections and settings live in Lovable Cloud; public reads go through `src/lib/public.functions.ts` (publishable client) so SSR works without a session.
 - Admin pages under `src/routes/_authenticated/admin/` write with the browser client; RLS + `has_role` is the security boundary.
 - Public images go to the private `media` bucket and are served via `/media/*` (workspace blocks public buckets).
