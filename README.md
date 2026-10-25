@@ -22,3 +22,7 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Deployment
+
+Continuous deployment is handled via Vercel on the `main` branch.
