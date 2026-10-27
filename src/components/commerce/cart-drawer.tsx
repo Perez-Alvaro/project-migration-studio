@@ -4,6 +4,7 @@ import { X, Plus, Minus, ShoppingCart, MessageCircle, Trash2, ArrowLeft, CheckCi
 import { toast } from "sonner";
 import { useCart } from "@/contexts/cart-context";
 import { formatPrice } from "@/lib/types";
+import { resolveProductImage, getProductAssetFallback } from "@/data/images";
 import { buildWhatsAppOrderUrl } from "@/lib/whatsapp";
 import { downloadReceipt, type ReceiptData } from "@/lib/receipt";
 import { useSiteSettings } from "@/hooks/use-site-settings";
@@ -167,9 +168,20 @@ export function CartDrawer() {
                   {items.map((item) => (
                     <li key={item.id} className="flex gap-4 haruen-card !p-3">
                       <div className="relative w-20 h-20 rounded-xl overflow-hidden bg-muted flex-shrink-0">
-                        {item.image && (
-                          <img src={item.image} alt="" className="absolute inset-0 h-full w-full object-cover" />
-                        )}
+                        {(() => {
+                          const itemImg = resolveProductImage(item.image, item.slug);
+                          return itemImg ? (
+                            <img
+                              src={itemImg}
+                              alt=""
+                              onError={(e) => {
+                                const fb = getProductAssetFallback(item.slug, item.image);
+                                if (fb && e.currentTarget.src !== fb) e.currentTarget.src = fb;
+                              }}
+                              className="absolute inset-0 h-full w-full object-cover"
+                            />
+                          ) : null;
+                        })()}
                       </div>
                       <div className="flex-1 min-w-0">
                         <p className="font-bold text-sm leading-snug line-clamp-2">{item.name}</p>

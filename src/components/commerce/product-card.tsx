@@ -4,11 +4,14 @@ import { useState } from "react";
 import { useCart } from "@/contexts/cart-context";
 import { formatPrice, stockLabel, type ProductDTO } from "@/lib/types";
 import { StockBadge } from "@/components/commerce/stock-badge";
+import { resolveProductImage, getProductAssetFallback } from "@/data/images";
+import { ShoppingBag as ShoppingBagIcon } from "lucide-react";
 
 export function ProductCard({ product }: { product: ProductDTO }) {
   const { addItem } = useCart();
   const [added, setAdded] = useState(false);
-  const image = product.images[0];
+  const rawImageUrl = product.images[0]?.url;
+  const imageUrl = resolveProductImage(rawImageUrl, product.slug);
   const hasVariants = product.variants.length > 0;
   const stock = stockLabel(product.stock, product.lowStockThreshold);
   const soldOut = stock.tone === "out";
@@ -20,7 +23,7 @@ export function ProductCard({ product }: { product: ProductDTO }) {
       slug: product.slug,
       name: product.name,
       price: product.price,
-      image: image?.url ?? "",
+      image: imageUrl,
       maxStock: product.stock,
     });
     setAdded(true);
@@ -35,14 +38,24 @@ export function ProductCard({ product }: { product: ProductDTO }) {
         className="relative block aspect-square overflow-hidden bg-muted"
         aria-label={`Ver ${product.name}`}
       >
-        {image && (
+        {imageUrl ? (
           <img
-            src={image.url}
-            alt={image.alt || product.name}
+            src={imageUrl}
+            alt={product.images[0]?.alt || product.name}
             loading="lazy"
             decoding="async"
+            onError={(e) => {
+              const fallback = getProductAssetFallback(product.slug, rawImageUrl);
+              if (fallback && e.currentTarget.src !== fallback) {
+                e.currentTarget.src = fallback;
+              }
+            }}
             className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground bg-muted">
+            <ShoppingBagIcon size={28} className="opacity-40" />
+          </div>
         )}
         {product.category && (
           <span className="absolute top-3 left-3 text-xs font-bold bg-background/90 text-foreground px-2 py-1 rounded-full">

@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import { toast } from "sonner";
 import { ImagePlus, Loader2 } from "lucide-react";
 import { uploadImage } from "@/lib/upload";
+import { resolveProductImage } from "@/data/images";
 import { cn } from "@/lib/utils";
 
 export function AdminHeader({ title, description, actions }: { title: string; description?: string; actions?: ReactNode }) {
@@ -70,7 +71,10 @@ export function ImageUpload({
       <span className="text-sm font-medium">{label}</span>
       <div className="flex items-center gap-3">
         <div className="relative w-28 aspect-[4/3] rounded-lg bg-muted overflow-hidden border border-border">
-          {value && <img src={value} alt="" className="absolute inset-0 h-full w-full object-cover" />}
+          {(() => {
+            const preview = resolveProductImage(value);
+            return preview ? <img src={preview} alt="" className="absolute inset-0 h-full w-full object-cover" /> : null;
+          })()}
         </div>
         <div className="flex flex-col gap-2">
           <button type="button" onClick={() => ref.current?.click()} disabled={busy} className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1.5 text-sm font-semibold hover:bg-muted">

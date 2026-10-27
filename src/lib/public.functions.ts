@@ -11,6 +11,7 @@ import type {
   WorkshopDTO,
 } from "@/lib/types";
 import { DEFAULT_SETTINGS } from "@/lib/types";
+import { resolveProductImage, getProductAssetFallback } from "@/data/images";
 
 /** Read-only client with the publishable key; RLS limits it to public rows. */
 function publicDb() {
@@ -65,9 +66,16 @@ function toProduct(p: RawProduct): ProductDTO {
     lowStockThreshold: p.low_stock_threshold,
     createdAt: p.created_at,
     category: p.category,
-    images: [...(p.images ?? [])]
-      .sort((a, b) => Number(a.position) - Number(b.position))
-      .map((i) => ({ url: i.url, alt: i.alt })),
+    images: (() => {
+      const list = [...(p.images ?? [])]
+        .sort((a, b) => Number(a.position) - Number(b.position))
+        .map((i) => ({ url: resolveProductImage(i.url, p.slug), alt: i.alt }));
+      if (list.length === 0) {
+        const fb = getProductAssetFallback(p.slug);
+        if (fb) list.push({ url: fb, alt: p.name });
+      }
+      return list;
+    })(),
     variants,
   };
 }

@@ -7,6 +7,7 @@ import { useCart } from "@/contexts/cart-context";
 import { formatPrice } from "@/lib/types";
 import { ProductCard } from "@/components/commerce/product-card";
 import { StockBadge } from "@/components/commerce/stock-badge";
+import { resolveProductImage, getProductAssetFallback } from "@/data/images";
 import { RouteError } from "@/components/shared/page-header";
 import { cn } from "@/lib/utils";
 
@@ -58,6 +59,7 @@ function ProductPage() {
   const image = product.images[imageIndex] ?? product.images[0];
 
   function handleAdd() {
+    const primaryUrl = resolveProductImage(product.images[0]?.url, product.slug);
     addItem(
       {
         productId: product.id,
@@ -65,7 +67,7 @@ function ProductPage() {
         slug: product.slug,
         name: variant ? `${product.name} — ${variant.name}` : product.name,
         price,
-        image: product.images[0]?.url ?? "",
+        image: primaryUrl,
         maxStock: stock,
       },
       qty,
@@ -82,23 +84,47 @@ function ProductPage() {
         <div className="grid gap-10 lg:grid-cols-2">
           <div>
             <div className="relative aspect-square rounded-[var(--radius)] overflow-hidden bg-muted">
-              {image && <img src={image.url} alt={image.alt || product.name} className="absolute inset-0 h-full w-full object-cover" />}
+              {(() => {
+                const currentUrl = resolveProductImage(image?.url, product.slug);
+                return currentUrl ? (
+                  <img
+                    src={currentUrl}
+                    alt={image?.alt || product.name}
+                    onError={(e) => {
+                      const fb = getProductAssetFallback(product.slug, image?.url);
+                      if (fb && e.currentTarget.src !== fb) e.currentTarget.src = fb;
+                    }}
+                    className="absolute inset-0 h-full w-full object-cover"
+                  />
+                ) : null;
+              })()}
             </div>
             {product.images.length > 1 && (
               <div className="mt-3 grid grid-cols-5 gap-2" role="list" aria-label="Fotos del producto">
-                {product.images.map((img, i) => (
-                  <button
-                    key={img.url}
-                    type="button"
-                    role="listitem"
-                    onClick={() => setImageIndex(i)}
-                    className={cn("relative aspect-square rounded-lg overflow-hidden border-2", i === imageIndex ? "border-primary" : "border-transparent")}
-                    aria-label={`Ver foto ${i + 1}`}
-                    aria-pressed={i === imageIndex}
-                  >
-                    <img src={img.url} alt="" className="absolute inset-0 h-full w-full object-cover" />
-                  </button>
-                ))}
+                {product.images.map((img, i) => {
+                  const thumbUrl = resolveProductImage(img.url, product.slug);
+                  return (
+                    <button
+                      key={img.url + i}
+                      type="button"
+                      role="listitem"
+                      onClick={() => setImageIndex(i)}
+                      className={cn("relative aspect-square rounded-lg overflow-hidden border-2", i === imageIndex ? "border-primary" : "border-transparent")}
+                      aria-label={`Ver foto ${i + 1}`}
+                      aria-pressed={i === imageIndex}
+                    >
+                      <img
+                        src={thumbUrl}
+                        alt=""
+                        onError={(e) => {
+                          const fb = getProductAssetFallback(product.slug, img.url);
+                          if (fb && e.currentTarget.src !== fb) e.currentTarget.src = fb;
+                        }}
+                        className="absolute inset-0 h-full w-full object-cover"
+                      />
+                    </button>
+                  );
+                })}
               </div>
             )}
           </div>

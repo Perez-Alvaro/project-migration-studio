@@ -54,13 +54,24 @@ function ProductsAdmin() {
           <ul className="divide-y divide-border sm:hidden">
             {rows.map((p) => {
               const stock = p.variants.length ? p.variants.reduce((a, v) => a + v.stock, 0) : p.stock;
-              const img = [...p.images].sort((a, b) => a.position - b.position)[0]?.url;
+              const rawImg = [...p.images].sort((a, b) => a.position - b.position)[0]?.url;
+              const img = resolveProductImage(rawImg, p.slug);
               const [label, tone] = STATUS[p.status as keyof typeof STATUS] ?? ["—", "muted"];
               return (
                 <li key={p.id}>
                   <Link to="/admin/productos/$id" params={{ id: p.id }} className="flex items-center gap-3 p-4 hover:bg-muted/40">
                     <span className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md bg-muted">
-                      {img && <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" />}
+                      {img && (
+                        <img
+                          src={img}
+                          alt=""
+                          onError={(e) => {
+                            const fb = getProductAssetFallback(p.slug, rawImg);
+                            if (fb && e.currentTarget.src !== fb) e.currentTarget.src = fb;
+                          }}
+                          className="absolute inset-0 h-full w-full object-cover"
+                        />
+                      )}
                     </span>
                     <span className="min-w-0 flex-1">
                       <span className="block truncate font-semibold">{p.name}</span>
@@ -88,14 +99,25 @@ function ProductsAdmin() {
               <tbody className="divide-y divide-border">
                 {rows.map((p) => {
                   const stock = p.variants.length ? p.variants.reduce((a, v) => a + v.stock, 0) : p.stock;
-                  const img = [...p.images].sort((a, b) => a.position - b.position)[0]?.url;
+                  const rawImg = [...p.images].sort((a, b) => a.position - b.position)[0]?.url;
+              const img = resolveProductImage(rawImg, p.slug);
                   const [label, tone] = STATUS[p.status as keyof typeof STATUS] ?? ["—", "muted"];
                   return (
                     <tr key={p.id} className="hover:bg-muted/40">
                       <td className="p-3">
                         <Link to="/admin/productos/$id" params={{ id: p.id }} className="flex items-center gap-3 font-semibold hover:underline">
                           <span className="relative w-10 h-10 rounded-md bg-muted overflow-hidden shrink-0">
-                            {img && <img src={img} alt="" className="absolute inset-0 h-full w-full object-cover" />}
+                            {img && (
+                              <img
+                                src={img}
+                                alt=""
+                                onError={(e) => {
+                                  const fb = getProductAssetFallback(p.slug, rawImg);
+                                  if (fb && e.currentTarget.src !== fb) e.currentTarget.src = fb;
+                                }}
+                                className="absolute inset-0 h-full w-full object-cover"
+                              />
+                            )}
                           </span>
                           <span>
                             {p.name}
