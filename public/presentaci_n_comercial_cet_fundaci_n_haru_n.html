@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Presentación Comercial — CET Fundación Haruén</title>
+  <!-- Google Fonts: Quicksand & Nunito -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    :root {
+      --color-cta: #ef7225;
+      --color-orange-accent: #F28A36;
+      --color-orange-soft: #F8A359;
+      --color-teal-hero-start: #0E474E;
+      --color-teal-primary: #135963;
+      --color-text: #152129;
+      --color-text-dark: #111C22;
+      --color-bg-light: #F6F9F9;
+      --color-bg-alt: #f4fafe;
+      --color-dark-bg: #0C1417;
+      --color-dark-surface: #121C21;
+      --color-border-light: #517C85;
+      --color-border-dark: #628393;
+      --color-muted: #e6f0f0;
+      --font-heading: 'Quicksand', sans-serif;
+      --font-body: 'Nunito', sans-serif;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background-color: #070D0F;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: var(--font-heading);
+    }
+
+    /* Brand Gradients */
+    .bg-hero-teal {
+      background: linear-gradient(135deg, #0E474E 0%, #135963 100%);
+    }
+
+    .bg-sunset-pill {
+      background: linear-gradient(90deg, #ef7225 0%, #F8A359 100%);
+      color: #111C22;
+    }
+
+    .bg-warm-bar {
+      background: linear-gradient(90deg, #135963 0%, #ef7225 50%, #F8A359 100%);
+    }
+
+    /* Haruén Design System Cards */
+    .card-light {
+      background-color: #FFFFFF;
+      border-radius: 16px;
+      border: 1.5px solid #517C85;
+      box-shadow: 0 4px 6px rgba(21, 33, 41, 0.05);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-light:hover {
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 18px 30px -10px rgba(19, 89, 99, 0.18);
+      border-color: #ef7225;
+    }
+
+    .card-teal-key {
+      background-color: #135963;
+      color: #FFFFFF;
+      border-radius: 16px;
+      border: 1.5px solid #517C85;
+      box-shadow: 0 12px 28px -5px rgba(239, 114, 37, 0.25), 0 4px 10px -2px rgba(21, 33, 41, 0.12);
+    }
+
+    .card-dark {
+      background-color: #121C21;
+      color: #F6F9F9;
+      border-radius: 16px;
+      border: 1.5px solid #628393;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .card-dark:hover {
+      transform: translateY(-5px) scale(1.01);
+      border-color: #F8A359;
+      box-shadow: 0 16px 32px rgba(239, 114, 37, 0.18);
+    }
+
+    /* Animations & Staggered Entrances */
+    .slide-frame {
+      display: none;
+    }
+    .slide-frame.active {
+      display: flex;
+      animation: slideStageIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes slideStageIn {
+      from { opacity: 0; transform: translateY(14px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .slide-frame.active .stagger-1 { animation: fadeUp 0.45s 0.06s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .slide-frame.active .stagger-2 { animation: fadeUp 0.45s 0.14s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .slide-frame.active .stagger-3 { animation: fadeUp 0.45s 0.22s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .slide-frame.active .stagger-4 { animation: fadeUp 0.45s 0.30s cubic-bezier(0.16, 1, 0.3, 1) both; }
+    .slide-frame.active .stagger-5 { animation: fadeUp 0.45s 0.38s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-8px) rotate(1deg); }
+    }
+    .animate-float {
+      animation: floatSlow 4.5s ease-in-out infinite;
+    }
+    .animate-float-delayed {
+      animation: floatSlow 5s ease-in-out 1.5s infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(239, 114, 37, 0.55); }
+      50% { box-shadow: 0 0 0 12px rgba(239, 114, 37, 0); }
+    }
+    .pulse-cta {
+      animation: pulseGlow 2.4s infinite;
+    }
+
+    @keyframes shimmerProgress {
+      from { width: 15%; }
+      to { width: 78%; }
+    }
+    .slide-frame.active .animate-progress {
+      animation: shimmerProgress 1.3s cubic-bezier(0.16, 1, 0.3, 1) 0.25s both;
+    }
+
+    /* Print / View All Slides Mode */
+    body.view-all .slide-frame {
+      display: flex !important;
+      margin-bottom: 2.5rem;
+    }
+    body.view-all .speaker-notes-drawer {
+      display: block !important;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-[#ef7225] selection:text-white">
+
+  <!-- TOP NAVIGATION BAR -->
+  <header class="bg-[#0C1417]/95 backdrop-blur-md border-b border-[#628393]/30 px-4 lg:px-8 py-2.5 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <!-- Brand Identity -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-white p-0.5 flex items-center justify-center shadow-md overflow-hidden border border-[#F8A359]">
+          <img src="src/assets/haruenlogo.jpg" alt="Logo Haruén" class="w-full h-full object-contain rounded-lg" onerror="this.outerHTML='<span class=\'font-heading font-bold text-[#135963] text-lg\'>H</span>'" />
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-white font-heading font-bold text-sm sm:text-base tracking-tight leading-none">
+              CET Fundación Haruén
+            </span>
+            <span class="px-2 py-0.5 text-[10px] font-heading font-bold uppercase rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> Listo para lanzar
+            </span>
+          </div>
+          <span class="text-[#F8A359] text-xs font-semibold">
+            32 años de inclusión real • Ahora en Lovable Cloud ($0/mes)
+          </span>
+        </div>
+      </div>
+
+      <!-- Slide Dots -->
+      <div class="hidden md:flex items-center gap-1 bg-[#121C21] px-2.5 py-1 rounded-full border border-[#628393]/40" id="slide-dots">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center gap-2">
+        <button id="btn-notes" onclick="toggleNotes()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#135963]/40 text-white border border-[#628393] hover:bg-[#135963] transition">
+          <i data-lucide="mic" class="w-3.5 h-3.5 text-[#F8A359]"></i>
+          <span id="notes-label">Guion: ON</span>
+        </button>
+
+        <button id="btn-view-mode" onclick="toggleViewMode()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#121C21] text-gray-200 border border-[#628393]/50 hover:border-[#F8A359] transition">
+          <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-[#ef7225]"></i>
+          <span id="view-mode-label">Ver todas (9)</span>
+        </button>
+
+        <div class="flex items-center bg-[#121C21] rounded-lg border border-[#628393]/50 p-0.5" id="nav-arrows">
+          <button onclick="prevSlide()" class="p-1.5 text-gray-300 hover:text-white hover:bg-[#135963] rounded-md transition" title="Anterior">
+            <i data-lucide="chevron-left" class="w-4 h-4"></i>
+          </button>
+          <span id="slide-counter" class="px-2.5 text-xs font-bold text-white font-heading">1 / 9</span>
+          <button onclick="nextSlide()" class="p-1.5 text-gray-300 hover:text-white hover:bg-[#135963] rounded-md transition" title="Siguiente">
+            <i data-lucide="chevron-right" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN PRESENTATION STAGE -->
+  <main class="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col justify-center">
+
+    <!-- ==========================================
+         SLIDE 1: PORTADA DE IMPACTO (HERO TEAL)
+    =========================================== -->
+    <section class="slide-frame active flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#517C85]" data-slide="1">
+      <div class="bg-hero-teal text-white p-7 sm:p-12 flex-1 flex flex-col justify-between relative overflow-hidden min-h-[550px]">
+        <!-- Decorative animated rings -->
+        <div class="absolute -right-20 -top-20 w-96 h-96 rounded-full border-[24px] border-[#ef7225]/15 pointer-events-none animate-pulse"></div>
+        <div class="absolute right-1/4 bottom-0 w-72 h-72 rounded-full bg-[#F8A359]/10 blur-3xl pointer-events-none"></div>
+
+        <!-- Top Meta -->
+        <div class="flex flex-wrap items-center justify-between gap-3 z-10 stagger-1">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#121C21]/60 border border-[#F8A359]/60 text-[#F8A359] text-xs font-bold uppercase tracking-wider">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
+            Comunidad Haruén • Sistema 100% Terminado
+          </div>
+          <span class="text-xs font-bold text-[#e6f0f0] bg-white/10 px-3 py-1 rounded-lg">
+            01 / 09
+          </span>
+        </div>
+
+        <!-- Main Hero Grid: Big Copy + Floating Asset Collage -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center my-auto py-6 z-10">
+          <div class="lg:col-span-7 space-y-5">
+            <p class="text-[#F8A359] font-heading font-bold text-sm sm:text-base flex items-center gap-2 stagger-2">
+              <span class="w-6 h-1 rounded-full bg-[#ef7225] inline-block"></span>
+              32 años defendiendo la dignidad y la inclusión real
+            </p>
+            <h1 class="font-heading font-bold text-3xl sm:text-5xl lg:text-[54px] leading-[1.08] text-white stagger-2">
+              Haruén abierto al mundo las <span class="text-[#F8A359] underline decoration-[#ef7225] decoration-4 underline-offset-8">24 horas</span>.
+            </h1>
+            <p class="text-base sm:text-lg text-[#f4fafe]/90 max-w-xl leading-relaxed stagger-3">
+              Tienda artesanal, talleres integrales, donaciones y gestión diaria en un solo lugar. <strong>Ya está construido y listo para usar hoy mismo.</strong>
+            </p>
+
+            <!-- Big Impact Badges -->
+            <div class="flex flex-wrap items-center gap-3 pt-2 stagger-4">
+              <div class="bg-sunset-pill pulse-cta px-6 py-3 rounded-full font-heading font-bold text-sm sm:text-base text-[#111C22] shadow-xl inline-flex items-center gap-2">
+                <i data-lucide="rocket" class="w-5 h-5 text-[#111C22]"></i>
+                Listo para encender hoy • $0 Mantenimiento
+              </div>
+              <div class="bg-[#0C1417]/50 border border-white/20 px-4 py-3 rounded-full text-xs sm:text-sm font-bold text-white inline-flex items-center gap-2">
+                <i data-lucide="shield-check" class="w-4 h-4 text-[#F8A359]"></i>
+                0% Comisiones por venta
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Floating Visual Showcase (src/assets) -->
+          <div class="lg:col-span-5 grid grid-cols-2 gap-3.5 stagger-3">
+            <!-- Asset Card 1 -->
+            <div class="bg-[#121C21]/90 border border-[#F8A359]/50 rounded-2xl p-2.5 shadow-2xl animate-float">
+              <div class="h-28 sm:h-32 rounded-xl overflow-hidden bg-[#0E474E] relative">
+                <img src="src/assets/hero-bg.jpg" alt="Comunidad Haruén" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x260/135963/F8A359?text=Comunidad+Haruen'" />
+                <span class="absolute bottom-2 left-2 bg-[#0C1417]/85 text-[#F8A359] text-[10px] font-bold px-2 py-0.5 rounded-md">
+                  Portada viva
+                </span>
+              </div>
+              <p class="text-xs font-heading font-bold text-white mt-2 px-1">Identidad y Calidez</p>
+            </div>
+
+            <!-- Asset Card 2 -->
+            <div class="bg-[#121C21]/90 border border-[#628393] rounded-2xl p-2.5 shadow-2xl animate-float-delayed mt-4">
+              <div class="h-28 sm:h-32 rounded-xl overflow-hidden bg-[#0E474E] relative">
+                <img src="src/assets/agenda-tam-rivadavia-hojacuadriculada-$8000.jpg" alt="Agenda Haruén" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x260/ef7225/111C22?text=Agendas+$8.000'" />
+                <span class="absolute top-2 right-2 bg-[#ef7225] text-[#111C22] text-[10px] font-extrabold px-2 py-0.5 rounded-full">
+                  $8.000
+                </span>
+              </div>
+              <p class="text-xs font-heading font-bold text-white mt-2 px-1">Encuadernación</p>
+            </div>
+
+            <!-- Asset Card 3 -->
+            <div class="bg-[#121C21]/90 border border-[#628393] rounded-2xl p-2.5 shadow-2xl animate-float-delayed -mt-2">
+              <div class="h-28 sm:h-32 rounded-xl overflow-hidden bg-[#0E474E] relative">
+                <img src="src/assets/Centro de mesa ovalado.jpg" alt="Vitrofusión" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x260/0E474E/FFFFFF?text=Vitrofusion'" />
+                <span class="absolute bottom-2 left-2 bg-[#0C1417]/85 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">
+                  Piezas únicas
+                </span>
+              </div>
+              <p class="text-xs font-heading font-bold text-white mt-2 px-1">Arte en Vitrofusión</p>
+            </div>
+
+            <!-- Asset Card 4 -->
+            <div class="bg-[#121C21]/90 border border-[#F8A359]/50 rounded-2xl p-2.5 shadow-2xl animate-float mt-2">
+              <div class="h-28 sm:h-32 rounded-xl overflow-hidden bg-[#0E474E] relative">
+                <img src="src/assets/workshop-cooking.jpg" alt="Talleres" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/400x260/121C21/F8A359?text=6+Talleres+Activos'" />
+                <span class="absolute top-2 right-2 bg-emerald-400 text-[#111C22] text-[10px] font-extrabold px-2 py-0.5 rounded-full">
+                  6 Talleres
+                </span>
+              </div>
+              <p class="text-xs font-heading font-bold text-white mt-2 px-1">Campus para Familias</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom 4 KPIs -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-white/15 z-10 stagger-5">
+          <div class="bg-[#0C1417]/40 px-4 py-2.5 rounded-xl border border-white/15 flex items-center gap-3">
+            <span class="font-heading font-bold text-2xl text-[#F8A359]">24/7</span>
+            <span class="text-xs text-white/90 leading-tight">Vidriera abierta<br>todo el año</span>
+          </div>
+          <div class="bg-[#0C1417]/40 px-4 py-2.5 rounded-xl border border-white/15 flex items-center gap-3">
+            <span class="font-heading font-bold text-2xl text-[#F8A359]">0%</span>
+            <span class="text-xs text-white/90 leading-tight">Comisiones en<br>ventas y donaciones</span>
+          </div>
+          <div class="bg-[#0C1417]/40 px-4 py-2.5 rounded-xl border border-white/15 flex items-center gap-3">
+            <span class="font-heading font-bold text-2xl text-[#F8A359]">$0</span>
+            <span class="text-xs text-white/90 leading-tight">Mantenimiento<br>en Lovable Cloud</span>
+          </div>
+          <div class="bg-[#0C1417]/40 px-4 py-2.5 rounded-xl border border-white/15 flex items-center gap-3">
+            <span class="font-heading font-bold text-2xl text-emerald-400">HOY</span>
+            <span class="text-xs text-white/90 leading-tight">Listo para salir<br>sin tareas extra</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Speaker Notes -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion (Portada):</span>
+        “Rogelio, Alfredo: lo que van a ver no es un proyecto a futuro, es la plataforma de Haruén ya terminada, con las fotos reales de sus productos y talleres cargadas, y migrada a una infraestructura que les cuesta $0 por mes de mantenimiento. Hoy mismo está lista para encenderse.”
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 2: EL PROBLEMA EN 4 GOLPES VISUALES (LIGHT)
+    =========================================== -->
+    <section class="slide-frame flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#517C85]" data-slide="2">
+      <div class="bg-[#F6F9F9] text-[#152129] p-7 sm:p-12 flex-1 flex flex-col justify-between min-h-[550px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between gap-2 stagger-1">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#135963] bg-[#e6f0f0] px-3 py-1 rounded-full border border-[#517C85]/30">
+              El cuello de botella actual
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl text-[#152129] mt-2">
+              4 frenos que hoy te roban tiempo y energía
+            </h2>
+          </div>
+          <span class="text-xs font-bold text-[#135963] bg-white px-3 py-1.5 rounded-lg border border-[#517C85]">
+            02 / 09
+          </span>
+        </div>
+
+        <!-- 4 Punchy Visual Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-auto py-4">
+          <div class="card-light p-6 flex flex-col justify-between stagger-2">
+            <div class="w-12 h-12 rounded-2xl bg-[#ef7225]/15 border border-[#ef7225] flex items-center justify-center mb-4">
+              <i data-lucide="message-circle-warning" class="w-6 h-6 text-[#ef7225]"></i>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase text-[#ef7225]">Freno 01</span>
+              <h3 class="font-heading font-bold text-xl text-[#152129] mt-0.5 mb-2">
+                WhatsApp saturado
+              </h3>
+              <p class="text-xs sm:text-sm text-[#152129]/80">
+                Responder precios, horarios y CBU a mano decenas de veces por semana.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-light p-6 flex flex-col justify-between stagger-3">
+            <div class="w-12 h-12 rounded-2xl bg-[#ef7225]/15 border border-[#ef7225] flex items-center justify-center mb-4">
+              <i data-lucide="percent" class="w-6 h-6 text-[#ef7225]"></i>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase text-[#ef7225]">Freno 02</span>
+              <h3 class="font-heading font-bold text-xl text-[#152129] mt-0.5 mb-2">
+                Comisiones ajenas
+              </h3>
+              <p class="text-xs sm:text-sm text-[#152129]/80">
+                Tiendas alquiladas que se quedan con un porcentaje del esfuerzo de los jóvenes.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-light p-6 flex flex-col justify-between stagger-4">
+            <div class="w-12 h-12 rounded-2xl bg-[#ef7225]/15 border border-[#ef7225] flex items-center justify-center mb-4">
+              <i data-lucide="file-spreadsheet" class="w-6 h-6 text-[#ef7225]"></i>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase text-[#ef7225]">Freno 03</span>
+              <h3 class="font-heading font-bold text-xl text-[#152129] mt-0.5 mb-2">
+                Stock a ciegas
+              </h3>
+              <p class="text-xs sm:text-sm text-[#152129]/80">
+                Anotar en papel cuántas agendas o bandejas quedan y perder ventas por confusión.
+              </p>
+            </div>
+          </div>
+
+          <div class="card-light p-6 flex flex-col justify-between stagger-5">
+            <div class="w-12 h-12 rounded-2xl bg-[#ef7225]/15 border border-[#ef7225] flex items-center justify-center mb-4">
+              <i data-lucide="user-cog" class="w-6 h-6 text-[#ef7225]"></i>
+            </div>
+            <div>
+              <span class="text-xs font-extrabold uppercase text-[#ef7225]">Freno 04</span>
+              <h3 class="font-heading font-bold text-xl text-[#152129] mt-0.5 mb-2">
+                Atados a un técnico
+              </h3>
+              <p class="text-xs sm:text-sm text-[#152129]/80">
+                Depender de otra persona para cambiar una foto, un precio o el progreso de una colecta.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Key Takeaway Teal Card -->
+        <div class="card-teal-key p-5 flex flex-col sm:flex-row items-center justify-between gap-4 stagger-5">
+          <div class="flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-full bg-[#F8A359] text-[#111C22] flex items-center justify-center font-bold shrink-0">
+              <i data-lucide="zap" class="w-6 h-6"></i>
+            </div>
+            <p class="text-sm sm:text-lg font-heading font-bold text-white">
+              La solución: centralizar todo en tu propia casa digital, automática y sin alquileres mensuales.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Speaker Notes -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion (El Problema):</span>
+        “Cada minuto que pasan contestando cuánto sale un cuaderno o pasando el Alias por chat es tiempo que le sacan a la dirección de la fundación. Eliminamos estos 4 frenos de raíz.”
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 3: GALERÍA REAL DE HARUÉN (WARM BARS + ASSETS)
+    =========================================== -->
+    <section class="slide-frame flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#517C85]" data-slide="3">
+      <div class="bg-[#F6F9F9] text-[#152129] p-7 sm:p-12 flex-1 flex flex-col justify-between min-h-[550px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between gap-2 stagger-1">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#135963] bg-[#e6f0f0] px-3 py-1 rounded-full border border-[#517C85]/30">
+              Todo en un solo lugar • Cargado con tus fotos reales
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl text-[#152129] mt-2">
+              4 pilares listos y funcionando con la identidad de Haruén
+            </h2>
+          </div>
+          <span class="text-xs font-bold text-[#135963] bg-white px-3 py-1.5 rounded-lg border border-[#517C85]">
+            03 / 09
+          </span>
+        </div>
+
+        <!-- 4 Visual Cards with Real Assets & Warm Top Bar -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 my-auto py-4">
+          <!-- Pillar 1 -->
+          <div class="card-light overflow-hidden flex flex-col stagger-2">
+            <div class="h-2.5 w-full bg-warm-bar"></div>
+            <div class="h-36 bg-[#e6f0f0] relative overflow-hidden">
+              <img src="src/assets/cuadernoA4-hojas-rayadas-$12000.jpg" alt="Encuadernación" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x260/135963/FFFFFF?text=Cuadernos+A4+$12.000'" />
+              <span class="absolute bottom-2 right-2 bg-[#135963] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+                12 Productos Cargados
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-lg text-[#152129]">1. Tienda con Propósito</h3>
+                <p class="text-xs text-[#152129]/80 mt-1">
+                  Encuadernación ($3.000 a $12.000) y Vitrofusión con stock en vivo.
+                </p>
+              </div>
+              <span class="text-xs font-bold text-[#ef7225] mt-3 block">● Cierre directo en WhatsApp</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="card-light overflow-hidden flex flex-col stagger-3">
+            <div class="h-2.5 w-full bg-warm-bar"></div>
+            <div class="h-36 bg-[#e6f0f0] relative overflow-hidden">
+              <img src="src/assets/workshop-vitrofusion.jpg" alt="Taller Vitrofusión" class="w-full h-full object-cover hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/400x260/0E474E/F8A359?text=Talleres+Integrales'" />
+              <span class="absolute bottom-2 right-2 bg-[#135963] text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+                Cocina • Música • Arte
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-lg text-[#152129]">2. Campus de Talleres</h3>
+                <p class="text-xs text-[#152129]/80 mt-1">
+                  Inscripción online y aula privada “Mis Talleres” para familias.
+                </p>
+              </div>
+              <span class="text-xs font-bold text-[#ef7225] mt-3 block">● Aprobación en 1 clic</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="card-light overflow-hidden flex flex-col stagger-4">
+            <div class="h-2.5 w-full bg-warm-bar"></div>
+            <div class="h-36 bg-[#135963] p-4 flex flex-col justify-center relative overflow-hidden text-white">
+              <span class="text-[11px] font-bold uppercase text-[#F8A359]">Meta Solidaria en Vivo</span>
+              <div class="text-2xl font-heading font-bold mt-1">78% Recaudado</div>
+              <div class="w-full h-3 bg-[#0C1417]/50 rounded-full overflow-hidden mt-2 border border-white/20">
+                <div class="h-full bg-sunset-pill animate-progress rounded-full"></div>
+              </div>
+              <span class="text-[11px] text-white/85 mt-2 flex items-center gap-1">
+                <i data-lucide="copy" class="w-3 h-3 text-[#F8A359]"></i> Copiar Alias / CBU en 1 clic
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-lg text-[#152129]">3. Donaciones Directas</h3>
+                <p class="text-xs text-[#152129]/80 mt-1">
+                  Barra de progreso que entusiasma a donar directo a la cuenta del CET.
+                </p>
+              </div>
+              <span class="text-xs font-bold text-[#ef7225] mt-3 block">● 100% íntegro para Haruén</span>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="card-light overflow-hidden flex flex-col stagger-5">
+            <div class="h-2.5 w-full bg-warm-bar"></div>
+            <div class="h-36 bg-[#e6f0f0] relative overflow-hidden flex">
+              <img src="src/assets/founder-rogelio.jpg" alt="Rogelio" class="w-1/2 h-full object-cover border-r border-white" onerror="this.src='https://placehold.co/200x260/135963/FFFFFF?text=Rogelio'" />
+              <img src="src/assets/founder-alfredo.jpg" alt="Alfredo" class="w-1/2 h-full object-cover" onerror="this.src='https://placehold.co/200x260/0E474E/F8A359?text=Alfredo'" />
+              <span class="absolute bottom-2 left-2 bg-[#0C1417]/85 text-[#F8A359] text-[10px] font-bold px-2.5 py-0.5 rounded-full">
+                Rogelio y Alfredo • Fundadores
+              </span>
+            </div>
+            <div class="p-4 flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-heading font-bold text-lg text-[#152129]">4. Historia y Novedades</h3>
+                <p class="text-xs text-[#152129]/80 mt-1">
+                  Los 32 años de trayectoria, galería de fotos y noticias para Google.
+                </p>
+              </div>
+              <span class="text-xs font-bold text-[#ef7225] mt-3 block">● Confianza institucional</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teal Key Banner -->
+        <div class="card-teal-key p-4 px-6 flex flex-wrap items-center justify-between gap-4 stagger-5">
+          <span class="text-sm sm:text-base font-heading font-bold text-white flex items-center gap-2">
+            <i data-lucide="check-circle" class="w-5 h-5 text-[#F8A359]"></i>
+            Todas las fotos de tus productos, talleres y fundadores ya están optimizadas y cargadas adentro del sistema.
+          </span>
+          <span class="text-xs font-bold uppercase tracking-wider bg-[#0E474E] text-[#F8A359] px-3 py-1.5 rounded-lg border border-[#F8A359]/40">
+            Modo Claro y Oscuro incluido
+          </span>
+        </div>
+      </div>
+
+      <!-- Speaker Notes -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion (Ecosistema con Fotos Reales):</span>
+        “No tienen que ponerse a sacar fotos ni armar textos desde cero: ya cargamos las agendas, los cuadernos A4, las bandejas de vitrofusión, los percheros, las fotos de Rogelio y Alfredo y los 6 talleres.”
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 4: COMPRA EN 4 PASOS + SIMULADOR (ORANGE CONNECTORS)
+    =========================================== -->
+    <section class="slide-frame flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#517C85]" data-slide="4">
+      <div class="bg-[#F6F9F9] text-[#152129] p-7 sm:p-12 flex-1 flex flex-col justify-between min-h-[550px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between gap-2 stagger-1">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#135963] bg-[#e6f0f0] px-3 py-1 rounded-full border border-[#517C85]/30">
+              Experiencia de Compra sin Fricción
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl text-[#152129] mt-2">
+              Del catálogo a tu WhatsApp en 30 segundos (y 0% comisión)
+            </h2>
+          </div>
+          <span class="text-xs font-bold text-[#135963] bg-white px-3 py-1.5 rounded-lg border border-[#517C85]">
+            04 / 09
+          </span>
+        </div>
+
+        <!-- 4 Steps with #F28A36 Connectors -->
+        <div class="flex flex-col lg:flex-row items-stretch justify-between gap-2.5 my-auto py-4">
+          <!-- Step 1 -->
+          <div class="card-light p-4 flex-1 flex flex-col justify-between stagger-2">
+            <div class="flex items-center gap-3 mb-2">
+              <img src="src/assets/Bandeja 19x36.jpg" alt="Bandeja" class="w-12 h-12 rounded-xl object-cover border border-[#517C85]" onerror="this.src='https://placehold.co/100x100/135963/FFFFFF?text=1'" />
+              <div>
+                <span class="text-[11px] font-extrabold uppercase text-[#135963]">Paso 1</span>
+                <h3 class="font-heading font-bold text-base text-[#152129] leading-tight">Elige en el Catálogo</h3>
+              </div>
+            </div>
+            <p class="text-xs text-[#152129]/80">
+              Mira fotos reales de encuadernación o vitrofusión y ve cuántas unidades hay disponibles.
+            </p>
+          </div>
+
+          <div class="flex items-center justify-center text-[#F28A36] stagger-2">
+            <i data-lucide="arrow-right" class="w-6 h-6 hidden lg:block stroke-[3]"></i>
+            <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden stroke-[3]"></i>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="card-light p-4 flex-1 flex flex-col justify-between stagger-3">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-12 h-12 rounded-xl bg-[#e6f0f0] text-[#135963] flex items-center justify-center font-bold">
+                <i data-lucide="user-check" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-extrabold uppercase text-[#135963]">Paso 2</span>
+                <h3 class="font-heading font-bold text-base text-[#152129] leading-tight">Completa sus Datos</h3>
+              </div>
+            </div>
+            <p class="text-xs text-[#152129]/80">
+              Carga <strong>Nombre, DNI, Teléfono y Dirección</strong> en el carrito lateral sin salir de la página.
+            </p>
+          </div>
+
+          <div class="flex items-center justify-center text-[#F28A36] stagger-3">
+            <i data-lucide="arrow-right" class="w-6 h-6 hidden lg:block stroke-[3]"></i>
+            <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden stroke-[3]"></i>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="card-light p-4 flex-1 flex flex-col justify-between stagger-4 border-2 border-[#ef7225]">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-700 flex items-center justify-center font-bold">
+                <i data-lucide="message-circle" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-extrabold uppercase text-[#ef7225]">Paso 3</span>
+                <h3 class="font-heading font-bold text-base text-[#152129] leading-tight">Llega a tu WhatsApp</h3>
+              </div>
+            </div>
+            <p class="text-xs text-[#152129]/80">
+              Se guarda en el panel con <strong>Código de Pedido</strong> y te abre el chat con todo el resumen listo.
+            </p>
+          </div>
+
+          <div class="flex items-center justify-center text-[#F28A36] stagger-4">
+            <i data-lucide="arrow-right" class="w-6 h-6 hidden lg:block stroke-[3]"></i>
+            <i data-lucide="arrow-down" class="w-5 h-5 lg:hidden stroke-[3]"></i>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="card-light p-4 flex-1 flex flex-col justify-between stagger-5">
+            <div class="flex items-center gap-3 mb-2">
+              <div class="w-12 h-12 rounded-xl bg-[#e6f0f0] text-[#135963] flex items-center justify-center font-bold">
+                <i data-lucide="file-check-2" class="w-6 h-6"></i>
+              </div>
+              <div>
+                <span class="text-[11px] font-extrabold uppercase text-[#135963]">Paso 4</span>
+                <h3 class="font-heading font-bold text-base text-[#152129] leading-tight">Recibo Descargable</h3>
+              </div>
+            </div>
+            <p class="text-xs text-[#152129]/80">
+              El comprador descarga su <strong>comprobante oficial de Haruén</strong> en 1 clic.
+            </p>
+          </div>
+        </div>
+
+        <!-- Interactive WhatsApp Message Preview + Stock Shield -->
+        <div class="card-teal-key p-5 flex flex-col lg:flex-row items-center justify-between gap-4 stagger-5">
+          <div class="flex items-center gap-3.5">
+            <div class="w-11 h-11 rounded-xl bg-[#ef7225] text-[#111C22] flex items-center justify-center font-bold shrink-0">
+              <i data-lucide="shield-alert" class="w-6 h-6"></i>
+            </div>
+            <div>
+              <h4 class="font-heading font-bold text-base sm:text-lg text-white">
+                Stock blindado contra "curiosos"
+              </h4>
+              <p class="text-xs sm:text-sm text-white/90">
+                El stock <strong>solo se descuenta cuando vos marcás el pedido como "Confirmado"</strong>. Si se cancela, el sistema repone las unidades solo.
+              </p>
+            </div>
+          </div>
+          <div class="bg-[#0C1417] px-4 py-2.5 rounded-xl border border-emerald-400/50 text-xs text-emerald-300 font-mono shrink-0">
+            💬 "Hola Haruén! Pedido #8F3A2C • 2x Agenda Rivadavia ($16.000)..."
+          </div>
+        </div>
+      </div>
+
+      <!-- Speaker Notes -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion (Flujo de Compra):</span>
+        “El comprador no tiene que crearse una cuenta ni lidiar con tarjetas rechazadas. Elige, carga su DNI y dirección, y a ustedes les suena el WhatsApp con el código de orden listo para cobrar por transferencia o efectivo.”
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 5: TUS TALLERES ORDENADOS (DARK MODE #0C1417)
+    =========================================== -->
+    <section class="slide-frame flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#628393]" data-slide="5">
+      <div class="bg-[#0C1417] text-white p-7 sm:p-12 flex-1 flex flex-col justify-between min-h-[550px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between gap-2 stagger-1">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#F8A359] bg-[#121C21] px-3 py-1 rounded-full border border-[#628393]">
+              Campus Virtual & Talleres Integrales
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl text-white mt-2">
+              6 talleres listos: inscripción, aula privada y seguimiento
+            </h2>
+          </div>
+          <span class="text-xs font-bold text-[#F8A359] bg-[#121C21] px-3 py-1.5 rounded-lg border border-[#628393]">
+            05 / 09
+          </span>
+        </div>
+
+        <!-- Mini Workshop Photo Strip from src/assets -->
+        <div class="grid grid-cols-3 sm:grid-cols-6 gap-2.5 my-3 stagger-2">
+          <div class="bg-[#121C21] p-1.5 rounded-xl border border-[#628393]/60 text-center">
+            <img src="src/assets/workshop-cooking.jpg" alt="Cocina" class="w-full h-16 object-cover rounded-lg" onerror="this.src='https://placehold.co/200x120/135963/FFFFFF?text=Cocina'" />
+            <span class="text-[11px] font-bold text-[#F8A359] block mt-1">Cocina</span>
+          </div>
+          <div class="bg-[#121C21] p-1.5 rounded-xl border border-[#628393]/60 text-center">
+            <img src="src/assets/workshop-music.jpg" alt="Música" class="w-full h-16 object-cover rounded-lg" onerror="this.src='https://placehold.co/200x120/0E474E/F8A359?text=Musica'" />
+            <span class="text-[11px] font-bold text-[#F8A359] block mt-1">Música</span>
+          </div>
+          <div class="bg-[#121C21] p-1.5 rounded-xl border border-[#628393]/60 text-center">
+            <img src="src/assets/workshop-vitrofusion.jpg" alt="Vitrofusión" class="w-full h-16 object-cover rounded-lg" onerror="this.src='https://placehold.co/200x120/135963/FFFFFF?text=Vitrofusion'" />
+            <span class="text-[11px] font-bold text-[#F8A359] block mt-1">Vitrofusión</span>
+          </div>
+          <div class="bg-[#121C21] p-1.5 rounded-xl border border-[#628393]/60 text-center">
+            <img src="src/assets/workshop-education.jpg" alt="Educación" class="w-full h-16 object-cover rounded-lg" onerror="this.src='https://placehold.co/200x120/0E474E/F8A359?text=Educacion'" />
+            <span class="text-[11px] font-bold text-[#F8A359] block mt-1">Educación</span>
+          </div>
+          <div class="bg-[#121C21] p-1.5 rounded-xl border border-[#628393]/60 text-center">
+            <img src="src/assets/workshop-psychology.jpg" alt="Psicología" class="w-full h-16 object-cover rounded-lg" onerror="this.src='https://placehold.co/200x120/135963/FFFFFF?text=Psicologia'" />
+            <span class="text-[11px] font-bold text-[#F8A359] block mt-1">Psicología</span>
+          </div>
+          <div class="bg-[#121C21] p-1.5 rounded-xl border border-[#628393]/60 text-center">
+            <img src="src/assets/workshop-sports.jpg" alt="Deportes" class="w-full h-16 object-cover rounded-lg" onerror="this.src='https://placehold.co/200x120/0E474E/F8A359?text=Deportes'" />
+            <span class="text-[11px] font-bold text-[#F8A359] block mt-1">Deportes</span>
+          </div>
+        </div>
+
+        <!-- 3 Dark Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 my-auto">
+          <div class="card-dark p-5 stagger-3">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-[#F8A359] uppercase">01. Inscripción Simple</span>
+              <i data-lucide="calendar-plus" class="w-5 h-5 text-[#F8A359]"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-white mb-1">Fichas públicas claras</h3>
+            <p class="text-xs sm:text-sm text-gray-300">
+              Horarios, docentes y modalidad presencial o virtual con botón de inscripción en 1 clic.
+            </p>
+          </div>
+
+          <div class="card-dark p-5 stagger-4">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-[#F8A359] uppercase">02. Portal "Mis Talleres"</span>
+              <i data-lucide="lock-keyhole" class="w-5 h-5 text-[#F8A359]"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-white mb-1">Materiales solo para alumnos</h3>
+            <p class="text-xs sm:text-sm text-gray-300">
+              Cada familia ingresa con su cuenta para ver guías, enlaces a videos y actividades aprobadas.
+            </p>
+          </div>
+
+          <div class="card-dark p-5 stagger-5">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold text-[#F8A359] uppercase">03. Control de Cupos</span>
+              <i data-lucide="toggle-right" class="w-5 h-5 text-[#F8A359]"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-white mb-1">Habilitá o pausá en 1 clic</h3>
+            <p class="text-xs sm:text-sm text-gray-300">
+              Desde el panel ves los inscriptos pendientes y les das acceso inmediato sin mandar PDFs por chat.
+            </p>
+          </div>
+        </div>
+
+        <!-- Sunset Pill Footer -->
+        <div class="mt-4 flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#121C21] p-3.5 px-5 rounded-2xl border border-[#628393] stagger-5">
+          <span class="text-xs sm:text-sm text-gray-200 font-semibold">
+            ✨ Pensado para acompañar a las familias del CET y abrir nuevos cursos a la comunidad.
+          </span>
+          <div class="bg-sunset-pill px-5 py-2.5 rounded-full font-heading font-bold text-xs sm:text-sm text-[#111C22] shrink-0 shadow-md">
+            Formación e Inclusión 100% Ordenada
+          </div>
+        </div>
+      </div>
+
+      <!-- Speaker Notes -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion (Talleres):</span>
+        “Los 6 talleres principales ya tienen sus fotos y descripciones listas. Cuando un alumno se anota, ustedes tocan un botón para aprobarlo y ya puede ver las actividades desde su casa.”
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 6: TU DÍA A DÍA BAJO CONTROL (LIGHT MODE)
+    =========================================== -->
+    <section class="slide-frame flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#517C85]" data-slide="6">
+      <div class="bg-[#F6F9F9] text-[#152129] p-7 sm:p-12 flex-1 flex flex-col justify-between min-h-[550px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between gap-2 stagger-1">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#135963] bg-[#e6f0f0] px-3 py-1 rounded-full border border-[#517C85]/30">
+              Panel de Control Operativo
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl text-[#152129] mt-2">
+              Tu mañana en Haruén: todo resuelto en una sola pantalla
+            </h2>
+          </div>
+          <span class="text-xs font-bold text-[#135963] bg-white px-3 py-1.5 rounded-lg border border-[#517C85]">
+            06 / 09
+          </span>
+        </div>
+
+        <!-- Visual Dashboard Mockup + 3 Fast Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 my-auto py-4">
+          <div class="card-light p-5 stagger-2">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase px-2.5 py-1 rounded-md bg-[#ef7225]/15 text-[#ef7225]">1. Al abrir el día</span>
+              <span class="text-2xl font-heading font-bold text-[#135963]">3 Contadores</span>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-[#152129] mb-2">Alertas de un vistazo</h3>
+            <div class="space-y-2 text-xs bg-[#F6F9F9] p-3 rounded-xl border border-[#e6f0f0]">
+              <div class="flex justify-between font-semibold"><span>🛍️ Pedidos nuevos hoy</span><span class="text-[#ef7225] font-bold">4 por atender</span></div>
+              <div class="flex justify-between font-semibold"><span>🎓 Inscripciones pendientes</span><span class="text-[#135963] font-bold">2 alumnos</span></div>
+              <div class="flex justify-between font-semibold"><span>📦 Catálogo activo</span><span class="text-emerald-700 font-bold">12 productos</span></div>
+            </div>
+          </div>
+
+          <div class="card-light p-5 stagger-3">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase px-2.5 py-1 rounded-md bg-[#ef7225]/15 text-[#ef7225]">2. Stock Crítico</span>
+              <i data-lucide="bell-ring" class="w-6 h-6 text-[#ef7225] animate-bounce"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-[#152129] mb-2">Te avisa antes de quedarte sin</h3>
+            <div class="space-y-2 text-xs bg-[#F6F9F9] p-3 rounded-xl border border-[#e6f0f0]">
+              <div class="flex items-center justify-between">
+                <span class="font-semibold">Perchero Doble ($20.000)</span>
+                <span class="bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded">Quedan 2</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="font-semibold">Plato para Sushi</span>
+                <span class="bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded">Queda 1</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card-light p-5 stagger-4">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase px-2.5 py-1 rounded-md bg-[#ef7225]/15 text-[#ef7225]">3. Gestión 1 Clic</span>
+              <i data-lucide="check-check" class="w-6 h-6 text-[#135963]"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-[#152129] mb-2">De Nuevo a Entregado</h3>
+            <div class="flex flex-wrap items-center gap-1.5 text-xs pt-1">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-100 text-amber-900 font-bold">Nuevo</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-[#F28A36]"></i>
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-900 font-bold">Confirmado</span>
+              <i data-lucide="chevron-right" class="w-4 h-4 text-[#F28A36]"></i>
+              <span class="px-2.5 py-1 rounded-lg bg-[#135963] text-white font-bold">Entregado</span>
+            </div>
+            <p class="text-xs text-[#152129]/80 mt-3">
+              Con botón directo para abrir el WhatsApp del comprador sin agendar su número.
+            </p>
+          </div>
+        </div>
+
+        <!-- Teal Key Card -->
+        <div class="card-teal-key p-5 flex flex-col sm:flex-row items-center justify-between gap-4 stagger-5">
+          <div class="flex items-center gap-3">
+            <i data-lucide="sparkles" class="w-6 h-6 text-[#F8A359] shrink-0"></i>
+            <p class="text-sm sm:text-base font-semibold text-white">
+              Sin planillas de Excel ni cuadernos perdidos: cualquier coordinador autorizado ve el mismo estado en tiempo real.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Speaker Notes -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion (Control Diario):</span>
+        “En 10 segundos saben qué hay que entregar, qué taller tiene alumnos nuevos y qué producto hay que pedirle al taller que vuelva a fabricar porque quedan pocas unidades.”
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 7: AUTONOMÍA SIN PROGRAMADORES (LIGHT MODE)
+    =========================================== -->
+    <section class="slide-frame flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#517C85]" data-slide="7">
+      <div class="bg-[#F6F9F9] text-[#152129] p-7 sm:p-12 flex-1 flex flex-col justify-between min-h-[550px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between gap-2 stagger-1">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#135963] bg-[#e6f0f0] px-3 py-1 rounded-full border border-[#517C85]/30">
+              100% Autogestionable
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl text-[#152129] mt-2">
+              Vos tenés las llaves: cambiá todo desde el celular
+            </h2>
+          </div>
+          <span class="text-xs font-bold text-[#135963] bg-white px-3 py-1.5 rounded-lg border border-[#517C85]">
+            07 / 09
+          </span>
+        </div>
+
+        <!-- 3 Interactive Visual Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto py-4">
+          <div class="card-light p-5 stagger-2">
+            <div class="w-11 h-11 rounded-xl bg-[#135963] text-white flex items-center justify-center mb-3">
+              <i data-lucide="layout-list" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-[#152129] mb-1">Armá tu Portada</h3>
+            <p class="text-xs text-[#152129]/80 mb-3">
+              Subí o bajá bloques (Tienda, Donar, Talleres) o prendelos y apagalos según la época del año.
+            </p>
+            <div class="bg-[#F6F9F9] p-2.5 rounded-lg border border-[#e6f0f0] flex items-center justify-between text-xs font-bold">
+              <span>🛍️ Bloque Tienda Solidaria</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-600 text-white">VISIBLE ↑↓</span>
+            </div>
+          </div>
+
+          <div class="card-light p-5 stagger-3">
+            <div class="w-11 h-11 rounded-xl bg-[#135963] text-white flex items-center justify-center mb-3">
+              <i data-lucide="landmark" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-[#152129] mb-1">Metas, CBU y WhatsApp</h3>
+            <p class="text-xs text-[#152129]/80 mb-3">
+              Actualizá el monto recaudado de la campaña solidaria, el Alias bancario o el teléfono al instante.
+            </p>
+            <div class="bg-[#F6F9F9] p-2.5 rounded-lg border border-[#e6f0f0] flex items-center justify-between text-xs font-bold">
+              <span>🎯 Meta Campaña</span>
+              <span class="text-[#ef7225]">Editable en 5 seg</span>
+            </div>
+          </div>
+
+          <div class="card-light p-5 stagger-4">
+            <div class="w-11 h-11 rounded-xl bg-[#135963] text-white flex items-center justify-center mb-3">
+              <i data-lucide="users" class="w-5 h-5"></i>
+            </div>
+            <h3 class="font-heading font-bold text-lg text-[#152129] mb-1">Permisos de Equipo</h3>
+            <p class="text-xs text-[#152129]/80 mb-3">
+              Sumá colaboradores con su propio email o quitá permisos con 1 clic sin compartir contraseñas.
+            </p>
+            <div class="bg-[#F6F9F9] p-2.5 rounded-lg border border-[#e6f0f0] flex items-center justify-between text-xs font-bold">
+              <span>🔐 Acceso por Correo</span>
+              <span class="text-[#135963]">Rol Admin Seguro</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Teal Key Card -->
+        <div class="card-teal-key p-5 flex items-center justify-between gap-4 stagger-5">
+          <p class="text-sm sm:text-lg font-heading font-bold text-white flex items-center gap-3">
+            <i data-lucide="smartphone" class="w-6 h-6 text-[#F8A359] shrink-0"></i>
+            Si sabés mandar un WhatsApp, ya sabés manejar toda la web de CET Fundación Haruén.
+          </p>
+        </div>
+      </div>
+
+      <!-- Speaker Notes -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion (Autonomía):</span>
+        “Nunca más tienen que llamarnos ni pagar horas técnicas para subir una noticia, cambiar un precio o actualizar cuánto lleva recaudado una colecta.”
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 8: INFRAESTRUCTURA LOVABLE CLOUD ($0 MANTENIMIENTO)
+    =========================================== -->
+    <section class="slide-frame flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#628393]" data-slide="8">
+      <div class="bg-[#0C1417] text-white p-7 sm:p-12 flex-1 flex flex-col justify-between min-h-[550px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between gap-2 stagger-1">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#F8A359] bg-[#121C21] px-3 py-1 rounded-full border border-[#628393]">
+              Infraestructura y Despliegue Incluidos
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl text-white mt-2">
+              Migrado a Lovable Cloud: <span class="text-[#F8A359]">$0 costo de mantenimiento</span>
+            </h2>
+          </div>
+          <span class="text-xs font-bold text-[#F8A359] bg-[#121C21] px-3 py-1.5 rounded-lg border border-[#628393]">
+            08 / 09
+          </span>
+        </div>
+
+        <!-- Top 3 Impact Pillars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto py-3">
+          <div class="card-dark p-5 stagger-2 border-t-4 border-t-[#ef7225]">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-[#F8A359]">Respaldo Internacional</span>
+              <i data-lucide="cloud-check" class="w-6 h-6 text-[#F8A359]"></i>
+            </div>
+            <div class="text-2xl font-heading font-bold text-white mb-1">Alta Confianza</div>
+            <p class="text-xs sm:text-sm text-gray-300">
+              Migrado a <strong>Lovable Cloud</strong>: servidores seguros, rápidos y estables las 24 hs para toda la operación de la fundación.
+            </p>
+          </div>
+
+          <div class="card-dark p-5 stagger-3 border-t-4 border-t-emerald-400">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-emerald-400">Base de Datos Incluida</span>
+              <i data-lucide="database" class="w-6 h-6 text-emerald-400"></i>
+            </div>
+            <div class="text-2xl font-heading font-bold text-white mb-1">$0 / mes de abono</div>
+            <p class="text-xs sm:text-sm text-gray-300">
+              Cubre todas las necesidades de Haruén <strong>sin pagar mantenimiento mensual</strong> de base de datos ni servidores.
+            </p>
+          </div>
+
+          <div class="card-dark p-5 stagger-4 border-t-4 border-t-[#F8A359]">
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-xs font-bold uppercase text-[#F8A359]">Despliegue Unificado</span>
+              <i data-lucide="check-circle-2" class="w-6 h-6 text-[#F8A359]"></i>
+            </div>
+            <div class="text-2xl font-heading font-bold text-white mb-1">Cero Tareas Extra</div>
+            <p class="text-xs sm:text-sm text-gray-300">
+              La puesta online corre en el mismo entorno. <strong>No hay que contratar hosting aparte ni configurar nada adicional.</strong>
+            </p>
+          </div>
+        </div>
+
+        <!-- Transparent Scope Comparison: Lightweight DB Rules -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 stagger-5">
+          <!-- What it DOES support -->
+          <div class="bg-[#135963]/35 border border-emerald-400/50 rounded-2xl p-4">
+            <span class="text-xs font-heading font-bold uppercase text-emerald-300 flex items-center gap-1.5 mb-2">
+              <i data-lucide="check-circle" class="w-4 h-4"></i> ¿Qué soporta perfecto esta base liviana?
+            </span>
+            <ul class="text-xs sm:text-sm text-white/95 space-y-1.5">
+              <li>✅ <strong>Flyers, banners y fotos optimizadas</strong> de productos y novedades.</li>
+              <li>✅ <strong>Todos los pedidos, clientes, stock, talleres e inscripciones</strong> de un sistema común.</li>
+              <li>✅ <strong>Enlaces externos</strong> a videos de YouTube, Vimeo o Google Drive sin gastar espacio.</li>
+            </ul>
+          </div>
+
+          <!-- Honest Limitation -->
+          <div class="bg-[#121C21] border border-[#F8A359]/60 rounded-2xl p-4">
+            <span class="text-xs font-heading font-bold uppercase text-[#F8A359] flex items-center gap-1.5 mb-2">
+              <i data-lucide="info" class="w-4 h-4"></i> Aclaración importante de uso responsable
+            </span>
+            <ul class="text-xs sm:text-sm text-gray-300 space-y-1.5">
+              <li>⚠️ Al ser una base ágil y gratuita, <strong>no está diseñada para subir archivos de video directos ni fotos crudas en altísima resolución</strong>.</li>
+              <li>💡 El sistema ya <strong>comprime automáticamente a formato liviano (WebP)</strong> cada flyer o foto que suban para cuidar siempre ese espacio gratis.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Speaker Notes -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion (Costo $0 de Infraestructura en Lovable):</span>
+        “Un punto clave para la economía de la fundación: migramos todo a Lovable, una empresa de altísima confianza. Esto significa que la base de datos y el despliegue online tienen costo $0 de mantenimiento mensual. Es una base liviana pensada para todo lo que usa un sistema común: flyers, pedidos, registros, productos y noticias. Lo único que no admite es subir archivos de video pesados o fotos gigantes sin comprimir, pero si quieren compartir un video simplemente pegan el link de YouTube y listo.”
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SLIDE 9: LISTO PARA PONER EN MARCHA HOY (DARK MODE + CTA)
+    =========================================== -->
+    <section class="slide-frame flex-col rounded-2xl overflow-hidden shadow-2xl border border-[#628393]" data-slide="9">
+      <div class="bg-[#0C1417] text-white p-7 sm:p-12 flex-1 flex flex-col justify-between min-h-[550px]">
+        <!-- Header -->
+        <div class="flex items-center justify-between gap-2 stagger-1">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-300 bg-emerald-500/15 px-3 py-1 rounded-full border border-emerald-400/40">
+              Decisión Final • El Sistema Ya Está Construido
+            </span>
+            <h2 class="font-heading font-bold text-2xl sm:text-4xl text-white mt-2">
+              Hoy está 100% listo: solo falta animarse al siguiente nivel
+            </h2>
+          </div>
+          <span class="text-xs font-bold text-[#F8A359] bg-[#121C21] px-3 py-1.5 rounded-lg border border-[#628393]">
+            09 / 09
+          </span>
+        </div>
+
+        <!-- 3 Big Readiness Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5 my-auto py-4">
+          <div class="card-dark p-6 stagger-2">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 flex items-center justify-center mb-4">
+              <i data-lucide="power" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold uppercase text-emerald-300">1. Sin esperas</span>
+            <h3 class="font-heading font-bold text-xl text-white mt-1 mb-2">
+              Cero tareas pendientes
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              El catálogo, los talleres, la campaña solidaria, el panel y el despliegue en Lovable ya están funcionando. <strong>No hay que hacer absolutamente nada extra para arrancar.</strong>
+            </p>
+          </div>
+
+          <div class="card-dark p-6 stagger-3">
+            <div class="w-12 h-12 rounded-2xl bg-[#ef7225]/20 border border-[#F8A359] text-[#F8A359] flex items-center justify-center mb-4">
+              <i data-lucide="Sliders" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold uppercase text-[#F8A359]">2. A tu medida</span>
+            <h3 class="font-heading font-bold text-xl text-white mt-1 mb-2">
+              Ajustes finos incluidos
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              Lo ponemos en marcha y, sobre el uso real, <strong>rectificamos o pulimos juntos cualquier detalle</strong> de las funcionalidades que necesiten adaptar.
+            </p>
+          </div>
+
+          <div class="card-dark p-6 stagger-4">
+            <div class="w-12 h-12 rounded-2xl bg-[#ef7225]/20 border border-[#F8A359] text-[#F8A359] flex items-center justify-center mb-4">
+              <i data-lucide="trending-up" class="w-6 h-6"></i>
+            </div>
+            <span class="text-xs font-bold uppercase text-[#F8A359]">3. Impacto Inmediato</span>
+            <h3 class="font-heading font-bold text-xl text-white mt-1 mb-2">
+              El salto que Haruén merece
+            </h3>
+            <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+              Menos carga administrativa para ustedes, más ventas para el taller de los jóvenes y más transparencia para quienes donan y acompañan.
+            </p>
+          </div>
+        </div>
+
+        <!-- Grand Finale Call to Action Box -->
+        <div class="card-dark p-6 border-2 border-[#F8A359] bg-gradient-to-r from-[#121C21] via-[#135963]/45 to-[#121C21] stagger-5">
+          <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+            <div class="space-y-1.5">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#F8A359] flex items-center gap-1.5">
+                <i data-lucide="flame" class="w-4 h-4"></i> El único paso que falta es dar el sí
+              </span>
+              <h3 class="font-heading font-bold text-xl sm:text-2xl text-white">
+                ¿Lo encendemos hoy y hacemos el primer pedido en vivo desde tu celular?
+              </h3>
+              <p class="text-xs sm:text-sm text-gray-300">
+                Infraestructura y despliegue ya listos ($0/mes) • Capacitación práctica y rectificaciones incluidas.
+              </p>
+            </div>
+
+            <button onclick="goToSlide(1)" class="bg-sunset-pill pulse-cta px-7 py-4 rounded-full font-heading font-bold text-sm sm:text-base text-[#111C22] shadow-2xl shrink-0 inline-flex items-center gap-2.5 hover:scale-105 transition">
+              <i data-lucide="rocket" class="w-5 h-5 text-[#111C22]"></i>
+              ¡Poner en marcha Haruén ahora!
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Speaker Notes + FAQ -->
+      <div class="speaker-notes-drawer bg-[#121C21] border-t border-[#628393]/40 p-4 text-gray-200 text-xs sm:text-sm">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div>
+            <span class="text-[#F8A359] font-heading font-bold uppercase tracking-wider block mb-1">🎤 Guion de Cierre (Diapositiva 9):</span>
+            “El sistema hoy ya está terminado, desplegado y con costo $0 de mantenimiento mensual en Lovable. No tienen que hacer absolutamente nada técnico: solo animarse a dar este paso para llevar a la Fundación Haruén al siguiente nivel, y cualquier detalle que quieran rectificar sobre la marcha lo ajustamos juntos.”
+          </div>
+          <div class="bg-[#0C1417] p-3 rounded-xl border border-[#628393]/40 text-xs space-y-1">
+            <span class="text-[#ef7225] font-heading font-bold uppercase block">💡 Resumen rápido ante dudas de Dirección:</span>
+            <p>• <strong>¿Mantenimiento mensual de servidor/base?</strong> $0 (incluido en Lovable Cloud).</p>
+            <p>• <strong>¿Comisiones por venta o donación?</strong> 0% (va directo a su WhatsApp y a su CBU).</p>
+            <p>• <strong>¿Cuándo se puede empezar a usar?</strong> Hoy mismo, ya está desplegado y cargado.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER BAR -->
+  <footer class="bg-[#0C1417] border-t border-[#628393]/30 px-6 py-2.5 text-center text-xs text-gray-400">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span><strong>CET Fundación Haruén</strong> • Presentación Comercial Interactiva (Lovable Cloud $0/mes • Listo para lanzar)</span>
+      <span>Navegá con <kbd class="px-1.5 py-0.5 bg-[#121C21] border border-[#628393]/50 rounded text-gray-200">←</kbd> y <kbd class="px-1.5 py-0.5 bg-[#121C21] border border-[#628393]/50 rounded text-gray-200">→</kbd></span>
+    </div>
+  </footer>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 9;
+    let notesVisible = true;
+    let viewAllMode = false;
+
+    const slideTitles = [
+      "1. Portada",
+      "2. Los 4 Frenos",
+      "3. Todo en 1 Lugar",
+      "4. Compra a WhatsApp",
+      "5. 6 Talleres",
+      "6. Control Diario",
+      "7. Autonomía",
+      "8. Costo $0 Lovable",
+      "9. Listo para Arrancar"
+    ];
+
+    function renderDots() {
+      const dotsContainer = document.getElementById('slide-dots');
+      dotsContainer.innerHTML = '';
+      for (let i = 1; i <= totalSlides; i++) {
+        const btn = document.createElement('button');
+        btn.onclick = () => goToSlide(i);
+        btn.title = slideTitles[i - 1];
+        btn.className = `px-2.5 py-1 rounded-full text-xs font-heading font-bold transition ${
+          i === currentSlide
+            ? 'bg-[#ef7225] text-[#111C22] shadow-sm scale-110'
+            : 'text-gray-300 hover:text-white hover:bg-white/10'
+        }`;
+        btn.textContent = i;
+        dotsContainer.appendChild(btn);
+      }
+    }
+
+    function updateSlideView() {
+      const slides = document.querySelectorAll('.slide-frame');
+      slides.forEach((slide) => {
+        const num = parseInt(slide.getAttribute('data-slide'), 10);
+        if (num === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      document.getElementById('slide-counter').textContent = `${currentSlide} / ${totalSlides}`;
+      renderDots();
+    }
+
+    function goToSlide(n) {
+      if (viewAllMode) {
+        toggleViewMode();
+      }
+      currentSlide = Math.max(1, Math.min(totalSlides, n));
+      updateSlideView();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        goToSlide(currentSlide + 1);
+      } else {
+        goToSlide(1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        goToSlide(currentSlide - 1);
+      } else {
+        goToSlide(totalSlides);
+      }
+    }
+
+    function toggleNotes() {
+      notesVisible = !notesVisible;
+      const drawers = document.querySelectorAll('.speaker-notes-drawer');
+      drawers.forEach(d => {
+        d.style.display = notesVisible ? 'block' : 'none';
+      });
+      document.getElementById('notes-label').textContent = notesVisible
+        ? 'Guion: ON'
+        : 'Guion: OFF';
+    }
+
+    function toggleViewMode() {
+      viewAllMode = !viewAllMode;
+      document.body.classList.toggle('view-all', viewAllMode);
+      const label = document.getElementById('view-mode-label');
+      const arrows = document.getElementById('nav-arrows');
+      const dots = document.getElementById('slide-dots');
+
+      if (viewAllMode) {
+        label.textContent = '1 por vez';
+        arrows.classList.add('opacity-40', 'pointer-events-none');
+        dots.classList.add('opacity-40', 'pointer-events-none');
+      } else {
+        label.textContent = 'Ver todas (9)';
+        arrows.classList.remove('opacity-40', 'pointer-events-none');
+        dots.classList.remove('opacity-40', 'pointer-events-none');
+        updateSlideView();
+      }
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (viewAllMode) return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        prevSlide();
+      }
+    });
+
+    // Initialize
+    lucide.createIcons();
+    updateSlideView();
+  </script>
+</body>
+</html>
