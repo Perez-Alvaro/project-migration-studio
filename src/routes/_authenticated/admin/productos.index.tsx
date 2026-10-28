@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import { Plus, Search } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { resolveProductImage, getProductAssetFallback } from "@/data/images";
 import { AdminHeader, Panel, StatusPill } from "@/components/admin/admin-ui";
 import { formatPrice } from "@/lib/types";
 import { Input } from "@/components/ui/input";
@@ -18,7 +19,7 @@ function ProductsAdmin() {
     queryFn: async () => {
       const { data, error } = await supabase
         .from("products")
-        .select("id, name, price, stock, status, low_stock_threshold, category:categories(name), images:product_images(url, position), variants:product_variants(stock)")
+        .select("id, name, slug, price, stock, status, low_stock_threshold, category:categories(name), images:product_images(url, position), variants:product_variants(stock)")
         .order("position");
       if (error) throw error;
       return data ?? [];

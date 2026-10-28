@@ -57,7 +57,7 @@ export function WorkshopAccess({ workshopId, slug }: { workshopId: string; slug:
   }
 
   async function download(path: string, fileName: string) {
-    const { data, error } = await supabase.storage.from("workshop-materials").createSignedUrl(path, 60, { download: fileName });
+    const { data, error } = await supabase.storage.from("workshop-materials").createSignedUrl(path, 10, { download: fileName });
     if (error || !data) {
       toast.error("No pudimos preparar la descarga. Probá de nuevo.");
       return;
